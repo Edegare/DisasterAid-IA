@@ -11,11 +11,11 @@ class Vehicle:
         self.load = capacity
 
     # Change location removing fuel
-    def move(self, destination, distance, quantity):
+    def move(self, destination, distance):
         
         fuel_needed = distance * self.fuel_consumption
 
-        if fuel_needed > self.fuel_level or self.load < quantity: # Not sufficient fuel
+        if fuel_needed > self.fuel_level: # Not sufficient fuel
             return False
 
         self.fuel_level -= fuel_needed

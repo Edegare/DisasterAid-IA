@@ -7,23 +7,22 @@ class Node:
         # Node (zone) in the graph.
         
         # Parameters:
-        # - id: Unique identifier for the zone.
         # - name: Name of the zone.
         # - needs: Amount of assistance needed.
         # - time: Critical time for the zone.
         # - weather: Current weather conditions in the zone.
 
 
-    def __init__(self, id, name, needs, time, weather):     
+    def __init__(self, name, id=-1):     
         self.m_id = id
         self.m_name = str(name)
-        self.m_needs = needs # Quantity of items needed
-        self.m_time = time # Critic time / Priority (more time -> minus priority)
-        self.m_weather = weather # Weather
+        #self.m_needs = needs # Quantity of items needed
+        #self.m_time = time # Critic time / Priority (more time -> minus priority)
+        #self.m_weather = weather # Weather
         
 
     def __str__(self):
-        return "Node " + self.m_id + "\nName: " +self.m_name + "\nNeeds: " + self.m_needs 
+        return "Node: " +self.m_name 
 
     def __repr__(self):
         return "node " + self.m_name
@@ -37,20 +36,20 @@ class Node:
     def getName(self):
         return self.m_name
     
-    def getNeeds(self):
-        return self.m_needs
+    #def getNeeds(self):
+    #    return self.m_needs
     
-    def setNeeds(self, value):
-        self.m_needs = value
+    #def setNeeds(self, value):
+    #    self.m_needs = value
     
-    def getTime(self):
-        return self.m_time
+    #def getTime(self):
+    #    return self.m_time
 
-    def getWeather(self):   
-        return self.m_weather
+    #def getWeather(self):   
+    #    return self.m_weather
     
     def __eq__(self, other):
-        return self.m_id == other.m_id  
+        return self.m_name == other.m_name
 
     def __hash__(self):
-        return hash(self.m_id)
+        return hash(self.m_name)
