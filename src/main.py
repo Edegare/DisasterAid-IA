@@ -3,8 +3,8 @@ import osmnx as ox
 import networkx as nx
 import pickle
 
-from place import Place
-from graph import Graph
+from Projeto.IA.src.Place import Place
+from Projeto.IA.src.Graph import Graph
 
 
 def load_or_create_graph():

@@ -1,8 +1,8 @@
 import osmnx as ox
 import networkx as nx
 
-from place import Place
-from road import Road
+from Projeto.IA.src.Place import Place
+from Projeto.IA.src.Road import Road
 
 
 class Graph:
@@ -43,20 +43,39 @@ class Graph:
         return list(self.places.values())
 
     def get_roads(self):
-        # Flatten the list of roads for all places into a single list
-        return [road for roads in self.roads.values() for road in roads]
-
+        """
+        Flatten the list of roads for all places into a single list
+        """
+        r = []
+        for roads in self.roads.values():
+            for road in roads:
+                r.append(road)
+        return r
+    
     def find_place_by_id(self, place_id):
         return self.places.get(place_id, None)
 
-    def find_roads_from_place(self, place):
+    def find_roads_from_place(self, place: Place):
         """
         Returns a list of all roads that start from the given Place.
         """
         return self.roads.get(place.id, [])
 
-    def find_roads_to_place(self, place):
+    def find_roads_to_place(self, place: Place):
         """
         Returns a list of all roads that end at the given Place.
         """
-        return [road for roads in self.roads.values() for road in roads if road.get_destination() == place]
+        roads_to_place = []
+        
+        
+        for roads in self.roads.values():
+            
+            
+            for road in roads:
+                
+                # Add road if destination is equal to the place given
+                if road.get_destination() == place:
+                    roads_to_place.append(road)
+
+        return roads_to_place
+

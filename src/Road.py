@@ -1,7 +1,7 @@
 import random
 
-from place import Place
-from weather import Weather
+from Projeto.IA.src.Place import Place
+from Projeto.IA.src.Weather import Weather
 
 import random
 
