@@ -18,8 +18,11 @@ most in need and maximising the number of people served within a limited time.
 ## Configuração do Ambiente Virtual
 
 python3 -m venv venv
+
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate  # Windows
+
+pip install -r requirements.txt
 
 
 ## Group Members
