@@ -16,14 +16,17 @@ most in need and maximising the number of people served within a limited time.
 # Meu Projeto
 
 ## Configuração do Ambiente Virtual
+1. Windows Users:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
 
-python3 -m venv venv
-
-source venv/bin/activate  # Linux/Mac
-
-venv\Scripts\activate  # Windows
-
-pip install -r requirements.txt
+2. Linux/Mac Users:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
 
 
 ## Group Members
