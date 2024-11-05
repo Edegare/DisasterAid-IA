@@ -11,6 +11,17 @@ most in need and maximising the number of people served within a limited time.
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/IA.git
+
+
+# Meu Projeto
+
+## Configuração do Ambiente Virtual
+
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate  # Windows
+
+
 ## Group Members
 
 - [Rafael Seara](https://github.com/rafaellseara)
