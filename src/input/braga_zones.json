@@ -1,0 +1,178 @@
+[
+    {
+        "id": "Braga",
+        "latitude": 41.5453,
+        "longitude": -8.4265,
+        "zone_type": "support",
+        "priority": 0,
+        "population": 0,
+        "critical_time": "0",
+        "vehicles": [
+            {"id": "truck", "type": "truck"},
+            {"id": "car", "type": "car"},
+            {"id": "helicopter", "type": "helicopter"}
+        ],
+        "accessibility": ["car", "helicopter", "truck"],
+        "accessible_zones": ["Barcelos", "Amares", "Vila Verde", "Póvoa de Lanhoso", "Guimarães", "Vila Nova de Famalicão"]
+    },
+    {
+        "id": "Barcelos",
+        "latitude": 41.5388,
+        "longitude": -8.6151,
+        "zone_type": "supply",
+        "priority": 0,
+        "population": 0,
+        "critical_time": "0",
+        "vehicles": null,
+        "accessibility": ["car", "truck", "helicopter"],
+        "accessible_zones": ["Braga", "Esposende", "Vila Verde", "Vila Nova de Famalicão"]
+    },
+    {
+        "id": "Vieira do Minho",
+        "latitude": 41.6333,
+        "longitude": -8.1333,
+        "zone_type": "supply",
+        "priority": 0,
+        "population": 0,
+        "critical_time": "0",
+        "vehicles": null,
+        "accessibility": ["car", "helicopter"],
+        "accessible_zones": ["Terras de Bouro", "Póvoa de Lanhoso", "Cabeceiras de Basto", "Fafe", "Amares"]
+    },
+    {
+        "id": "Amares",
+        "latitude": 41.6303,
+        "longitude": -8.3512,
+        "zone_type": "normal",
+        "priority": 3,
+        "population": 18000,
+        "critical_time": "2024-12-31 18:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Braga", "Vila Verde", "Póvoa de Lanhoso", "Terras de Bouro", "Vieira do Minho"]
+    },
+    {
+        "id": "Terras de Bouro",
+        "latitude": 41.7326,
+        "longitude": -8.3084,
+        "zone_type": "normal",
+        "priority": 2,
+        "population": 7000,
+        "critical_time": "2024-12-31 12:00:00",
+        "vehicles": null,
+        "accessibility": ["car", "helicopter"],
+        "accessible_zones": ["Vila Verde", "Vieira do Minho", "Amares"]
+    },
+    {
+        "id": "Póvoa de Lanhoso",
+        "latitude": 41.5786,
+        "longitude": -8.2689,
+        "zone_type": "normal",
+        "priority": 2,
+        "population": 15000,
+        "critical_time": "2024-12-31 12:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Braga", "Amares", "Vieira do Minho", "Guimarães", "Fafe"]
+    },
+    {
+        "id": "Guimarães",
+        "latitude": 41.4444,
+        "longitude": -8.2962,
+        "zone_type": "normal",
+        "priority": 4,
+        "population": 80000,
+        "critical_time": "2024-12-31 12:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car", "helicopter"],
+        "accessible_zones": ["Vila Nova de Famalicão", "Póvoa de Lanhoso", "Fafe", "Braga", "Vizela"]
+    },
+    {
+        "id": "Vizela",
+        "latitude": 41.3859,
+        "longitude": -8.3087,
+        "zone_type": "normal",
+        "priority": 3,
+        "population": 24000,
+        "critical_time": "2024-12-31 12:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Guimarães"]
+    },    
+    {
+        "id": "Vila Verde",
+        "latitude": 41.6505,
+        "longitude": -8.4373,
+        "zone_type": "normal",
+        "priority": 3,
+        "population": 21000,
+        "critical_time": "2024-12-31 18:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Braga", "Barcelos", "Amares", "Terras de Bouro"]
+    },
+    {
+        "id": "Vila Nova de Famalicão",
+        "latitude": 41.4072,
+        "longitude": -8.5197,
+        "zone_type": "support",
+        "priority": 0,
+        "population": 0,
+        "critical_time": 0,
+        "vehicles": [
+            {"id": "1", "type": "truck"},
+            {"id": "2", "type": "car"},
+            {"id": "3", "type": "helicopter"}
+        ],
+        "accessibility": ["car", "helicopter", "truck"],
+        "accessible_zones": ["Barcelos", "Braga", "Guimarães"]
+    },
+    {
+        "id": "Fafe",
+        "latitude": 41.4548,
+        "longitude": -8.1728,
+        "zone_type": "normal",
+        "priority": 3,
+        "population": 30000,
+        "critical_time": "2024-12-31 12:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Guimarães", "Cabeceiras de Basto", "Celorico de Basto", "Póvoa de Lanhoso", "Vieira do Minho"]
+    },
+    {
+        "id": "Esposende",
+        "latitude": 41.5353,
+        "longitude": -8.7804,
+        "zone_type": "normal",
+        "priority": 2,
+        "population": 25000,
+        "critical_time": "2024-12-31 18:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Barcelos"]
+    },
+    {
+        "id": "Cabeceiras de Basto",
+        "latitude": 41.5123,
+        "longitude": -7.9931,
+        "zone_type": "normal",
+        "priority": 1,
+        "population": 16000,
+        "critical_time": "2024-12-31 12:00:00",
+        "vehicles": null,
+        "accessibility": ["car", "helicopter"],
+        "accessible_zones": ["Fafe", "Vieira do Minho", "Celorico de Basto"]
+    },
+    {
+        "id": "Celorico de Basto",
+        "latitude": 41.3875,
+        "longitude": -8.0003,
+        "zone_type": "normal",
+        "priority": 2,
+        "population": 14000,
+        "critical_time": "2024-12-31 18:00:00",
+        "vehicles": null,
+        "accessibility": ["truck", "car"],
+        "accessible_zones": ["Cabeceiras de Basto", "Fafe"]
+    }
+]

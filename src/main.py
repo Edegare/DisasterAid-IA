@@ -1,62 +1,82 @@
 import os
-import osmnx as ox
-import networkx as nx
-import pickle
+from map.mapGenerator import MapGenerator
+from simulation.simulation import Simulation 
+from search.dfs import DFS
 
-from Projeto.IA.src.Place import Place
-from Projeto.IA.src.Graph import Graph
+def print_result(result):
+    if result:
+        path, vehicle_plan, total_cost = result
 
+        # Organizar veículos por tipo e quantidade
+        vehicle_summary = {}
+        for vehicle in vehicle_plan:
+            vehicle_type = vehicle.id
+            if vehicle_type in vehicle_summary:
+                vehicle_summary[vehicle_type] += 1
+            else:
+                vehicle_summary[vehicle_type] = 1
 
-def load_or_create_graph():
-    file_path = "road_network_gualtar.gpickle"
-    
-    if os.path.exists(file_path):
-        print("Graph file found. Loading the graph from file...")
-        with open(file_path, "rb") as f:
-            G = pickle.load(f)
+        # Exibir resultados formatados
+        print(f"Caminho: {' -> '.join(path)}")
+        print("Veículos alocados:")
+        for vehicle_type, count in vehicle_summary.items():
+            print(f"  - {vehicle_type}: {count} unidades")
+        print(f"Custo total: {total_cost:.2f}")
     else:
-        print("Graph file not found. Creating a new graph for Gualtar...")
-        G = ox.graph_from_place("Gualtar, Portugal", network_type="drive")
-
-        # Assign sequential IDs to each node
-        id = 1
-        for node, data in G.nodes(data=True):
-            data["id"] = id  
-            id += 1  
-        
-        # Save the graph with custom node IDs
-        with open(file_path, "wb") as f:
-            pickle.dump(G, f)
-        print("Graph created and saved with custom IDs.")
-
-    return G
-
+        print("Não foi possível encontrar um caminho viável.")
 
 def main():
-    # Load the OSMnx graph
-    G = load_or_create_graph()
-    
-    # Create custom graph from OSMnx graph
-    custom_graph = Graph(G)
-    print(custom_graph)
+    # Obter o caminho do ficheiro JSON do mapa
+    input_path = input("Insira o caminho para o ficheiro JSON do mapa: ").strip()
 
-    # Example: Get all places
-    places = custom_graph.get_places()
-    print(f"Total places: {len(places)}")
-    print("Sample place:", places[len(places) // 2]) 
+    if not os.path.exists(input_path):
+        print("Caminho inválido. Certifique-se de que o ficheiro existe.")
+        return
 
-    # Example: Get all roads
-    roads = custom_graph.get_roads()
-    print(f"Total roads: {len(roads)}")
-    print("Sample road:", roads[len(roads) // 2])  
+    # Gerar o mapa
+    map_generator = MapGenerator(json_path=input_path)
+    # Gerar o mapa e obter as zonas de suporte
+    support_zones = map_generator.load_zones()
+    map_generator.display_graph()
+    print(f"Mapa gerado com sucesso! Zonas de suporte identificadas: {support_zones}")
 
-    # Example: Find roads from a specific place
-    sample_place: Place = places[len(places) // 3]
-    print(f"Roads from {sample_place.get_id()}: {custom_graph.find_roads_from_place(sample_place)}")
+    # Perguntar pelo algoritmo de procura
+    print("Escolha o algoritmo:")
+    print("1. BFS")
+    print("2. DFS")
+    print("3. UCS")
+    print("4. Greedy")
+    print("5. A*")
+    algorithm_choice = input("Opção: ").strip()
 
-    # Visualize the graph
-    print("Visualizing the graph...")
-    ox.plot_graph(custom_graph.ox, node_size=10, edge_linewidth=1)
+    algorithms = {
+        "1": "BFS",
+        "2": "DFS",
+        "3": "UCS",
+        "4": "Greedy",
+        "5": "AStar"
+    }
+
+    if algorithm_choice not in algorithms:
+        print("Opção inválida.")
+        return
+
+    chosen_algorithm = algorithms[algorithm_choice]
+    print(chosen_algorithm)
+
+    # Inicializar a simulação
+    print("Inicializando a simulação...")
+    simulation = Simulation(graph=map_generator.graph, algorithm=chosen_algorithm, support_zones=support_zones)
+
+    # Iniciar a simulação
+    simulation.start()
+
+    dfs = DFS(map_generator.graph)
+    start = "Braga"
+    goal = "Amares"
+    result = dfs.search(start, goal)
+
+    print_result(result)
 
 if __name__ == "__main__":
     main()
