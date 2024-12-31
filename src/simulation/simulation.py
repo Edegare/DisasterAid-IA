@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 from search.dfs import DFS
 from search.bfs import BFS
+from search.ucs import UCS
 from search.greedy import GreedyBestFirstSearch
 from search.astar import AStar
 
@@ -58,19 +59,27 @@ class Simulation:
         best_paths = self.calculate_best_paths()
 
         for normal_zone, path_data in best_paths.items():
+            vehicles = path_data.get("vehicles", [])
             print(f"Melhor caminho para {normal_zone}: {path_data['path']} com custo {path_data['cost']}")
+            if vehicles:
+                vehicle_str = ", ".join([f"{v['quantity']}x {v['id']}" for v in vehicles])
+                print(f"Veículos utilizados: {vehicle_str}")
+            else:
+                print(f"Nenhum veículo necessário para {normal_zone}.")
+
+
 
 
     def calculate_best_paths(self):
         """
         Calcula o melhor caminho de cada zona normal para uma zona de suporte.
 
-        :return: Dicionário com os melhores caminhos e custos associados para cada zona normal.
+        :return: Dicionário com os melhores caminhos, custos associados e veículos utilizados para cada zona normal.
         """
         algorithms = {
             "BFS": BFS(self.graph),
             "DFS": DFS(self.graph),
-            "UCS": None,  # Implementação do UCS deve ser adicionada
+            "UCS": UCS(self.graph),
             "Greedy": GreedyBestFirstSearch(self.graph),
             "A*": AStar(self.graph)
         }
@@ -85,6 +94,7 @@ class Simulation:
         for normal_zone in self.normal_zones:
             best_path = None
             best_cost = float('inf')
+            best_vehicles = []
 
             # Obter o nó do grafo correspondente à zona normal
             normal_node = self.graph.nodes.get(normal_zone)
@@ -101,18 +111,25 @@ class Simulation:
 
                 try:
                     print(f"Tentando caminho de {support_zone} para {normal_zone}")
-                    path, cost = algorithm.search(support_zone, normal_zone)
+                    path, cost, vehicles = algorithm.search(support_zone, normal_zone)
                     cost = round(cost, 2)
                     if cost < best_cost:
                         best_path = path
                         best_cost = cost
+                        best_vehicles = vehicles
                 except Exception as e:
                     print(f"Erro ao calcular caminho de {support_zone} para {normal_zone}: {e}")
 
             if best_path is not None:
-                best_paths[normal_zone] = {"path": best_path, "cost": best_cost}
+                best_paths[normal_zone] = {
+                    "path": best_path,
+                    "cost": best_cost,
+                    "vehicles": [{"id": v["id"], "quantity": v["quantity"]} for v in best_vehicles]
+                }
+
 
         return best_paths
+
 
     
     def organize_zones_by_urgency(self):
