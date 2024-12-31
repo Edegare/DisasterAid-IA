@@ -1,82 +1,58 @@
-import os
+import sys
 from map.mapGenerator import MapGenerator
-from simulation.simulation import Simulation 
-from search.dfs import DFS
-
-def print_result(result):
-    if result:
-        path, vehicle_plan, total_cost = result
-
-        # Organizar veículos por tipo e quantidade
-        vehicle_summary = {}
-        for vehicle in vehicle_plan:
-            vehicle_type = vehicle.id
-            if vehicle_type in vehicle_summary:
-                vehicle_summary[vehicle_type] += 1
-            else:
-                vehicle_summary[vehicle_type] = 1
-
-        # Exibir resultados formatados
-        print(f"Caminho: {' -> '.join(path)}")
-        print("Veículos alocados:")
-        for vehicle_type, count in vehicle_summary.items():
-            print(f"  - {vehicle_type}: {count} unidades")
-        print(f"Custo total: {total_cost:.2f}")
-    else:
-        print("Não foi possível encontrar um caminho viável.")
+from simulation.simulation import Simulation
 
 def main():
     # Obter o caminho do ficheiro JSON do mapa
     input_path = input("Insira o caminho para o ficheiro JSON do mapa: ").strip()
 
-    if not os.path.exists(input_path):
-        print("Caminho inválido. Certifique-se de que o ficheiro existe.")
-        return
-
-    # Gerar o mapa
+    # Inicializar o gerador de mapas
+    print("Inicializando o gerador de mapas...")
     map_generator = MapGenerator(json_path=input_path)
-    # Gerar o mapa e obter as zonas de suporte
-    support_zones = map_generator.load_zones()
+
+    # Carregar as zonas e gerar o grafo
+    print("Carregando zonas e gerando o grafo...")
+    try:
+        map_generator.load_zones()
+    except FileNotFoundError:
+        print(f"Erro: Ficheiro JSON não encontrado em {json_path}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Erro ao carregar o ficheiro JSON: {e}")
+        sys.exit(1)
+
+    # Exibir o grafo (opcional, apenas para validação inicial)
     map_generator.display_graph()
-    print(f"Mapa gerado com sucesso! Zonas de suporte identificadas: {support_zones}")
 
-    # Perguntar pelo algoritmo de procura
-    print("Escolha o algoritmo:")
-    print("1. BFS")
-    print("2. DFS")
-    print("3. UCS")
-    print("4. Greedy")
-    print("5. A*")
-    algorithm_choice = input("Opção: ").strip()
+    # Obter informações úteis para debug
+    graph = map_generator.graph
 
-    algorithms = {
+    # Solicitar o algoritmo ao utilizador
+    print("Selecione o algoritmo de procura a utilizar:")
+    print("1. BFS (Breadth-First Search)")
+    print("2. DFS (Depth-First Search)")
+    print("3. UCS (Uniform Cost Search)")
+    print("4. Greedy Best-First Search")
+    print("5. A* (A-Star)")
+
+    algorithm_choice = input("Digite o número correspondente ao algoritmo: ")
+
+    algorithm_types = {
         "1": "BFS",
         "2": "DFS",
         "3": "UCS",
         "4": "Greedy",
-        "5": "AStar"
+        "5": "A*"
     }
 
-    if algorithm_choice not in algorithms:
+    if algorithm_choice not in algorithm_types:
         print("Opção inválida.")
-        return
+        sys.exit(1)
 
-    chosen_algorithm = algorithms[algorithm_choice]
-    print(chosen_algorithm)
+    algorithm_type = algorithm_types[algorithm_choice]
 
-    # Inicializar a simulação
-    print("Inicializando a simulação...")
-    simulation = Simulation(graph=map_generator.graph, algorithm=chosen_algorithm, support_zones=support_zones)
-
-    # Iniciar a simulação
+    simulation = Simulation(graph, algorithm_type)
     simulation.start()
-
-    dfs = DFS(map_generator.graph)
-    start = "Braga"
-    goal = "Amares"
-    result = dfs.search(start, goal)
-
-    print_result(result)
 
 if __name__ == "__main__":
     main()

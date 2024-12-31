@@ -1,50 +1,120 @@
 from datetime import datetime
 import json
 from search.dfs import DFS
+from search.bfs import BFS
+from search.greedy import GreedyBestFirstSearch
+from search.astar import AStar
 
 class Simulation:
-    def __init__(self, graph, algorithm, support_zones):
+    def __init__(self, graph, algorithm_type):
         """
         Inicializa a simulação.
 
-        :param graph: Grafo com as zonas e conexões.
-        :param algorithm: Algoritmo escolhido (string).
-        :param support_zones: Lista de zonas de suporte.
+        :param graph: Grafo gerado a partir dos dados JSON.
+        :param algorithm_type: String indicando o tipo de algoritmo escolhido.
         """
         self.graph = graph
-        self.algorithm = algorithm
-        self.support_zones = support_zones
+        self.algorithm_type = algorithm_type
+        self.support_zones= []
+        self.supply_zones = []
+        self.normal_zones = []
         self.start_time = datetime.now()
-        self.supply_zones = []  # Será preenchida no método start
-        self.normal_zones = []  # Será preenchida no método start
-        self.transport_logs = []  # Para guardar os dados de transporte
 
     def start(self):
         """
-        Inicia a simulação.
+        Executa a lógica principal da simulação.
         """
-        # Obter supply zones
-        self.supply_zones = [
+
+        # Obter support zones
+        self.support_zones = [
             node for node, attrs in self.graph.nodes(data=True)
-            if attrs.get('zone_type') == "supply"
+            if attrs.get('zone_type') == "support"
         ]
 
-        # Obter normal zones (zonas que precisam de ajuda)
+        print("Nós no grafo:", list(self.graph.nodes))
+
+        print("Zonas support:", self.support_zones)
+
+        # Obter supply zones - ainda não serve para nada
+        """ self.supply_zones = [
+            node for node, attrs in self.graph.nodes(data=True)
+            if attrs.get('zone_type') == "supply"
+        ] """
+
+        # Obter normal zones
         self.normal_zones = [
             node for node, attrs in self.graph.nodes(data=True)
             if attrs.get('zone_type') == "normal"
         ]
 
-        # Exibir os resultados iniciais
-        print(f"Simulação iniciada às {self.start_time}")
-        print(f"Zonas de suporte: {self.support_zones}")
-        print(f"Zonas de supply: {self.supply_zones}")
-        print(f"Zonas a ajudar (normal): {self.normal_zones}")
-
+        print("Zonas normais antes de organizar por urgência:", self.normal_zones)
         self.organize_zones_by_urgency()
-        self.find_paths_for_normal_zones()
-        self.save_simulation_results()
+        print("Zonas normais organizadas por urgência:", self.normal_zones)
+        print("Nós no grafo:", list(self.graph.nodes))
+        print("Zonas support:", self.support_zones)
 
+
+        # Calcular o melhor caminho para cada zona normal
+        best_paths = self.calculate_best_paths()
+
+        for normal_zone, path_data in best_paths.items():
+            print(f"Melhor caminho para {normal_zone}: {path_data['path']} com custo {path_data['cost']}")
+
+
+    def calculate_best_paths(self):
+        """
+        Calcula o melhor caminho de cada zona normal para uma zona de suporte.
+
+        :return: Dicionário com os melhores caminhos e custos associados para cada zona normal.
+        """
+        algorithms = {
+            "BFS": BFS(self.graph),
+            "DFS": DFS(self.graph),
+            "UCS": None,  # Implementação do UCS deve ser adicionada
+            "Greedy": GreedyBestFirstSearch(self.graph),
+            "A*": AStar(self.graph)
+        }
+
+        if self.algorithm_type not in algorithms or algorithms[self.algorithm_type] is None:
+            raise ValueError("Algoritmo inválido ou não implementado.")
+
+        algorithm = algorithms[self.algorithm_type]
+
+        best_paths = {}
+
+        for normal_zone in self.normal_zones:
+            best_path = None
+            best_cost = float('inf')
+
+            # Obter o nó do grafo correspondente à zona normal
+            normal_node = self.graph.nodes.get(normal_zone)
+            if not normal_node:
+                print(f"Erro: A zona normal {normal_zone} não foi encontrada no grafo.")
+                continue
+
+            for support_zone in self.support_zones:
+                # Obter o nó do grafo correspondente à zona de suporte
+                support_node = self.graph.nodes.get(support_zone)
+                if not support_node:
+                    print(f"Erro: A zona de suporte {support_zone} não foi encontrada no grafo.")
+                    continue
+
+                try:
+                    print(f"Tentando caminho de {support_zone} para {normal_zone}")
+                    path, cost = algorithm.search(support_zone, normal_zone)
+                    cost = round(cost, 2)
+                    if cost < best_cost:
+                        best_path = path
+                        best_cost = cost
+                except Exception as e:
+                    print(f"Erro ao calcular caminho de {support_zone} para {normal_zone}: {e}")
+
+            if best_path is not None:
+                best_paths[normal_zone] = {"path": best_path, "cost": best_cost}
+
+        return best_paths
+
+    
     def organize_zones_by_urgency(self):
         """
         Organiza as zonas normais por ordem de urgência, considerando prioridade e tempo crítico.
@@ -73,116 +143,3 @@ class Simulation:
 
         # Ordenar as zonas normais pela urgência (decrescente)
         self.normal_zones.sort(key=calculate_urgency, reverse=True)
-
-        # Exibir a lista organizada
-        print("Zonas organizadas por urgência:")
-        for zone_id in self.normal_zones:
-            urgency = calculate_urgency(zone_id)
-            print(f"Zona: {zone_id}, Urgência: {urgency}")
-
-    def find_paths_for_normal_zones(self):
-        """
-        Para cada zona normal, encontra o melhor caminho através das zonas de suporte usando o algoritmo selecionado
-        e organiza o transporte dos mantimentos.
-        """
-        for normal_zone in self.normal_zones:
-            print(f"Encontrando caminhos para a zona {normal_zone}...")
-
-            best_path = None
-            best_cost = float('inf')
-            best_vehicles = None
-
-            for support_zone in self.support_zones:
-                path, vehicles = self.find_path(normal_zone, support_zone)
-
-                if path:
-                    path_cost = self.calculate_path_cost(path)
-                    print(f"Caminho encontrado de {support_zone} para {normal_zone}: {path} com custo {path_cost}")
-
-                    if path_cost < best_cost:
-                        best_path = path
-                        best_cost = path_cost
-                        best_vehicles = vehicles
-
-            if best_path and best_vehicles:
-                print(f"Melhor caminho para {normal_zone}: {best_path} com custo {best_cost}")
-                self.send_supplies(normal_zone, best_path, best_vehicles, best_cost)
-            else:
-                print(f"Não foi possível encontrar um caminho para {normal_zone}")
-
-    def find_path(self, start, goal):
-        """
-        Determina o caminho entre dois nós usando o algoritmo selecionado (estrutura básica).
-        Retorna o caminho encontrado e uma lista de veículos necessários.
-        """
-        if self.algorithm == "BFS":
-            return self._bfs(start, goal), []
-        elif self.algorithm == "DFS":
-            return self._dfs(start, goal), []
-        elif self.algorithm == "Greedy":
-            return self._greedy(start, goal), []
-        elif self.algorithm == "AStar":
-            return self._astar(start, goal), []
-        else:
-            raise ValueError(f"Algoritmo {self.algorithm} não reconhecido.")
-
-    def send_supplies(self, destination, path, vehicles, cost):
-        """
-        Realiza o envio de mantimentos para a zona normal especificada.
-
-        :param destination: Zona de destino.
-        :param path: Caminho usado para a entrega.
-        :param vehicles: Lista de veículos utilizados.
-        :param cost: Custo do transporte (em distância).
-        """
-        if path and path[0] in self.support_zones:
-            self.reduce_vehicles_in_support_zone(path[0], vehicles)
-
-        arrival_time = self.calculate_arrival_time(path, vehicles)
-        self.transport_logs.append({
-            "from": path[0],
-            "to": destination,
-            "path": path,
-            "vehicles": vehicles,
-            "cost": cost,
-            "arrival_time": arrival_time,
-            "stops": [zone for zone in path if zone in self.supply_zones]
-        })
-
-    def reduce_vehicles_in_support_zone(self, support_zone, vehicles):
-        """
-        Reduz o número de veículos disponíveis na zona de suporte escolhida.
-
-        :param support_zone: Zona de suporte utilizada.
-        :param vehicles: Veículos utilizados.
-        """
-        support_data = self.graph.nodes[support_zone].get('vehicles', [])
-        for vehicle in vehicles:
-            for v in support_data:
-                if v['id'] == vehicle['id'] and v['quantity'] > 0:
-                    v['quantity'] -= 1
-
-    def calculate_arrival_time(self, path, vehicles):
-        """
-        Calcula o tempo de chegada ao destino com base na velocidade do veículo e na distância total.
-        """
-        total_distance = self.calculate_path_cost(path)
-        average_speed = min(v['speed'] for v in vehicles)
-        travel_time = total_distance / average_speed  # Tempo em horas
-        return self.start_time + timedelta(hours=travel_time)
-
-    def calculate_path_cost(self, path):
-        """
-        Calcula o custo total de um caminho (Placeholder).
-        """
-        return sum(self.graph.get_edge_data(path[i], path[i + 1])['weight'] for i in range(len(path) - 1))
-
-    def save_simulation_results(self):
-        """
-        Guarda os resultados da simulação num ficheiro JSON.
-        """
-        with open("simulation_results.json", "w") as file:
-            json.dump(self.transport_logs, file, indent=4)
-        print("Resultados da simulação guardados em 'simulation_results.json'.")
-
-    

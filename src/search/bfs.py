@@ -10,27 +10,31 @@ class BFS:
         self.graph = graph
 
     def search(self, start, goal):
-        """
-        Realiza uma busca em largura (BFS) no grafo.
+        if start not in self.graph.nodes or goal not in self.graph.nodes:
+            raise ValueError(f"O nó {start} ou {goal} não está no grafo.")
 
-        :param start: Nó inicial.
-        :param goal: Nó objetivo.
-        :return: Caminho do nó inicial ao objetivo, se encontrado.
-        """
         visited = set()
-        queue = [[start]]
+        queue = [[start]]  # Cada entrada é [lista de nós]
 
         while queue:
-            path = queue.pop(0)
-            node = path[-1]
+            path = queue.pop(0)  # Remove o primeiro caminho da fila
+            node = path[-1]  # Último nó no caminho atual
 
             if node == goal:
-                return path
+                # Calcula o custo total do caminho
+                cost = sum(self.graph.get_edge_data(path[i], path[i + 1])['weight']
+                        for i in range(len(path) - 1))
+                return path, cost
 
             if node not in visited:
                 visited.add(node)
                 for neighbor in self.graph.neighbors(node):
-                    new_path = list(path)
+                    edge_data = self.graph.get_edge_data(node, neighbor)
+                    edge_cost = edge_data.get('weight', 1)  # Assumir peso 1 se não especificado
+
+                    new_path = list(path)  # Copiar o caminho atual
                     new_path.append(neighbor)
                     queue.append(new_path)
-        return None
+
+        return None, float('inf')  # Nenhum caminho encontrado
+

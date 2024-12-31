@@ -39,8 +39,6 @@ class MapGenerator:
         with open(self.json_path, "r") as file:
             zones_data = json.load(file)
 
-        support_zones = []
-
         # Adicionar nós e coordenadas ao grafo
         for zone in zones_data:
             self.graph.add_node(zone["id"], 
@@ -52,10 +50,6 @@ class MapGenerator:
                                 critical_time=zone.get("critical_time"),
                                 population=zone.get("population", 0),
                                 priority=zone.get("priority", 0))
-
-            # Identificar zonas de suporte
-            if zone["zone_type"] == "support":
-                support_zones.append(zone["id"])
 
         # Adicionar arestas com as distâncias
         for zone in zones_data:
@@ -69,8 +63,6 @@ class MapGenerator:
                 distance = self.calculate_distance(current_coords, destination_coords)
                 # Adicionar aresta ao grafo
                 self.graph.add_edge(current_zone_id, accessible_zone_id, weight=distance)
-
-        return support_zones
 
 
     def display_graph(self):
