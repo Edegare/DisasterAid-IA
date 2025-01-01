@@ -27,32 +27,65 @@ def main():
     # Obter informações úteis para debug
     graph = map_generator.graph
 
-    # Solicitar o algoritmo ao utilizador
-    print("Selecione o algoritmo de procura a utilizar:")
-    print("1. BFS (Breadth-First Search)")
-    print("2. DFS (Depth-First Search)")
-    print("3. UCS (Uniform Cost Search)")
-    print("4. Greedy Best-First Search")
-    print("5. A* (A-Star)")
+    print("")
+    option = -1
+    while option != 0:
+        
+        print("== Sistema de Procura de Distribuição de Suprimentos ==")
+        print("1. Desenhar Grafo")
+        print("2. Algoritmos de Procura")
+        print("0. Sair")
+        option = int(input("Selecione uma opção: "))
+        
+        print("")
 
-    algorithm_choice = input("Digite o número correspondente ao algoritmo: ")
+        if option == 0:
+            print("Saindo...")
+        elif option == 1: # Mostrar grafo
+            map_generator.display_graph()
 
-    algorithm_types = {
-        "1": "BFS",
-        "2": "DFS",
-        "3": "UCS",
-        "4": "Greedy",
-        "5": "A*"
-    }
+        elif option == 2: 
+            # Menu de Algoritmos de procura
+            optionSearch = -1
+            while optionSearch != 0:
 
-    if algorithm_choice not in algorithm_types:
-        print("Opção inválida.")
-        sys.exit(1)
+                # Solicitar o algoritmo ao utilizador
+                print("Selecione o algoritmo de procura a utilizar:")
+                print("1. BFS (Breadth-First Search)")
+                print("2. DFS (Depth-First Search)")
+                print("3. UCS (Uniform Cost Search)")
+                print("4. Greedy Best-First Search")
+                print("5. A* (A-Star)")
+                print("0. Sair")
 
-    algorithm_type = algorithm_types[algorithm_choice]
+                algorithm_choice = input("Digite o número correspondente ao algoritmo: ")
+                optionSearch = int(algorithm_choice)
 
-    simulation = Simulation(graph, algorithm_type)
-    simulation.start()
+                if optionSearch == 0:
+                    print("Saindo do Menu de Procura...")
+                
+                else:
+                    algorithm_types = {
+                        "1": "BFS",
+                        "2": "DFS",
+                        "3": "UCS",
+                        "4": "Greedy",
+                        "5": "A*"
+                    }
+
+                    if algorithm_choice not in algorithm_types:
+                        print("Opção inválida.")
+                    
+                    else: 
+                        algorithm_type = algorithm_types[algorithm_choice]
+
+                        simulation = Simulation(graph, algorithm_type)
+                        simulation.start()
+                print("")
+
+        else:
+             print("Opção inválida.")
+             print("")
 
 if __name__ == "__main__":
     main()
