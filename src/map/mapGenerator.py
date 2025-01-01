@@ -1,3 +1,4 @@
+import random
 import networkx as nx
 from geopy.distance import geodesic
 import json
@@ -62,18 +63,56 @@ class MapGenerator:
                 # Calcular a distância
                 distance = self.calculate_distance(current_coords, destination_coords)
                 # Adicionar aresta ao grafo
-                self.graph.add_edge(current_zone_id, accessible_zone_id, weight=distance)
-
+                self.graph.add_edge(
+                    current_zone_id, 
+                    accessible_zone_id, 
+                    weight=distance, 
+                    closed= (random.random() < 0.1)  # chance da estrada estar fechada (Se o valor no intervalo [0, 1] for menor do que 0.1 então a estrada fica fechada; se for está aberta)
+                )
 
     def display_graph(self):
         """
         Mostra o grafo criado em formato gráfico.
         """
+        """ # Criar posição dos nós
         pos = {node: (self.graph.nodes[node]['longitude'], self.graph.nodes[node]['latitude']) for node in self.graph.nodes}
-        plt.figure(figsize=(10, 8))
-        nx.draw(self.graph, pos, with_labels=True, node_size=500, node_color="skyblue", font_size=10, font_weight="bold")
+        plt.figure(figsize=(10, 8)) """
+
+        # cria posição mas ajusta dinamicamente para se ver melhor as arestas
+        pos = nx.spring_layout(self.graph, seed=42, k=0.3)  # 'k' controla a distância entre os nós
+
+        plt.figure(figsize=(12, 10))
+
+        # Separar os nós por tipo
+        normal_nodes = [node for node, data in self.graph.nodes(data=True) if data['zone_type'] == 'normal']
+        supply_nodes = [node for node, data in self.graph.nodes(data=True) if data['zone_type'] == 'supply']
+        support_nodes = [node for node, data in self.graph.nodes(data=True) if data['zone_type'] == 'support']
+
+
+        # distinguir estradas fechadas das abertas
+        closed_edges = [(u, v) for u, v, d in self.graph.edges(data=True) if d.get('closed', False)]
+        open_edges = [(u, v) for u, v, d in self.graph.edges(data=True) if not d.get('closed', False)]
+        
+        # Desenho dos nós
+        nx.draw_networkx_nodes(self.graph, pos, nodelist=normal_nodes, node_color="skyblue", label="Normal", node_size=500)
+        nx.draw_networkx_nodes(self.graph, pos, nodelist=supply_nodes, node_color="green", label="Supply", node_size=500)
+        nx.draw_networkx_nodes(self.graph, pos, nodelist=support_nodes, node_color="orange", label="Support", node_size=500)
+
+        # nomes dos nós
+        nx.draw_networkx_labels(self.graph, pos, font_size=10, font_weight="bold")
+        
+        # desenho arestas (vermelhas-fechadas;pretas-abertas)
+        nx.draw_networkx_edges(self.graph, pos, edgelist=open_edges, edge_color="black", width=1.5)
+        nx.draw_networkx_edges(self.graph, pos, edgelist=closed_edges, edge_color="red", width=2.5, style="dashed")
+        
+        # distância das arestas
         labels = nx.get_edge_attributes(self.graph, 'weight')
-        nx.draw_networkx_edge_labels(self.graph, pos, edge_labels={k: f"{v:.2f} km" for k, v in labels.items()})
+        nx.draw_networkx_edge_labels(self.graph, pos, edge_labels={k: f"{v:.2f} km" for k, v in labels.items()}, font_size=8)
+
+
+        # Adicionar legenda
+        plt.legend(scatterpoints=1)
+        
         plt.title("Mapa de Zonas e Distâncias")
         plt.xlabel("Longitude")
         plt.ylabel("Latitude")
@@ -90,6 +129,7 @@ class MapGenerator:
         """
         return [node for node, attrs in self.graph.nodes(data=True) if attrs.get('zone_type') == zone_type]
 
+    
 # Exemplo de utilização
 if __name__ == "__main__":
     from search.bfs import BFS

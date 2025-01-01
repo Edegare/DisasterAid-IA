@@ -1,4 +1,5 @@
 import sys
+from utils.graph import print_graph
 from map.mapGenerator import MapGenerator
 from simulation.simulation import Simulation
 
@@ -33,7 +34,8 @@ def main():
         
         print("== Sistema de Procura de Distribuição de Suprimentos ==")
         print("1. Desenhar Grafo")
-        print("2. Algoritmos de Procura")
+        print("2. Imprimir nós e arestas do Grafo")
+        print("3. Executar Algoritmos de Procura")
         print("0. Sair")
         option = int(input("Selecione uma opção: "))
         
@@ -44,7 +46,12 @@ def main():
         elif option == 1: # Mostrar grafo
             map_generator.display_graph()
 
-        elif option == 2: 
+        elif option == 2: # Imprimir grafo
+            print_graph(graph)
+            input("Pressione Enter para continuar!")
+            print("")
+
+        elif option == 3: 
             # Menu de Algoritmos de procura
             optionSearch = -1
             while optionSearch != 0:

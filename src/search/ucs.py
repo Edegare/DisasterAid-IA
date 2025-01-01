@@ -56,7 +56,6 @@ class UCS:
         return list(vehicle_count.values())
 
 
-
     def search(self, start, goal):
         """
         Realiza a busca UCS no grafo considerando os veículos disponíveis.
@@ -84,13 +83,21 @@ class UCS:
             vehicles = [v for v in vehicles if v is not None]
 
         visited = set()
-        priority_queue = []  # (custo acumulado, nó atual, caminho)
-        heapq.heappush(priority_queue, (0, start, [start]))
+        priority_queue = []  # (custo acumulado, nó atual)
+        parent = {start: None}  # Para reconstruir o caminho
+        heapq.heappush(priority_queue, (0, start))
 
         while priority_queue:
-            cost, current_node, path = heapq.heappop(priority_queue)
+            cost, current_node = heapq.heappop(priority_queue)
 
             if current_node == goal:
+                # Reconstruir o caminho a partir dos pais
+                path = []
+                while current_node is not None:
+                    path.append(current_node)
+                    current_node = parent[current_node]
+                path.reverse()
+
                 # Calcular a combinação ótima de veículos para atender à demanda
                 vehicle_combination = self.calculate_vehicle_combination(goal_population, vehicles)
                 return path, cost, vehicle_combination
@@ -100,15 +107,20 @@ class UCS:
 
                 for neighbor in self.graph.neighbors(current_node):
                     edge_data = self.graph.get_edge_data(current_node, neighbor)
+                    if edge_data.get('closed', False):  # Se a estrada estiver fechada
+                        continue  # Pular este vizinho
+                    
                     edge_cost = edge_data.get('weight', 1)
 
-                    # Adicionar o próximo nó à fila de prioridade
-                    heapq.heappush(priority_queue, (
-                        cost + edge_cost,
-                        neighbor,
-                        path + [neighbor]
-                    ))
+                    # Calcular o custo acumulado para o vizinho
+                    new_cost = cost + edge_cost
+
+                    # Adicionar o vizinho à fila de prioridade com o novo custo
+                    if neighbor not in visited:
+                        heapq.heappush(priority_queue, (new_cost, neighbor))
+                        # Guardar o pai do nó para reconstrução do caminho
+                        if neighbor not in parent:
+                            parent[neighbor] = current_node
 
         return None, float('inf'), []  # Nenhum caminho encontrado
-
 
