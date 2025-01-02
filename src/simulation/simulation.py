@@ -5,6 +5,7 @@ from search.bfs import BFS
 from search.ucs import UCS
 from search.greedy import GreedyBestFirstSearch
 from search.astar import AStar
+from models.vehicle import Truck, Car, Helicopter
 
 class Simulation:
     def __init__(self, graph, algorithm_type):
@@ -37,10 +38,10 @@ class Simulation:
         print("Zonas support:", self.support_zones)
 
         # Obter supply zones - ainda não serve para nada
-        """ self.supply_zones = [
+        self.supply_zones = [
             node for node, attrs in self.graph.nodes(data=True)
             if attrs.get('zone_type') == "supply"
-        ] """
+        ]
 
         # Obter normal zones
         self.normal_zones = [
@@ -57,7 +58,7 @@ class Simulation:
 
         # Calcular o melhor caminho para cada zona normal
         best_paths = self.calculate_best_paths()
-
+        """ 
         for normal_zone, path_data in best_paths.items():
             vehicles = path_data.get("vehicles", [])
             print(f"Melhor caminho para {normal_zone}: {path_data['path']} com custo {path_data['cost']}")
@@ -66,7 +67,9 @@ class Simulation:
                 print(f"Veículos utilizados: {vehicle_str}")
             else:
                 print(f"Nenhum veículo necessário para {normal_zone}.")
+        """
 
+        self.write_results_to_json(best_paths, self.graph)
 
 
 
@@ -153,10 +156,69 @@ class Simulation:
                 time_remaining = float('inf')  # Sem tempo crítico, menos urgente
 
             # Fórmula de urgência
-            urgency = (priority * 10) - (time_remaining / 2)
+            urgency = (priority * 100) + max(0, 1000 / (time_remaining + 1))
             
             # Garantir valores positivos e arredondar
             return max(0, int(urgency))
 
         # Ordenar as zonas normais pela urgência (decrescente)
         self.normal_zones.sort(key=calculate_urgency, reverse=True)
+
+
+    def write_results_to_json(self, best_paths, graph):
+        results = []
+
+        for end_node, path_data in best_paths.items():
+            start_node = path_data['path'][0]
+            path = path_data['path']
+            population = graph.nodes[end_node].get('population', 0)
+            distance = path_data['cost']
+            vehicles = path_data.get('vehicles', [])
+
+            vehicle_details = []
+            for vehicle_data in vehicles:
+                vehicle_type = vehicle_data['id']
+                quantity = vehicle_data['quantity']
+
+                # Obter atributos do veículo
+                if vehicle_type == 'truck':
+                    vehicle = Truck(vehicle_type)
+                elif vehicle_type == 'car':
+                    vehicle = Car(vehicle_type)
+                elif vehicle_type == 'helicopter':
+                    vehicle = Helicopter(vehicle_type)
+                else:
+                    continue
+
+                refuels = []
+                current_range = vehicle.range
+
+                for i in range(len(path) - 1):
+                    current_node = path[i]
+                    next_node = path[i + 1]
+
+                    edge_data = graph.get_edge_data(current_node, next_node, default={})
+                    edge_distance = edge_data.get('weight', float('inf'))
+
+                    if current_range < edge_distance:
+                        refuels.append(current_node)
+                        current_range = vehicle.range
+
+                    current_range -= edge_distance
+
+                vehicle_details.append({
+                    'type': vehicle_type,
+                    'quantity': quantity,
+                    'refuels': refuels
+                })
+
+            results.append({
+                'start_node': start_node,
+                'end_node': end_node,
+                'population': population,
+                'distance': distance,
+                'vehicles': vehicle_details
+            })
+
+        with open('results.json', 'w', encoding='utf-8') as f:
+            json.dump(results, f, ensure_ascii=False, indent=4)

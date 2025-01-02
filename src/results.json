@@ -1,0 +1,469 @@
+[
+    {
+        "start_node": "Kiev",
+        "end_node": "Dnipro",
+        "population": 3567567,
+        "distance": 434.22,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 7,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 1,
+                "refuels": [
+                    "Poltava"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Donetsk",
+        "population": 4841074,
+        "distance": 644.95,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 9,
+                "refuels": [
+                    "Dnipro"
+                ]
+            },
+            {
+                "type": "car",
+                "quantity": 3,
+                "refuels": [
+                    "Poltava"
+                ]
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [
+                    "Kiev",
+                    "Poltava",
+                    "Dnipro"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Kharkiv",
+        "population": 2914212,
+        "distance": 433.15,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 5,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": [
+                    "Poltava"
+                ]
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [
+                    "Kiev",
+                    "Poltava"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Tcherkassi",
+        "population": 1402969,
+        "distance": 157.07,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Kherson",
+        "population": 1175122,
+        "distance": 494.56,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 2,
+                "refuels": [
+                    "Kirovogrado"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Kirovogrado",
+        "population": 1133052,
+        "distance": 262.27,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 1,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Lugansk",
+        "population": 2546178,
+        "distance": 707.07,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 5,
+                "refuels": [
+                    "Kharkiv"
+                ]
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [
+                    "Kiev",
+                    "Poltava",
+                    "Kharkiv"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Tchernigov",
+        "population": 1245260,
+        "distance": 128.41,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Tchernivtski",
+        "population": 922817,
+        "distance": 227.76,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 1,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Ivano-Frankivsk",
+        "population": 1409760,
+        "distance": 113.34,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Khmelnitski",
+        "population": 1430775,
+        "distance": 219.24,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Mykolaiv",
+        "population": 1264743,
+        "distance": 433.88,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 3,
+                "refuels": [
+                    "Kirovogrado"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Rivne",
+        "population": 1173304,
+        "distance": 180.73,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 2,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Sumi",
+        "population": 1299746,
+        "distance": 451.94,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 3,
+                "refuels": [
+                    "Poltava"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Ternopil",
+        "population": 1142416,
+        "distance": 117.31,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 1,
+                "refuels": []
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Vinnitsa",
+        "population": 1772371,
+        "distance": 199.83,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 3,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 3,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Volinia",
+        "population": 1060694,
+        "distance": 136.8,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 1,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Lviv",
+        "end_node": "Transcarpatia",
+        "population": 1258264,
+        "distance": 185.65,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 3,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Zaporijia",
+        "population": 1929171,
+        "distance": 504.16,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 3,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": [
+                    "Poltava"
+                ]
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [
+                    "Kiev",
+                    "Poltava"
+                ]
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Jitomir",
+        "population": 1389466,
+        "distance": 134.48,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 2,
+                "refuels": []
+            },
+            {
+                "type": "car",
+                "quantity": 4,
+                "refuels": []
+            }
+        ]
+    },
+    {
+        "start_node": "Kiev",
+        "end_node": "Crimeia",
+        "population": 2033736,
+        "distance": 997.31,
+        "vehicles": [
+            {
+                "type": "truck",
+                "quantity": 4,
+                "refuels": [
+                    "Dnipro"
+                ]
+            },
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [
+                    "Kiev",
+                    "Poltava",
+                    "Dnipro",
+                    "Mykolaiv"
+                ]
+            }
+        ]
+    }
+]

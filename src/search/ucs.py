@@ -20,7 +20,6 @@ class UCS:
         :param vehicles: Lista de veículos disponíveis na zona de suporte.
         :return: Lista de veículos otimizados (tipo e quantidade).
         """
-        from itertools import combinations_with_replacement
 
         best_combination = None
         min_excess_capacity = float('inf')
@@ -73,7 +72,6 @@ class UCS:
         # Obter a lista de veículos disponíveis na zona de suporte
         vehicles = self.graph.nodes[start].get('vehicles', [])
         if isinstance(vehicles, list) and vehicles and isinstance(vehicles[0], dict):
-            # Converter os dicionários em objetos Vehicle
             vehicles = [
                 Truck(v['id']) if v['type'] == 'truck' else
                 Car(v['id']) if v['type'] == 'car' else
@@ -84,6 +82,7 @@ class UCS:
 
         visited = set()
         priority_queue = []  # (custo acumulado, nó atual)
+        costs = {start: 0}  # Armazena o menor custo para alcançar cada nó
         parent = {start: None}  # Para reconstruir o caminho
         heapq.heappush(priority_queue, (0, start))
 
@@ -107,42 +106,66 @@ class UCS:
 
                 for neighbor in self.graph.neighbors(current_node):
                     edge_data = self.graph.get_edge_data(current_node, neighbor)
-                    if edge_data.get('closed', False):  # Se a estrada estiver fechada
-                        continue  # Pular este vizinho
-                    
-                    edge_cost = edge_data.get('weight', 1)
+                    if edge_data.get('closed', False):  # Ignora estradas fechadas
+                        continue
 
-                    # Calcular o custo acumulado para o vizinho
+                    edge_cost = edge_data.get('weight', 1)  # Distância da estrada
                     new_cost = cost + edge_cost
 
-                    # Adicionar o vizinho à fila de prioridade com o novo custo
-                    if neighbor not in visited:
+                    # Atualiza somente se o novo custo for menor ou o nó não tiver sido processado
+                    if neighbor not in costs or new_cost < costs[neighbor]:
+                        costs[neighbor] = new_cost
                         heapq.heappush(priority_queue, (new_cost, neighbor))
-                        # Guardar o pai do nó para reconstrução do caminho
-                        if neighbor not in parent:
-                            parent[neighbor] = current_node
+                        parent[neighbor] = current_node
 
         return None, float('inf'), []  # Nenhum caminho encontrado
+
 # CÓDIGO SÓ PARA AJUDAR ------------------------------------------------------
-    def search_vehicle(self, start, goal, vehicle):
+
+    def search_vehicle(self, start, goal):
         """
-        Realiza a busca UCS no grafo considerando o consumo de combustível e reabastecimento.
+        Realiza a busca UCS no grafo considerando o consumo de combustível e reabastecimento,
+        além de garantir a capacidade correta dos veículos.
 
         :param start: Nó inicial.
         :param goal: Nó objetivo.
-        :param vehicle: Veículo utilizado na busca.
-        :return: Caminho, custo total, e consumo de combustível.
+        :return: Caminho, custo total (incluindo combustível) e veículos usados.
         """
         if start not in self.graph.nodes or goal not in self.graph.nodes:
             raise ValueError(f"O nó {start} ou {goal} não está no grafo.")
 
+        # Obter a população da zona de ajuda
+        goal_population = self.graph.nodes[goal].get('population', 0)
+
+        # Obter os veículos disponíveis no nó de partida
+        vehicles_data = self.graph.nodes[start].get('vehicles', [])
+        if isinstance(vehicles_data, list) and vehicles_data and isinstance(vehicles_data[0], dict):
+            vehicles = [
+                Truck(v['id']) if v['type'] == 'truck' else
+                Car(v['id']) if v['type'] == 'car' else
+                Helicopter(v['id']) if v['type'] == 'helicopter' else None
+                for v in vehicles_data
+            ]
+            vehicles = [v for v in vehicles if v is not None]
+        else:
+            raise ValueError(f"Nenhum veículo disponível no nó {start}.")
+
+        # Calcular a melhor combinação de veículos com base na capacidade
+        best_vehicle_combination = self.calculate_vehicle_combination(goal_population, vehicles)
+
         visited = set()
-        priority_queue = []  # (custo acumulado, nó atual, combustível restante, combustível gasto)
+        priority_queue = []  # (custo acumulado, nó atual, combustível restante, custo de combustível total)
         parent = {start: None}  # Para reconstruir o caminho
-        heapq.heappush(priority_queue, (0, start, vehicle.fuel_capacity, 0))  # Inicia com tanque cheio
+
+        # Inicializar os veículos na combinação com tanque cheio
+        for vehicle in vehicles:
+            vehicle.current_fuel = vehicle.fuel_capacity
+
+        costs = {start: 0}  # Para garantir o menor custo acumulado
+        heapq.heappush(priority_queue, (0, start, vehicles[0].fuel_capacity, 0))  # Inicia com tanque cheio
 
         while priority_queue:
-            cost, current_node, fuel_left, fuel_spent = heapq.heappop(priority_queue)
+            cost, current_node, fuel_left, fuel_cost = heapq.heappop(priority_queue)
 
             # Verifica se o nó atual é o objetivo
             if current_node == goal:
@@ -152,7 +175,9 @@ class UCS:
                     path.append(current_node)
                     current_node = parent[current_node]
                 path.reverse()
-                return path, cost, fuel_spent
+
+                # Retornar o caminho, custo total e veículos utilizados
+                return path, cost + fuel_cost, best_vehicle_combination
 
             if current_node not in visited:
                 visited.add(current_node)
@@ -163,33 +188,27 @@ class UCS:
                         continue
 
                     edge_cost = edge_data.get('weight', 1)  # Distância da estrada
-                    fuel_needed = edge_cost * vehicle.fuel_efficiency
+                    fuel_needed = edge_cost * vehicles[0].fuel_efficiency
 
-                    # Se o combustível não for suficiente, buscar a zona de supply mais próxima
+                    # Verifica se há combustível suficiente para alcançar o próximo nó
                     if fuel_left < fuel_needed:
-                        supply_path, supply_cost, supply_fuel_spent = self.find_nearest_supply(current_node, vehicle)
+                        # Reabastecer e atualizar o custo de combustível
+                        fuel_to_add = vehicles[0].fuel_capacity - fuel_left
+                        fuel_cost += fuel_to_add  # Supondo que o custo de combustível seja 1 por unidade
+                        fuel_left = vehicles[0].fuel_capacity  # Tanque cheio após reabastecer
 
-                        if supply_path:  # Se houver uma zona de supply acessível
-                            # Atualizar o custo, combustível e continuar a busca a partir do supply
-                            vehicle.current_fuel = vehicle.fuel_capacity  # Reabastece o veículo
-                            fuel_left = vehicle.fuel_capacity - (fuel_needed - fuel_left)
-                            parent[supply_path[-1]] = current_node  # Define o supply como próximo nó
-                            current_node = supply_path[-1]  # Reposiciona para o supply
-                            cost += supply_cost
-                            fuel_spent += supply_fuel_spent
-                            break
-                        else:
-                            continue  # Se não há supply disponível, ignora este caminho
-
-                    # Calcular o custo acumulado para o vizinho
+                    # Atualizar combustível restante após percorrer a estrada
+                    new_fuel_left = fuel_left - fuel_needed
                     new_cost = cost + edge_cost
 
-                    # Adicionar o vizinho à fila de prioridade com o novo custo
-                    if neighbor not in visited:
-                        heapq.heappush(priority_queue, (new_cost, neighbor, fuel_left - fuel_needed, fuel_spent + fuel_needed))
+                    # Adicionar o vizinho à fila de prioridade com o novo custo e estado de combustível
+                    if neighbor not in costs or new_cost < costs[neighbor]:
+                        costs[neighbor] = new_cost
+                        heapq.heappush(priority_queue, (new_cost, neighbor, new_fuel_left, fuel_cost))
                         parent[neighbor] = current_node
 
-        return None, float('inf'), float('inf')  # Nenhum caminho encontrado
+        return None, float('inf'), []  # Nenhum caminho encontrado
+
         
     def find_nearest_supply(self, node, vehicle):
         """

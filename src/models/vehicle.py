@@ -57,7 +57,7 @@ class Vehicle:
 
 class Car(Vehicle):
     def __init__(self, id):
-        super().__init__(id, capacity=100000, range=2000, fuel_efficiency=0.05, speed=60, fuel_capacity=100)
+        super().__init__(id, capacity=100000, range=400, fuel_efficiency=0.05, speed=60, fuel_capacity=200)
 
 class Helicopter(Vehicle):
     def __init__(self, id):
@@ -65,4 +65,4 @@ class Helicopter(Vehicle):
 
 class Truck(Vehicle):
     def __init__(self, id):
-        super().__init__(id, capacity=500000, range=2000, fuel_efficiency=0.15, speed=40, fuel_capacity=300)
+        super().__init__(id, capacity=500000, range=600, fuel_efficiency=0.5, speed=40, fuel_capacity=300)

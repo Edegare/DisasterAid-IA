@@ -6,7 +6,7 @@
         "zone_type": "normal",
         "priority": 3,
         "population": 1402969,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Kiev", "Kirovogrado", "Poltava", "Vinnitsa"]
@@ -18,7 +18,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1245260,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car", "helicopter"],
         "accessible_zones": ["Kiev", "Sumi", "Poltava"]
@@ -30,7 +30,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 922817,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["car", "helicopter"],
         "accessible_zones": ["Ivano-Frankivsk", "Ternopil", "Khmelnitski"]
@@ -42,7 +42,7 @@
         "zone_type": "normal",
         "priority": 1,
         "population": 2033736,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["car", "helicopter"],
         "accessible_zones": ["Kherson"]
@@ -54,7 +54,7 @@
         "zone_type": "normal",
         "priority": 4,
         "population": 3567567,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Zaporijia", "Poltava", "Kirovogrado", "Kharkiv", "Donetsk", "Kherson", "Mykolaiv"]
@@ -66,7 +66,7 @@
         "zone_type": "normal",
         "priority": 4,
         "population": 4841074,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Lugansk", "Kharkiv", "Dnipro", "Zaporijia"]
@@ -78,7 +78,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1409760,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["car", "helicopter"],
         "accessible_zones": ["Lviv", "Ternopil", "Tchernivtski", "Transcarpatia"]
@@ -90,7 +90,7 @@
         "zone_type": "normal",
         "priority": 4,
         "population": 2914212,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car", "helicopter"],
         "accessible_zones": ["Sumi", "Poltava", "Dnipro", "Donetsk", "Lugansk"]
@@ -102,7 +102,7 @@
         "zone_type": "normal",
         "priority": 3,
         "population": 1175122,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Crimeia", "Mykolaiv", "Dnipro", "Zaporijia"]
@@ -114,7 +114,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1430775,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Rivne", "Vinnitsa", "Ternopil", "Tchernivtski", "Jitomir"]
@@ -126,7 +126,7 @@
         "zone_type": "normal",
         "priority": 3,
         "population": 1133052,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Dnipro", "Tcherkassi", "Vinnitsa", "Odessa", "Mykolaiv", "Poltava"]
@@ -154,7 +154,7 @@
         "zone_type": "normal",
         "priority": 3,
         "population": 2546178,
-        "critical_time": "2024-12-31 18:00:00",
+        "critical_time": "2025-01-10 18:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Donetsk", "Kharkiv"]
@@ -182,7 +182,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1264743,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Kherson", "Odessa", "Kirovogrado", "Dnipro"]
@@ -218,7 +218,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1173304,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Lviv", "Volinia", "Ternopil", "Khmelnitski", "Jitomir"]
@@ -230,7 +230,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1299746,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Tchernigov", "Poltava", "Kharkiv"]
@@ -242,7 +242,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1142416,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Rivne","Lviv", "Khmelnitski", "Ivano-Frankivsk", "Tchernivtski"]
@@ -254,7 +254,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1772371,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Tchernivtski", "Khmelnitski", "Jitomir", "Kiev", "Tcherkassi", "Kirovogrado", "Odessa"]
@@ -266,7 +266,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1060694,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Lviv", "Rivne"]
@@ -278,7 +278,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1258264,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car", "helicopter"],
         "accessible_zones": ["Lviv", "Ivano-Frankivsk"]
@@ -290,7 +290,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1929171,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Dnipro", "Donetsk", "Kherson"]
@@ -302,7 +302,7 @@
         "zone_type": "normal",
         "priority": 2,
         "population": 1389466,
-        "critical_time": "2024-12-31 12:00:00",
+        "critical_time": "2025-01-10 12:00:00",
         "vehicles": null,
         "accessibility": ["truck", "car"],
         "accessible_zones": ["Kiev", "Vinnitsa", "Rivne", "Khmelnitski"]

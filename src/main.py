@@ -4,6 +4,18 @@ from map.mapGenerator import MapGenerator
 from simulation.simulation import Simulation
 
 def main():
+
+    from geopy.distance import geodesic
+        
+        
+    goal_coords = (46.6354, 32.6169)
+    poltava = (49.5883, 34.5514)
+    cherkassi = (49.4444, 32.0598)
+
+    print("poltava: ")
+    print(geodesic(poltava, goal_coords).kilometers)
+    print("cherkassi: ")
+    print(geodesic(cherkassi, goal_coords).kilometers)
     # Obter o caminho do ficheiro JSON do mapa
     input_path = input("Insira o caminho para o ficheiro JSON do mapa: ").strip()
 
