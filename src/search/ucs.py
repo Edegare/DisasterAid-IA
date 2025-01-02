@@ -141,6 +141,9 @@ class UCS:
         parent = {start: None}  # Para reconstruir o caminho
         heapq.heappush(priority_queue, (0, start, vehicle.fuel_capacity, 0))  # Inicia com tanque cheio
 
+
+        need_to_fuel = False
+
         while priority_queue:
             cost, current_node, fuel_left, fuel_spent = heapq.heappop(priority_queue)
 
@@ -165,21 +168,10 @@ class UCS:
                     edge_cost = edge_data.get('weight', 1)  # Distância da estrada
                     fuel_needed = edge_cost * vehicle.fuel_efficiency
 
-                    # Se o combustível não for suficiente, buscar a zona de supply mais próxima
+                    # Se o combustível não for suficiente
                     if fuel_left < fuel_needed:
-                        supply_path, supply_cost, supply_fuel_spent = self.find_nearest_supply(current_node, vehicle)
-
-                        if supply_path:  # Se houver uma zona de supply acessível
-                            # Atualizar o custo, combustível e continuar a busca a partir do supply
-                            vehicle.current_fuel = vehicle.fuel_capacity  # Reabastece o veículo
-                            fuel_left = vehicle.fuel_capacity - (fuel_needed - fuel_left)
-                            parent[supply_path[-1]] = current_node  # Define o supply como próximo nó
-                            current_node = supply_path[-1]  # Reposiciona para o supply
-                            cost += supply_cost
-                            fuel_spent += supply_fuel_spent
-                            break
-                        else:
-                            continue  # Se não há supply disponível, ignora este caminho
+                        need_to_fuel = True
+                        continue
 
                     # Calcular o custo acumulado para o vizinho
                     new_cost = cost + edge_cost
@@ -189,6 +181,8 @@ class UCS:
                         heapq.heappush(priority_queue, (new_cost, neighbor, fuel_left - fuel_needed, fuel_spent + fuel_needed))
                         parent[neighbor] = current_node
 
+        if need_to_fuel: 
+            return self.find_nearest_supply(start, vehicle)
         return None, float('inf'), float('inf')  # Nenhum caminho encontrado
         
     def find_nearest_supply(self, node, vehicle):
