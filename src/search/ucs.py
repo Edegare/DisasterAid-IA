@@ -123,7 +123,7 @@ class UCS:
                             parent[neighbor] = current_node
 
         return None, float('inf'), []  # Nenhum caminho encontrado
-# CÓDIGO SÓ PARA AJUDAR ------------------------------------------------------
+# CÓDIGO SÓ PARA AJUDAR ------------------------------------------------------ ESTÁ MAL
     def search_vehicle(self, start, goal, vehicle):
         """
         Realiza a busca UCS no grafo considerando o consumo de combustível e reabastecimento.
@@ -180,9 +180,7 @@ class UCS:
                     if neighbor not in visited:
                         heapq.heappush(priority_queue, (new_cost, neighbor, fuel_left - fuel_needed, fuel_spent + fuel_needed))
                         parent[neighbor] = current_node
-
-        if need_to_fuel: 
-            return self.find_nearest_supply(start, vehicle)
+                        
         return None, float('inf'), float('inf')  # Nenhum caminho encontrado
         
     def find_nearest_supply(self, node, vehicle):
