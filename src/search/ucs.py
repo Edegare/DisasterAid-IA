@@ -164,6 +164,9 @@ class UCS:
         costs = {start: 0}  # Para garantir o menor custo acumulado
         heapq.heappush(priority_queue, (0, start, vehicles[0].fuel_capacity, 0))  # Inicia com tanque cheio
 
+
+        need_to_fuel = False
+
         while priority_queue:
             cost, current_node, fuel_left, fuel_cost = heapq.heappop(priority_queue)
 
