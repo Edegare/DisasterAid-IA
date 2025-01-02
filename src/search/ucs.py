@@ -123,4 +123,114 @@ class UCS:
                             parent[neighbor] = current_node
 
         return None, float('inf'), []  # Nenhum caminho encontrado
+# CÓDIGO SÓ PARA AJUDAR ------------------------------------------------------
+    def search_vehicle(self, start, goal, vehicle):
+        """
+        Realiza a busca UCS no grafo considerando o consumo de combustível e reabastecimento.
 
+        :param start: Nó inicial.
+        :param goal: Nó objetivo.
+        :param vehicle: Veículo utilizado na busca.
+        :return: Caminho, custo total, e consumo de combustível.
+        """
+        if start not in self.graph.nodes or goal not in self.graph.nodes:
+            raise ValueError(f"O nó {start} ou {goal} não está no grafo.")
+
+        visited = set()
+        priority_queue = []  # (custo acumulado, nó atual, combustível restante, combustível gasto)
+        parent = {start: None}  # Para reconstruir o caminho
+        heapq.heappush(priority_queue, (0, start, vehicle.fuel_capacity, 0))  # Inicia com tanque cheio
+
+        while priority_queue:
+            cost, current_node, fuel_left, fuel_spent = heapq.heappop(priority_queue)
+
+            # Verifica se o nó atual é o objetivo
+            if current_node == goal:
+                # Reconstruir o caminho a partir dos pais
+                path = []
+                while current_node is not None:
+                    path.append(current_node)
+                    current_node = parent[current_node]
+                path.reverse()
+                return path, cost, fuel_spent
+
+            if current_node not in visited:
+                visited.add(current_node)
+
+                for neighbor in self.graph.neighbors(current_node):
+                    edge_data = self.graph.get_edge_data(current_node, neighbor)
+                    if edge_data.get('closed', False):  # Ignora estradas fechadas
+                        continue
+
+                    edge_cost = edge_data.get('weight', 1)  # Distância da estrada
+                    fuel_needed = edge_cost * vehicle.fuel_efficiency
+
+                    # Se o combustível não for suficiente, buscar a zona de supply mais próxima
+                    if fuel_left < fuel_needed:
+                        supply_path, supply_cost, supply_fuel_spent = self.find_nearest_supply(current_node, vehicle)
+
+                        if supply_path:  # Se houver uma zona de supply acessível
+                            # Atualizar o custo, combustível e continuar a busca a partir do supply
+                            vehicle.current_fuel = vehicle.fuel_capacity  # Reabastece o veículo
+                            fuel_left = vehicle.fuel_capacity - (fuel_needed - fuel_left)
+                            parent[supply_path[-1]] = current_node  # Define o supply como próximo nó
+                            current_node = supply_path[-1]  # Reposiciona para o supply
+                            cost += supply_cost
+                            fuel_spent += supply_fuel_spent
+                            break
+                        else:
+                            continue  # Se não há supply disponível, ignora este caminho
+
+                    # Calcular o custo acumulado para o vizinho
+                    new_cost = cost + edge_cost
+
+                    # Adicionar o vizinho à fila de prioridade com o novo custo
+                    if neighbor not in visited:
+                        heapq.heappush(priority_queue, (new_cost, neighbor, fuel_left - fuel_needed, fuel_spent + fuel_needed))
+                        parent[neighbor] = current_node
+
+        return None, float('inf'), float('inf')  # Nenhum caminho encontrado
+        
+    def find_nearest_supply(self, node, vehicle):
+        """
+        Encontra a zona de supply mais próxima dentro do alcance do combustível restante.
+
+        :param node: Nó de início.
+        :param vehicle: Veículo utilizado na busca.
+        :return: (caminho até a zona de supply, custo para alcançá-la, combustível total gasto) ou (None, infinito, infinito) se não for possível.
+        """
+        visited = set()
+        queue = [(0, node, vehicle.fuel_capacity, 0)]  # (custo acumulado, nó atual, combustível restante, combustível gasto)
+        parent = {node: None}  # Dicionário para reconstruir o caminho
+
+        while queue:
+            cost, current_node, remaining_fuel, fuel_spent = heapq.heappop(queue)
+
+            if current_node in visited:
+                continue
+            visited.add(current_node)
+
+            # Verifica se o nó atual é uma zona de supply
+            if self.graph.nodes[current_node].get('zone_type') == 'supply':
+                # Reconstruir o caminho
+                path = []
+                while current_node is not None:
+                    path.append(current_node)
+                    current_node = parent[current_node]
+                path.reverse()
+                return path, cost, fuel_spent
+
+            for neighbor in self.graph.neighbors(current_node):
+                edge_data = self.graph.get_edge_data(current_node, neighbor)
+                if edge_data.get('closed', False):  # Se a estrada estiver fechada
+                        continue
+                
+                edge_cost = edge_data.get('weight', 1)
+                fuel_needed = edge_cost * vehicle.fuel_efficiency
+
+                # Verifica se o combustível é suficiente para alcançar o vizinho, se não ignora vizinho
+                if remaining_fuel >= fuel_needed and neighbor not in visited:
+                    heapq.heappush(queue, (cost + edge_cost, neighbor, remaining_fuel - fuel_needed, fuel_spent + fuel_needed))
+                    parent[neighbor] = current_node
+
+        return None, float('inf'), float('inf')  # Nenhuma zona de supply acessível
