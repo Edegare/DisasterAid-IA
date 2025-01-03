@@ -140,9 +140,9 @@
         "population": 0,
         "critical_time": 0,
         "vehicles": [
-            {"id": "truck", "type": "truck"},
-            {"id": "car", "type": "car"},
-            {"id": "helicopter", "type": "helicopter"}
+            {"id": "truck", "type": "truck", "available": 25},
+            {"id": "car", "type": "car", "available": 20},
+            {"id": "helicopter", "type": "helicopter", "available": 20}
         ],
         "accessibility": ["car", "helicopter", "truck"],
         "accessible_zones": ["Tcherkassi", "Tchernigov", "Poltava", "Jitomir", "Vinnitsa"]
@@ -168,9 +168,9 @@
         "population": 0,
         "critical_time": "0",
         "vehicles": [
-            {"id": "truck", "type": "truck"},
-            {"id": "car", "type": "car"},
-            {"id": "helicopter", "type": "helicopter"}
+            {"id": "truck", "type": "truck","available": 25},
+            {"id": "car", "type": "car", "available": 20},
+            {"id": "helicopter", "type": "helicopter", "available": 20}
         ],
         "accessibility": ["car", "helicopter", "truck"],
         "accessible_zones": ["Transcarpatia","Ternopil", "Ivano-Frankivsk", "Rivne", "Volinia"]
@@ -191,7 +191,7 @@
         "id": "Odessa",
         "latitude": 46.4825,
         "longitude": 30.7233,
-        "zone_type": "supply",
+        "zone_type": "normal",
         "priority": 0,
         "population": 2469057,
         "critical_time": "0",
@@ -203,7 +203,7 @@
         "id": "Poltava",
         "latitude": 49.5883,
         "longitude": 34.5514,
-        "zone_type": "supply",
+        "zone_type": "normal",
         "priority": 0,
         "population": 1630092,
         "critical_time": "0",
