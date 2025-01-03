@@ -72,14 +72,13 @@ class MapGenerator:
 
     def display_graph(self):
         """
-        Mostra o grafo criado em formato gráfico.
+        Mostra o grafo criado em formato gráfico com as coordenadas reais.
         """
-        """ # Criar posição dos nós
-        pos = {node: (self.graph.nodes[node]['longitude'], self.graph.nodes[node]['latitude']) for node in self.graph.nodes}
-        plt.figure(figsize=(10, 8)) """
-
-        # cria posição mas ajusta dinamicamente para se ver melhor as arestas
-        pos = nx.spring_layout(self.graph, seed=42, k=0.3)  # 'k' controla a distância entre os nós
+        # Usar as coordenadas reais para posicionar os nós
+        pos = {
+            node: (self.graph.nodes[node]['longitude'], self.graph.nodes[node]['latitude'])
+            for node in self.graph.nodes
+        }
 
         plt.figure(figsize=(12, 10))
 
@@ -87,7 +86,6 @@ class MapGenerator:
         normal_nodes = [node for node, data in self.graph.nodes(data=True) if data['zone_type'] == 'normal']
         supply_nodes = [node for node, data in self.graph.nodes(data=True) if data['zone_type'] == 'supply']
         support_nodes = [node for node, data in self.graph.nodes(data=True) if data['zone_type'] == 'support']
-
 
         # distinguir estradas fechadas das abertas
         closed_edges = [(u, v) for u, v, d in self.graph.edges(data=True) if d.get('closed', False)]
@@ -108,7 +106,6 @@ class MapGenerator:
         # distância das arestas
         labels = nx.get_edge_attributes(self.graph, 'weight')
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels={k: f"{v:.2f} km" for k, v in labels.items()}, font_size=8)
-
 
         # Adicionar legenda
         plt.legend(scatterpoints=1)
