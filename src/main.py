@@ -6,6 +6,12 @@ import sys
 import json
 import matplotlib.pyplot as plt
 
+from utils.graph import print_graph
+from map.mapGenerator import MapGenerator
+from simulation.simulation import Simulation
+from simulation.sim import SimulationWithLimits
+
+
 def main():
 
     # Obter o caminho do ficheiro JSON do mapa
@@ -91,8 +97,12 @@ def main():
                     else: 
                         algorithm_type = algorithm_types[algorithm_choice]
 
-                        simulation = Simulation(graph, algorithm_type)
-                        simulation.start()
+                        """ simulation = Simulation(graph, algorithm_type)
+                        simulation.start() """
+                        simulation = SimulationWithLimits(graph, algorithm_type)
+                        simulation.start_simulation()
+
+
                 print("")
 
         elif option == 4:

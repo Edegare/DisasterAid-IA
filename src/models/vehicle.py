@@ -1,7 +1,7 @@
 # models/vehicle.py
 
 class Vehicle:
-    def __init__(self, id, capacity, range, fuel_efficiency, speed, fuel_capacity):
+    def __init__(self, id, capacity, range, fuel_efficiency, speed, fuel_capacity, available=0):
         """
         Classe que representa um veículo.
 
@@ -11,6 +11,7 @@ class Vehicle:
         :param fuel_efficiency: Consumo de combustível por quilómetro.
         :param speed: Velocidade do veículo (km/h).
         :param fuel_capacity: Capacidade máxima de combustível.
+        :param available: Número de unidades disponíveis deste tipo de veículo.
         """
         self.id = id
         self.capacity = capacity
@@ -20,6 +21,7 @@ class Vehicle:
         self.fuel_capacity = fuel_capacity
         self.current_load = 0
         self.current_fuel = fuel_capacity  # Inicializado com tanque cheio
+        self.available = available  # Número de unidades disponíveis
 
     def load_cargo(self, amount):
         """
@@ -54,17 +56,20 @@ class Vehicle:
     def __repr__(self):
         return (f"Vehicle(id={self.id}, capacity={self.capacity}, range={self.range}, "
                 f"fuel_efficiency={self.fuel_efficiency}, speed={self.speed}, "
-                f"fuel_capacity={self.fuel_capacity}, current_load={self.current_load}, "
-                f"current_fuel={self.current_fuel})")
+                f"fuel_capacity={self.fuel_capacity}, available={self.available}, "
+                f"current_load={self.current_load}, current_fuel={self.current_fuel})")
+
 
 class Car(Vehicle):
-    def __init__(self, id):
-        super().__init__(id, capacity=100000, range=400, fuel_efficiency=0.05, speed=60, fuel_capacity=200)
+    def __init__(self, id, available=20):
+        super().__init__(id, capacity=100000, range=400, fuel_efficiency=0.05, speed=60, fuel_capacity=200, available=available)
+
 
 class Helicopter(Vehicle):
-    def __init__(self, id):
-        super().__init__(id, capacity=50000, range=300, fuel_efficiency=0.25, speed=150, fuel_capacity=75)
+    def __init__(self, id, available=15):
+        super().__init__(id, capacity=50000, range=300, fuel_efficiency=0.25, speed=150, fuel_capacity=75, available=available)
+
 
 class Truck(Vehicle):
-    def __init__(self, id):
-        super().__init__(id, capacity=500000, range=600, fuel_efficiency=0.5, speed=40, fuel_capacity=300)
+    def __init__(self, id, available=25):
+        super().__init__(id, capacity=500000, range=600, fuel_efficiency=0.5, speed=40, fuel_capacity=300, available=available)
