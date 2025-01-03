@@ -166,6 +166,19 @@ class Simulation:
 
 
     def write_results_to_json(self, best_paths, graph):
+        """
+        Escreve os resultados dos melhores caminhos, incluindo dados adicionais, como:
+        - Melhor caminho.
+        - Tempo total de viagem por veículo.
+        - Hora de chegada com base no veículo que demora mais tempo.
+        - Critical time do nó final.
+
+        :param best_paths: Dicionário contendo os melhores caminhos calculados.
+        :param graph: Grafo representando o mapa.
+        """
+        import json
+        from datetime import datetime, timedelta
+
         results = []
 
         for end_node, path_data in best_paths.items():
@@ -174,8 +187,11 @@ class Simulation:
             population = graph.nodes[end_node].get('population', 0)
             distance = path_data['cost']
             vehicles = path_data.get('vehicles', [])
+            critical_time = graph.nodes[end_node].get('critical_time', "N/A")
 
             vehicle_details = []
+            arrival_times = []
+
             for vehicle_data in vehicles:
                 vehicle_type = vehicle_data['id']
                 quantity = vehicle_data['quantity']
@@ -206,19 +222,39 @@ class Simulation:
 
                     current_range -= edge_distance
 
+                # Calcular tempo total de viagem para este veículo
+                travel_time_hours = distance / vehicle.speed
+                arrival_time = datetime.now() + timedelta(hours=travel_time_hours)
+                arrival_times.append(arrival_time)
+
                 vehicle_details.append({
                     'type': vehicle_type,
                     'quantity': quantity,
-                    'refuels': refuels
+                    'refuels': refuels,
+                    'travel_time_hours': round(travel_time_hours, 2),
+                    'arrival_time': arrival_time.strftime("%Y-%m-%d %H:%M:%S")
                 })
 
+            # Determinar o tempo final de chegada (o maior tempo entre os veículos)
+            final_arrival_time = max(arrival_times) if arrival_times else None
+
+            # Converter o caminho para o formato "A -> B -> C"
+            formatted_path = " -> ".join(path)
+
+            # Adicionar os resultados
             results.append({
                 'start_node': start_node,
                 'end_node': end_node,
                 'population': population,
                 'distance': distance,
-                'vehicles': vehicle_details
+                'best_path': formatted_path,
+                'vehicles': vehicle_details,
+                'critical_time': critical_time,
+                'final_arrival_time': final_arrival_time.strftime("%Y-%m-%d %H:%M:%S") if final_arrival_time else "N/A"
             })
 
+        # Escrever no ficheiro JSON
         with open('results.json', 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=4)
+
+        print("Resultados escritos no ficheiro 'results.json'.")

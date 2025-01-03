@@ -4,40 +4,53 @@
         "end_node": "Dnipro",
         "population": 3567567,
         "distance": 434.22,
+        "best_path": "Kiev -> Poltava -> Dnipro",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 7,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 10.86,
+                "arrival_time": "2025-01-03 14:31:54"
             },
             {
                 "type": "car",
                 "quantity": 1,
                 "refuels": [
                     "Poltava"
-                ]
+                ],
+                "travel_time_hours": 7.24,
+                "arrival_time": "2025-01-03 10:54:48"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 14:31:54"
     },
     {
         "start_node": "Kiev",
         "end_node": "Donetsk",
         "population": 4841074,
-        "distance": 644.95,
+        "distance": 873.05,
+        "best_path": "Kiev -> Poltava -> Dnipro -> Kharkiv -> Donetsk",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 9,
                 "refuels": [
                     "Dnipro"
-                ]
+                ],
+                "travel_time_hours": 21.83,
+                "arrival_time": "2025-01-04 01:30:09"
             },
             {
                 "type": "car",
                 "quantity": 3,
                 "refuels": [
-                    "Poltava"
-                ]
+                    "Poltava",
+                    "Kharkiv"
+                ],
+                "travel_time_hours": 14.55,
+                "arrival_time": "2025-01-03 18:13:37"
             },
             {
                 "type": "helicopter",
@@ -45,28 +58,38 @@
                 "refuels": [
                     "Kiev",
                     "Poltava",
-                    "Dnipro"
-                ]
+                    "Dnipro",
+                    "Kharkiv"
+                ],
+                "travel_time_hours": 5.82,
+                "arrival_time": "2025-01-03 09:29:48"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-04 01:30:09"
     },
     {
         "start_node": "Kiev",
         "end_node": "Kharkiv",
         "population": 2914212,
         "distance": 433.15,
+        "best_path": "Kiev -> Poltava -> Kharkiv",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 5,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 10.83,
+                "arrival_time": "2025-01-03 14:30:18"
             },
             {
                 "type": "car",
                 "quantity": 4,
                 "refuels": [
                     "Poltava"
-                ]
+                ],
+                "travel_time_hours": 7.22,
+                "arrival_time": "2025-01-03 10:53:43"
             },
             {
                 "type": "helicopter",
@@ -74,91 +97,120 @@
                 "refuels": [
                     "Kiev",
                     "Poltava"
-                ]
+                ],
+                "travel_time_hours": 2.89,
+                "arrival_time": "2025-01-03 06:33:50"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 14:30:18"
     },
     {
         "start_node": "Kiev",
         "end_node": "Tcherkassi",
         "population": 1402969,
         "distance": 157.07,
+        "best_path": "Kiev -> Tcherkassi",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.93,
+                "arrival_time": "2025-01-03 07:36:11"
             },
             {
                 "type": "car",
                 "quantity": 4,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 2.62,
+                "arrival_time": "2025-01-03 06:17:39"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 1.05,
+                "arrival_time": "2025-01-03 04:43:24"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 07:36:11"
     },
     {
         "start_node": "Kiev",
         "end_node": "Kherson",
         "population": 1175122,
-        "distance": 707.69,
+        "distance": 494.56,
+        "best_path": "Kiev -> Tcherkassi -> Kirovogrado -> Mykolaiv -> Kherson",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": [
-                    "Dnipro"
-                ]
+                "refuels": [],
+                "travel_time_hours": 12.36,
+                "arrival_time": "2025-01-03 16:02:25"
             },
             {
                 "type": "car",
                 "quantity": 2,
                 "refuels": [
-                    "Poltava",
-                    "Dnipro"
-                ]
+                    "Kirovogrado"
+                ],
+                "travel_time_hours": 8.24,
+                "arrival_time": "2025-01-03 11:55:08"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 16:02:25"
     },
     {
         "start_node": "Kiev",
         "end_node": "Kirovogrado",
         "population": 1133052,
         "distance": 262.27,
+        "best_path": "Kiev -> Tcherkassi -> Kirovogrado",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 6.56,
+                "arrival_time": "2025-01-03 10:13:59"
             },
             {
                 "type": "car",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 4.37,
+                "arrival_time": "2025-01-03 08:02:51"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 1.75,
+                "arrival_time": "2025-01-03 05:25:29"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 10:13:59"
     },
     {
         "start_node": "Kiev",
         "end_node": "Lugansk",
         "population": 2546178,
         "distance": 707.07,
+        "best_path": "Kiev -> Poltava -> Kharkiv -> Lugansk",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 5,
                 "refuels": [
                     "Kharkiv"
-                ]
+                ],
+                "travel_time_hours": 17.68,
+                "arrival_time": "2025-01-03 21:21:11"
             },
             {
                 "type": "helicopter",
@@ -167,252 +219,352 @@
                     "Kiev",
                     "Poltava",
                     "Kharkiv"
-                ]
+                ],
+                "travel_time_hours": 4.71,
+                "arrival_time": "2025-01-03 08:23:24"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 21:21:11"
     },
     {
         "start_node": "Kiev",
         "end_node": "Tchernigov",
         "population": 1245260,
         "distance": 128.41,
+        "best_path": "Kiev -> Tchernigov",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.21,
+                "arrival_time": "2025-01-03 06:53:11"
             },
             {
                 "type": "car",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 2.14,
+                "arrival_time": "2025-01-03 05:48:59"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 0.86,
+                "arrival_time": "2025-01-03 04:31:56"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 06:53:11"
     },
     {
         "start_node": "Lviv",
         "end_node": "Tchernivtski",
         "population": 922817,
         "distance": 227.76,
+        "best_path": "Lviv -> Ivano-Frankivsk -> Tchernivtski",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 5.69,
+                "arrival_time": "2025-01-03 09:22:13"
             },
             {
                 "type": "car",
                 "quantity": 4,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.8,
+                "arrival_time": "2025-01-03 07:28:20"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 1.52,
+                "arrival_time": "2025-01-03 05:11:41"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 09:22:13"
     },
     {
         "start_node": "Lviv",
         "end_node": "Ivano-Frankivsk",
         "population": 1409760,
         "distance": 113.34,
+        "best_path": "Lviv -> Ivano-Frankivsk",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 2.83,
+                "arrival_time": "2025-01-03 06:30:35"
             },
             {
                 "type": "car",
                 "quantity": 4,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 1.89,
+                "arrival_time": "2025-01-03 05:33:55"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 0.76,
+                "arrival_time": "2025-01-03 04:25:55"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 06:30:35"
     },
     {
-        "start_node": "Lviv",
+        "start_node": "Kiev",
         "end_node": "Khmelnitski",
         "population": 1430775,
-        "distance": 219.24,
+        "distance": 310.37,
+        "best_path": "Kiev -> Vinnitsa -> Khmelnitski",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 7.76,
+                "arrival_time": "2025-01-03 11:26:08"
             },
             {
                 "type": "car",
                 "quantity": 4,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 5.17,
+                "arrival_time": "2025-01-03 08:50:57"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [
+                    "Vinnitsa"
+                ],
+                "travel_time_hours": 2.07,
+                "arrival_time": "2025-01-03 05:44:43"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 11:26:08"
     },
     {
         "start_node": "Kiev",
         "end_node": "Mykolaiv",
         "population": 1264743,
         "distance": 433.88,
+        "best_path": "Kiev -> Tcherkassi -> Kirovogrado -> Mykolaiv",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 10.85,
+                "arrival_time": "2025-01-03 14:31:24"
             },
             {
                 "type": "car",
                 "quantity": 3,
                 "refuels": [
                     "Kirovogrado"
-                ]
+                ],
+                "travel_time_hours": 7.23,
+                "arrival_time": "2025-01-03 10:54:27"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 14:31:24"
     },
     {
         "start_node": "Lviv",
         "end_node": "Rivne",
         "population": 1173304,
         "distance": 180.73,
+        "best_path": "Lviv -> Rivne",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 4.52,
+                "arrival_time": "2025-01-03 08:11:40"
             },
             {
                 "type": "car",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.01,
+                "arrival_time": "2025-01-03 06:41:18"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 08:11:40"
     },
     {
         "start_node": "Kiev",
         "end_node": "Sumi",
         "population": 1299746,
-        "distance": 382.26,
+        "distance": 451.94,
+        "best_path": "Kiev -> Poltava -> Sumi",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 11.3,
+                "arrival_time": "2025-01-03 14:58:29"
             },
             {
                 "type": "car",
                 "quantity": 3,
-                "refuels": []
+                "refuels": [
+                    "Poltava"
+                ],
+                "travel_time_hours": 7.53,
+                "arrival_time": "2025-01-03 11:12:31"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 14:58:29"
     },
     {
         "start_node": "Lviv",
         "end_node": "Ternopil",
         "population": 1142416,
-        "distance": 117.31,
+        "distance": 208.58,
+        "best_path": "Lviv -> Ivano-Frankivsk -> Ternopil",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 5.21,
+                "arrival_time": "2025-01-03 08:53:27"
             },
             {
                 "type": "car",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.48,
+                "arrival_time": "2025-01-03 07:09:09"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 1.39,
+                "arrival_time": "2025-01-03 05:04:00"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 08:53:27"
     },
     {
         "start_node": "Kiev",
         "end_node": "Vinnitsa",
         "population": 1772371,
         "distance": 199.83,
+        "best_path": "Kiev -> Vinnitsa",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 3,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 5.0,
+                "arrival_time": "2025-01-03 08:40:19"
             },
             {
                 "type": "car",
                 "quantity": 3,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.33,
+                "arrival_time": "2025-01-03 07:00:24"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 08:40:19"
     },
     {
         "start_node": "Lviv",
         "end_node": "Volinia",
         "population": 1060694,
         "distance": 136.8,
+        "best_path": "Lviv -> Volinia",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.42,
+                "arrival_time": "2025-01-03 07:05:46"
             },
             {
                 "type": "car",
                 "quantity": 1,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 2.28,
+                "arrival_time": "2025-01-03 05:57:22"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 07:05:46"
     },
     {
         "start_node": "Lviv",
         "end_node": "Transcarpatia",
         "population": 1258264,
         "distance": 185.65,
+        "best_path": "Lviv -> Transcarpatia",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 4.64,
+                "arrival_time": "2025-01-03 08:19:03"
             },
             {
                 "type": "car",
                 "quantity": 3,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.09,
+                "arrival_time": "2025-01-03 06:46:13"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 08:19:03"
     },
     {
         "start_node": "Kiev",
         "end_node": "Zaporijia",
         "population": 1929171,
         "distance": 504.16,
+        "best_path": "Kiev -> Poltava -> Dnipro -> Zaporijia",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 3,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 12.6,
+                "arrival_time": "2025-01-03 16:16:49"
             },
             {
                 "type": "car",
                 "quantity": 4,
                 "refuels": [
                     "Poltava"
-                ]
+                ],
+                "travel_time_hours": 8.4,
+                "arrival_time": "2025-01-03 12:04:44"
             },
             {
                 "type": "helicopter",
@@ -420,40 +572,54 @@
                 "refuels": [
                     "Kiev",
                     "Poltava"
-                ]
+                ],
+                "travel_time_hours": 3.36,
+                "arrival_time": "2025-01-03 07:02:14"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 16:16:49"
     },
     {
         "start_node": "Kiev",
         "end_node": "Jitomir",
         "population": 1389466,
         "distance": 134.48,
+        "best_path": "Kiev -> Jitomir",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 3.36,
+                "arrival_time": "2025-01-03 07:02:18"
             },
             {
                 "type": "car",
                 "quantity": 4,
-                "refuels": []
+                "refuels": [],
+                "travel_time_hours": 2.24,
+                "arrival_time": "2025-01-03 05:55:03"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 07:02:18"
     },
     {
         "start_node": "Kiev",
         "end_node": "Crimeia",
         "population": 2033736,
         "distance": 927.55,
+        "best_path": "Kiev -> Poltava -> Dnipro -> Kherson -> Crimeia",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 4,
                 "refuels": [
                     "Dnipro"
-                ]
+                ],
+                "travel_time_hours": 23.19,
+                "arrival_time": "2025-01-04 02:51:54"
             },
             {
                 "type": "helicopter",
@@ -463,8 +629,12 @@
                     "Poltava",
                     "Dnipro",
                     "Kherson"
-                ]
+                ],
+                "travel_time_hours": 6.18,
+                "arrival_time": "2025-01-03 09:51:36"
             }
-        ]
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-04 02:51:54"
     }
 ]
