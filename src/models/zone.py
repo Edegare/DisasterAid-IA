@@ -1,3 +1,5 @@
+# models/zone.py
+
 class Zone:
     def __init__(self, id, priority, population, critical_time, vehicles=None):
         """

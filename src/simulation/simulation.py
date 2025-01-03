@@ -1,11 +1,15 @@
+# simulation/simulation.py
+
+from search import DFS
+from search import BFS
+from search import UCS
+from search import GreedyBestFirstSearch
+from search import AStar
+from models import Truck, Car, Helicopter
+
 from datetime import datetime
+
 import json
-from search.dfs import DFS
-from search.bfs import BFS
-from search.ucs import UCS
-from search.greedy import GreedyBestFirstSearch
-from search.astar import AStar
-from models.vehicle import Truck, Car, Helicopter
 
 class Simulation:
     def __init__(self, graph, algorithm_type):

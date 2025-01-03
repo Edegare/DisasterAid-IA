@@ -1,9 +1,10 @@
+from utils import print_graph
+from map import MapGenerator
+from simulation import Simulation
+
 import sys
 import json
 import matplotlib.pyplot as plt
-from utils.graph import print_graph
-from map.mapGenerator import MapGenerator
-from simulation.simulation import Simulation
 
 def main():
 
