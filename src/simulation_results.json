@@ -18,7 +18,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-03 18:01:52"
+        "estimated_delivery_time": "2025-01-03 18:18:12"
     },
     {
         "start_node": "Kiev",
@@ -39,7 +39,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-03 17:18:53"
+        "estimated_delivery_time": "2025-01-03 17:35:12"
     },
     {
         "start_node": "Lviv",
@@ -60,7 +60,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-03 19:47:54"
+        "estimated_delivery_time": "2025-01-03 20:04:14"
     },
     {
         "start_node": "Kiev",
@@ -77,7 +77,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-04 13:17:35"
+        "estimated_delivery_time": "2025-01-04 13:33:55"
     },
     {
         "start_node": "Kiev",
@@ -94,7 +94,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-04 00:57:35"
+        "estimated_delivery_time": "2025-01-04 01:13:55"
     },
     {
         "start_node": "Kiev",
@@ -115,7 +115,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-04 06:13:42"
+        "estimated_delivery_time": "2025-01-04 06:30:01"
     },
     {
         "start_node": "Lviv",
@@ -136,7 +136,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-04 16:07:36"
+        "estimated_delivery_time": "2025-01-04 16:23:56"
     },
     {
         "start_node": "Kiev",
@@ -157,13 +157,13 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-05 00:07:19"
+        "estimated_delivery_time": "2025-01-05 00:23:39"
     },
     {
         "start_node": "Kiev",
         "end_node": "Kherson",
         "population": 1175122,
-        "distance": 707.6882688374529,
+        "distance": 494.5583850192922,
         "vehicles": [
             {
                 "id": "truck",
@@ -174,13 +174,13 @@
                 "quantity": 2
             }
         ],
-        "estimated_delivery_time": "2025-01-05 06:59:07"
+        "estimated_delivery_time": "2025-01-05 01:55:45"
     },
     {
-        "start_node": "Kiev",
+        "start_node": "Lviv",
         "end_node": "Khmelnitski",
         "population": 1430775,
-        "distance": 286.2440031234096,
+        "distance": 219.2442090485516,
         "vehicles": [
             {
                 "id": "truck",
@@ -195,7 +195,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-04 20:26:57"
+        "estimated_delivery_time": "2025-01-04 19:02:47"
     },
     {
         "start_node": "Kiev",
@@ -216,7 +216,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-04 19:51:00"
+        "estimated_delivery_time": "2025-01-04 20:07:19"
     },
     {
         "start_node": "Kiev",
@@ -233,7 +233,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-05 06:58:12"
+        "estimated_delivery_time": "2025-01-05 07:14:32"
     },
     {
         "start_node": "Kiev",
@@ -250,7 +250,7 @@
                 "quantity": 3
             }
         ],
-        "estimated_delivery_time": "2025-01-05 00:08:25"
+        "estimated_delivery_time": "2025-01-05 00:24:45"
     },
     {
         "start_node": "Kiev",
@@ -263,7 +263,7 @@
                 "quantity": 5
             }
         ],
-        "estimated_delivery_time": "2025-01-05 02:10:55"
+        "estimated_delivery_time": "2025-01-05 02:27:14"
     },
     {
         "start_node": "Kiev",
@@ -284,7 +284,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-05 14:35:19"
+        "estimated_delivery_time": "2025-01-05 14:50:43"
     },
     {
         "start_node": "Lviv",
@@ -301,13 +301,13 @@
                 "quantity": 2
             }
         ],
-        "estimated_delivery_time": "2025-01-05 11:30:13"
+        "estimated_delivery_time": "2025-01-05 11:45:37"
     },
     {
         "start_node": "Kiev",
         "end_node": "Sumi",
         "population": 1299746,
-        "distance": 382.2599849470324,
+        "distance": 451.94061141895304,
         "vehicles": [
             {
                 "id": "truck",
@@ -318,13 +318,13 @@
                 "quantity": 3
             }
         ],
-        "estimated_delivery_time": "2025-01-05 16:32:31"
+        "estimated_delivery_time": "2025-01-05 18:32:26"
     },
     {
         "start_node": "Lviv",
         "end_node": "Ternopil",
         "population": 1142416,
-        "distance": 208.58334690120492,
+        "distance": 117.31417581085606,
         "vehicles": [
             {
                 "id": "truck",
@@ -339,7 +339,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-05 12:12:00"
+        "estimated_delivery_time": "2025-01-05 10:10:30"
     },
     {
         "start_node": "Kiev",
@@ -356,7 +356,7 @@
                 "quantity": 3
             }
         ],
-        "estimated_delivery_time": "2025-01-05 11:58:52"
+        "estimated_delivery_time": "2025-01-05 12:14:16"
     },
     {
         "start_node": "Lviv",
@@ -373,7 +373,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-05 10:24:19"
+        "estimated_delivery_time": "2025-01-05 10:39:43"
     },
     {
         "start_node": "Lviv",
@@ -390,7 +390,7 @@
                 "quantity": 3
             }
         ],
-        "estimated_delivery_time": "2025-01-05 11:37:36"
+        "estimated_delivery_time": "2025-01-05 11:53:00"
     },
     {
         "start_node": "Kiev",
@@ -411,7 +411,7 @@
                 "quantity": 1
             }
         ],
-        "estimated_delivery_time": "2025-01-05 19:35:22"
+        "estimated_delivery_time": "2025-01-05 19:50:46"
     },
     {
         "start_node": "Kiev",
@@ -428,6 +428,6 @@
                 "quantity": 4
             }
         ],
-        "estimated_delivery_time": "2025-01-05 22:57:05"
+        "estimated_delivery_time": "2025-01-05 23:12:29"
     }
 ]
