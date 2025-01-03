@@ -1,1625 +1,346 @@
 [
     {
-        "start_node": "Kiev",
-        "end_node": "Tcherkassi",
-        "population": 1402969,
-        "distance": 157.07,
-        "best_path": "Kiev -> Tcherkassi",
+        "start_node": "Braga",
+        "end_node": "Amares",
+        "population": 18000,
+        "distance": 11.33,
+        "best_path": "Braga -> Amares",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.93
-                    }
-                ],
-                "total_travel_time": 3.93,
-                "arrival_time": "2025-01-03 22:05:31"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.62
-                    }
-                ],
-                "total_travel_time": 2.62,
-                "arrival_time": "2025-01-03 20:46:55"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
+                        "from": "Braga",
+                        "to": "Amares",
                         "weather": "Sol",
-                        "distance": 157.0712181119307,
+                        "distance": 11.337848115108189,
                         "adjusted_speed": 150.0,
-                        "travel_time_hours": 1.05
+                        "travel_time_hours": 0.08
                     }
                 ],
-                "total_travel_time": 1.05,
-                "arrival_time": "2025-01-03 19:12:43"
+                "total_travel_time": 0.08,
+                "arrival_time": "2025-01-03 18:26:28"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-03 22:05:31"
+        "final_arrival_time": "2025-01-03 18:26:28"
     },
     {
-        "start_node": "Kiev",
-        "end_node": "Tchernigov",
-        "population": 1245260,
-        "distance": 128.4,
-        "best_path": "Kiev -> Tchernigov",
+        "start_node": "Braga",
+        "end_node": "Terras de Bouro",
+        "population": 7000,
+        "distance": 23.24,
+        "best_path": "Braga -> Amares -> Terras de Bouro",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tchernigov",
-                        "weather": "Sol",
-                        "distance": 128.40804598639272,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.21
-                    }
-                ],
-                "total_travel_time": 3.21,
-                "arrival_time": "2025-01-03 21:22:19"
-            },
-            {
-                "type": "car",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tchernigov",
-                        "weather": "Sol",
-                        "distance": 128.40804598639272,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.14
-                    }
-                ],
-                "total_travel_time": 2.14,
-                "arrival_time": "2025-01-03 20:18:07"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Kiev",
-                        "to": "Tchernigov",
+                        "from": "Braga",
+                        "to": "Amares",
                         "weather": "Sol",
-                        "distance": 128.40804598639272,
+                        "distance": 11.337848115108189,
                         "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.86
+                        "travel_time_hours": 0.08
+                    },
+                    {
+                        "from": "Amares",
+                        "to": "Terras de Bouro",
+                        "weather": "Sol",
+                        "distance": 11.90791008740326,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.08
                     }
                 ],
-                "total_travel_time": 0.86,
-                "arrival_time": "2025-01-03 19:01:19"
+                "total_travel_time": 0.16,
+                "arrival_time": "2025-01-03 18:31:16"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:22:19"
+        "final_arrival_time": "2025-01-03 18:31:16"
     },
     {
-        "start_node": "Lviv",
-        "end_node": "Tchernivtski",
-        "population": 922817,
-        "distance": 227.75,
-        "best_path": "Lviv -> Ivano-Frankivsk -> Tchernivtski",
+        "start_node": "Braga",
+        "end_node": "Povoa de Lanhoso",
+        "population": 15000,
+        "distance": 13.65,
+        "best_path": "Braga -> Povoa de Lanhoso",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ivano-Frankivsk",
-                        "weather": "Sol",
-                        "distance": 113.33775937033833,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 2.83
-                    },
-                    {
-                        "from": "Ivano-Frankivsk",
-                        "to": "Tchernivtski",
-                        "weather": "Sol",
-                        "distance": 114.42161539633582,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 2.86
-                    }
-                ],
-                "total_travel_time": 5.69,
-                "arrival_time": "2025-01-03 23:51:07"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ivano-Frankivsk",
-                        "weather": "Sol",
-                        "distance": 113.33775937033833,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 1.89
-                    },
-                    {
-                        "from": "Ivano-Frankivsk",
-                        "to": "Tchernivtski",
-                        "weather": "Sol",
-                        "distance": 114.42161539633582,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 1.91
-                    }
-                ],
-                "total_travel_time": 3.8,
-                "arrival_time": "2025-01-03 21:57:43"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Lviv",
-                        "to": "Ivano-Frankivsk",
-                        "weather": "Sol",
-                        "distance": 113.33775937033833,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.76
-                    },
-                    {
-                        "from": "Ivano-Frankivsk",
-                        "to": "Tchernivtski",
-                        "weather": "Sol",
-                        "distance": 114.42161539633582,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.76
-                    }
-                ],
-                "total_travel_time": 1.52,
-                "arrival_time": "2025-01-03 19:40:55"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 23:51:07"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Crimeia",
-        "population": 2033736,
-        "distance": 927.55,
-        "best_path": "Kiev -> Poltava -> Dnipro -> Kherson -> Crimeia",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 4,
-                "refuels": [
-                    "Dnipro"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.25
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Kherson",
-                        "weather": "Sol",
-                        "distance": 273.4712708650674,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 6.84
-                    },
-                    {
-                        "from": "Kherson",
-                        "to": "Crimeia",
+                        "from": "Braga",
+                        "to": "Povoa de Lanhoso",
                         "weather": "Nevoeiro",
-                        "distance": 219.86306858707977,
-                        "adjusted_speed": 28.0,
-                        "travel_time_hours": 7.85
-                    }
-                ],
-                "total_travel_time": 25.54,
-                "arrival_time": "2025-01-04 19:42:07"
-            },
-            {
-                "type": "helicopter",
-                "quantity": 1,
-                "refuels": [
-                    "Kiev",
-                    "Poltava",
-                    "Dnipro",
-                    "Kherson"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 2.03
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.87
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Kherson",
-                        "weather": "Sol",
-                        "distance": 273.4712708650674,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 1.82
-                    },
-                    {
-                        "from": "Kherson",
-                        "to": "Crimeia",
-                        "weather": "Nevoeiro",
-                        "distance": 219.86306858707977,
+                        "distance": 13.656779233194044,
                         "adjusted_speed": 105.0,
-                        "travel_time_hours": 2.09
+                        "travel_time_hours": 0.13
                     }
                 ],
-                "total_travel_time": 6.81,
-                "arrival_time": "2025-01-04 00:58:19"
+                "total_travel_time": 0.13,
+                "arrival_time": "2025-01-03 18:29:28"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 19:42:07"
+        "final_arrival_time": "2025-01-03 18:29:28"
     },
     {
-        "start_node": "Kiev",
-        "end_node": "Dnipro",
-        "population": 3567567,
-        "distance": 434.21,
-        "best_path": "Kiev -> Poltava -> Dnipro",
+        "start_node": "Braga",
+        "end_node": "Guimaraes",
+        "population": 80000,
+        "distance": 15.61,
+        "best_path": "Braga -> Guimaraes",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 7,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.25
-                    }
-                ],
-                "total_travel_time": 10.85,
-                "arrival_time": "2025-01-04 05:00:43"
-            },
             {
                 "type": "car",
                 "quantity": 1,
-                "refuels": [
-                    "Poltava"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 5.07
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.17
-                    }
-                ],
-                "total_travel_time": 7.24,
-                "arrival_time": "2025-01-04 01:24:07"
-            }
-        ],
-        "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 05:00:43"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Donetsk",
-        "population": 4841074,
-        "distance": 644.95,
-        "best_path": "Kiev -> Poltava -> Dnipro -> Donetsk",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 9,
-                "refuels": [
-                    "Dnipro"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.25
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Donetsk",
-                        "weather": "Sol",
-                        "distance": 210.73579470787473,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 5.27
-                    }
-                ],
-                "total_travel_time": 16.12,
-                "arrival_time": "2025-01-04 10:16:55"
-            },
-            {
-                "type": "car",
-                "quantity": 3,
-                "refuels": [
-                    "Poltava"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 5.07
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.17
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Donetsk",
-                        "weather": "Sol",
-                        "distance": 210.73579470787473,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 3.51
-                    }
-                ],
-                "total_travel_time": 10.75,
-                "arrival_time": "2025-01-04 04:54:43"
-            },
-            {
-                "type": "helicopter",
-                "quantity": 1,
-                "refuels": [
-                    "Kiev",
-                    "Poltava",
-                    "Dnipro"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 2.03
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.87
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Donetsk",
-                        "weather": "Sol",
-                        "distance": 210.73579470787473,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 1.4
-                    }
-                ],
-                "total_travel_time": 4.3,
-                "arrival_time": "2025-01-03 22:27:43"
-            }
-        ],
-        "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 10:16:55"
-    },
-    {
-        "start_node": "Lviv",
-        "end_node": "Ivano-Frankivsk",
-        "population": 1409760,
-        "distance": 113.33,
-        "best_path": "Lviv -> Ivano-Frankivsk",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Lviv",
-                        "to": "Ivano-Frankivsk",
+                        "from": "Braga",
+                        "to": "Guimaraes",
                         "weather": "Sol",
-                        "distance": 113.33775937033833,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 2.83
-                    }
-                ],
-                "total_travel_time": 2.83,
-                "arrival_time": "2025-01-03 20:59:31"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ivano-Frankivsk",
-                        "weather": "Sol",
-                        "distance": 113.33775937033833,
+                        "distance": 15.619364271359178,
                         "adjusted_speed": 60.0,
-                        "travel_time_hours": 1.89
+                        "travel_time_hours": 0.26
                     }
                 ],
-                "total_travel_time": 1.89,
-                "arrival_time": "2025-01-03 20:03:07"
-            },
-            {
-                "type": "helicopter",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ivano-Frankivsk",
-                        "weather": "Sol",
-                        "distance": 113.33775937033833,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.76
-                    }
-                ],
-                "total_travel_time": 0.76,
-                "arrival_time": "2025-01-03 18:55:19"
+                "total_travel_time": 0.26,
+                "arrival_time": "2025-01-03 18:37:16"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 20:59:31"
+        "final_arrival_time": "2025-01-03 18:37:16"
     },
     {
-        "start_node": "Kiev",
-        "end_node": "Kharkiv",
-        "population": 2914212,
-        "distance": 433.14,
-        "best_path": "Kiev -> Poltava -> Kharkiv",
+        "start_node": "Braga",
+        "end_node": "Vizela",
+        "population": 24000,
+        "distance": 22.2,
+        "best_path": "Braga -> Guimaraes -> Vizela",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 5,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Kharkiv",
-                        "weather": "Sol",
-                        "distance": 129.0219738648572,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.23
-                    }
-                ],
-                "total_travel_time": 10.83,
-                "arrival_time": "2025-01-04 04:59:31"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [
-                    "Poltava"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 5.07
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Kharkiv",
-                        "weather": "Sol",
-                        "distance": 129.0219738648572,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.15
-                    }
-                ],
-                "total_travel_time": 7.22,
-                "arrival_time": "2025-01-04 01:22:55"
-            },
-            {
-                "type": "helicopter",
-                "quantity": 1,
-                "refuels": [
-                    "Kiev",
-                    "Poltava"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 2.03
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Kharkiv",
-                        "weather": "Sol",
-                        "distance": 129.0219738648572,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.86
-                    }
-                ],
-                "total_travel_time": 2.89,
-                "arrival_time": "2025-01-03 21:03:07"
-            }
-        ],
-        "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 04:59:31"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Kherson",
-        "population": 1175122,
-        "distance": 707.68,
-        "best_path": "Kiev -> Poltava -> Dnipro -> Kherson",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [
-                    "Dnipro"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.25
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Kherson",
-                        "weather": "Sol",
-                        "distance": 273.4712708650674,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 6.84
-                    }
-                ],
-                "total_travel_time": 17.69,
-                "arrival_time": "2025-01-04 11:51:07"
-            },
-            {
-                "type": "car",
-                "quantity": 2,
-                "refuels": [
-                    "Poltava",
-                    "Dnipro"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 5.07
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.17
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Kherson",
-                        "weather": "Sol",
-                        "distance": 273.4712708650674,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 4.56
-                    }
-                ],
-                "total_travel_time": 11.8,
-                "arrival_time": "2025-01-04 05:57:43"
-            }
-        ],
-        "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 11:51:07"
-    },
-    {
-        "start_node": "Lviv",
-        "end_node": "Khmelnitski",
-        "population": 1430775,
-        "distance": 219.24,
-        "best_path": "Lviv -> Ternopil -> Khmelnitski",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ternopil",
-                        "weather": "Chuva",
-                        "distance": 117.31417581085606,
-                        "adjusted_speed": 34.0,
-                        "travel_time_hours": 3.45
-                    },
-                    {
-                        "from": "Ternopil",
-                        "to": "Khmelnitski",
-                        "weather": "Chuva",
-                        "distance": 101.93003323769554,
-                        "adjusted_speed": 34.0,
-                        "travel_time_hours": 3.0
-                    }
-                ],
-                "total_travel_time": 6.45,
-                "arrival_time": "2025-01-04 00:36:43"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ternopil",
-                        "weather": "Chuva",
-                        "distance": 117.31417581085606,
-                        "adjusted_speed": 51.0,
-                        "travel_time_hours": 2.3
-                    },
-                    {
-                        "from": "Ternopil",
-                        "to": "Khmelnitski",
-                        "weather": "Chuva",
-                        "distance": 101.93003323769554,
-                        "adjusted_speed": 51.0,
-                        "travel_time_hours": 2.0
-                    }
-                ],
-                "total_travel_time": 4.3,
-                "arrival_time": "2025-01-03 22:27:43"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Lviv",
-                        "to": "Ternopil",
+                        "from": "Braga",
+                        "to": "Guimaraes",
+                        "weather": "Sol",
+                        "distance": 15.619364271359178,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.1
+                    },
+                    {
+                        "from": "Guimaraes",
+                        "to": "Vizela",
+                        "weather": "Sol",
+                        "distance": 6.58063607986476,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.04
+                    }
+                ],
+                "total_travel_time": 0.14,
+                "arrival_time": "2025-01-03 18:30:04"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:30:04"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Vila Verde",
+        "population": 21000,
+        "distance": 11.71,
+        "best_path": "Braga -> Vila Verde",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Vila Verde",
                         "weather": "Chuva",
-                        "distance": 117.31417581085606,
+                        "distance": 11.718730610691113,
                         "adjusted_speed": 127.5,
-                        "travel_time_hours": 0.92
-                    },
-                    {
-                        "from": "Ternopil",
-                        "to": "Khmelnitski",
-                        "weather": "Chuva",
-                        "distance": 101.93003323769554,
-                        "adjusted_speed": 127.5,
-                        "travel_time_hours": 0.8
+                        "travel_time_hours": 0.09
                     }
                 ],
-                "total_travel_time": 1.72,
-                "arrival_time": "2025-01-03 19:52:55"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 00:36:43"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Kirovogrado",
-        "population": 1133052,
-        "distance": 262.26,
-        "best_path": "Kiev -> Tcherkassi -> Kirovogrado",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.93
-                    },
-                    {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Nevoeiro",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 28.0,
-                        "travel_time_hours": 3.76
-                    }
-                ],
-                "total_travel_time": 7.69,
-                "arrival_time": "2025-01-04 01:51:07"
-            },
-            {
-                "type": "car",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.62
-                    },
-                    {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Nevoeiro",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 42.0,
-                        "travel_time_hours": 2.5
-                    }
-                ],
-                "total_travel_time": 5.12,
-                "arrival_time": "2025-01-03 23:16:55"
-            },
-            {
-                "type": "helicopter",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 1.05
-                    },
-                    {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Nevoeiro",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 105.0,
-                        "travel_time_hours": 1.0
-                    }
-                ],
-                "total_travel_time": 2.05,
-                "arrival_time": "2025-01-03 20:12:43"
+                "total_travel_time": 0.09,
+                "arrival_time": "2025-01-03 18:27:04"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 01:51:07"
+        "final_arrival_time": "2025-01-03 18:27:04"
     },
     {
-        "start_node": "Kiev",
-        "end_node": "Lugansk",
-        "population": 2546178,
-        "distance": 707.07,
-        "best_path": "Kiev -> Poltava -> Kharkiv -> Lugansk",
+        "start_node": "Vila Nova de Famalicao",
+        "end_node": "Fafe",
+        "population": 30000,
+        "distance": 29.5,
+        "best_path": "Vila Nova de Famalicao -> Guimaraes -> Fafe",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 5,
-                "refuels": [
-                    "Kharkiv"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Kharkiv",
-                        "weather": "Sol",
-                        "distance": 129.0219738648572,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.23
-                    },
-                    {
-                        "from": "Kharkiv",
-                        "to": "Lugansk",
-                        "weather": "Chuva",
-                        "distance": 273.92131992026907,
-                        "adjusted_speed": 34.0,
-                        "travel_time_hours": 8.06
-                    }
-                ],
-                "total_travel_time": 18.89,
-                "arrival_time": "2025-01-04 13:03:07"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": [
-                    "Kiev",
-                    "Poltava",
-                    "Kharkiv"
-                ],
+                "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Kiev",
-                        "to": "Poltava",
+                        "from": "Vila Nova de Famalicao",
+                        "to": "Guimaraes",
                         "weather": "Sol",
-                        "distance": 304.12784842500633,
+                        "distance": 19.134044001097102,
                         "adjusted_speed": 150.0,
-                        "travel_time_hours": 2.03
+                        "travel_time_hours": 0.13
                     },
                     {
-                        "from": "Poltava",
-                        "to": "Kharkiv",
+                        "from": "Guimaraes",
+                        "to": "Fafe",
                         "weather": "Sol",
-                        "distance": 129.0219738648572,
+                        "distance": 10.375901562606982,
                         "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.86
-                    },
-                    {
-                        "from": "Kharkiv",
-                        "to": "Lugansk",
-                        "weather": "Chuva",
-                        "distance": 273.92131992026907,
-                        "adjusted_speed": 127.5,
-                        "travel_time_hours": 2.15
+                        "travel_time_hours": 0.07
                     }
                 ],
-                "total_travel_time": 5.04,
-                "arrival_time": "2025-01-03 23:12:07"
+                "total_travel_time": 0.2,
+                "arrival_time": "2025-01-03 18:33:40"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:33:40"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Esposende",
+        "population": 25000,
+        "distance": 29.55,
+        "best_path": "Braga -> Barcelos -> Esposende",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Barcelos",
+                        "weather": "Sol",
+                        "distance": 15.753733320965438,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    },
+                    {
+                        "from": "Barcelos",
+                        "to": "Esposende",
+                        "weather": "Sol",
+                        "distance": 13.799521467978924,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.09
+                    }
+                ],
+                "total_travel_time": 0.2,
+                "arrival_time": "2025-01-03 18:33:40"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 13:03:07"
+        "final_arrival_time": "2025-01-03 18:33:40"
     },
     {
-        "start_node": "Kiev",
-        "end_node": "Mykolaiv",
-        "population": 1264743,
-        "distance": 433.88,
-        "best_path": "Kiev -> Tcherkassi -> Kirovogrado -> Mykolaiv",
+        "start_node": "Vila Nova de Famalicao",
+        "end_node": "Cabeceiras de Basto",
+        "population": 16000,
+        "distance": 45.82,
+        "best_path": "Vila Nova de Famalicao -> Guimaraes -> Fafe -> Cabeceiras de Basto",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.93
-                    },
-                    {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Nevoeiro",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 28.0,
-                        "travel_time_hours": 3.76
-                    },
-                    {
-                        "from": "Kirovogrado",
-                        "to": "Mykolaiv",
-                        "weather": "Sol",
-                        "distance": 171.614016961715,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 4.29
-                    }
-                ],
-                "total_travel_time": 11.98,
-                "arrival_time": "2025-01-04 06:08:31"
-            },
-            {
-                "type": "car",
-                "quantity": 3,
-                "refuels": [
-                    "Kirovogrado"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tcherkassi",
-                        "weather": "Sol",
-                        "distance": 157.0712181119307,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.62
-                    },
-                    {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Nevoeiro",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 42.0,
-                        "travel_time_hours": 2.5
-                    },
-                    {
-                        "from": "Kirovogrado",
-                        "to": "Mykolaiv",
-                        "weather": "Sol",
-                        "distance": 171.614016961715,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.86
-                    }
-                ],
-                "total_travel_time": 7.98,
-                "arrival_time": "2025-01-04 02:08:31"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 06:08:31"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Odessa",
-        "population": 2469057,
-        "distance": 548.63,
-        "best_path": "Kiev -> Vinnitsa -> Odessa",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 5,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Vinnitsa",
-                        "weather": "Sol",
-                        "distance": 199.82675366598372,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 5.0
-                    },
-                    {
-                        "from": "Vinnitsa",
-                        "to": "Odessa",
-                        "weather": "Sol",
-                        "distance": 348.8053411763309,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 8.72
-                    }
-                ],
-                "total_travel_time": 13.72,
-                "arrival_time": "2025-01-04 07:52:55"
-            }
-        ],
-        "critical_time": "0",
-        "final_arrival_time": "2025-01-04 07:52:55"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Poltava",
-        "population": 1630092,
-        "distance": 304.12,
-        "best_path": "Kiev -> Poltava",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 3,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    }
-                ],
-                "total_travel_time": 7.6,
-                "arrival_time": "2025-01-04 01:45:43"
-            },
-            {
-                "type": "car",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 5.07
-                    }
-                ],
-                "total_travel_time": 5.07,
-                "arrival_time": "2025-01-03 23:13:55"
-            },
-            {
-                "type": "helicopter",
-                "quantity": 1,
-                "refuels": [
-                    "Kiev"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 2.03
-                    }
-                ],
-                "total_travel_time": 2.03,
-                "arrival_time": "2025-01-03 20:11:31"
-            }
-        ],
-        "critical_time": "0",
-        "final_arrival_time": "2025-01-04 01:45:43"
-    },
-    {
-        "start_node": "Lviv",
-        "end_node": "Rivne",
-        "population": 1173304,
-        "distance": 180.72,
-        "best_path": "Lviv -> Rivne",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Rivne",
-                        "weather": "Sol",
-                        "distance": 180.72792192548926,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 4.52
-                    }
-                ],
-                "total_travel_time": 4.52,
-                "arrival_time": "2025-01-03 22:40:55"
-            },
-            {
-                "type": "car",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Rivne",
-                        "weather": "Sol",
-                        "distance": 180.72792192548926,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 3.01
-                    }
-                ],
-                "total_travel_time": 3.01,
-                "arrival_time": "2025-01-03 21:10:19"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 22:40:55"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Sumi",
-        "population": 1299746,
-        "distance": 382.25,
-        "best_path": "Kiev -> Tchernigov -> Sumi",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tchernigov",
-                        "weather": "Sol",
-                        "distance": 128.40804598639272,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.21
-                    },
-                    {
-                        "from": "Tchernigov",
-                        "to": "Sumi",
-                        "weather": "Nevoeiro",
-                        "distance": 253.85193896063973,
-                        "adjusted_speed": 28.0,
-                        "travel_time_hours": 9.07
-                    }
-                ],
-                "total_travel_time": 12.28,
-                "arrival_time": "2025-01-04 06:26:31"
-            },
-            {
-                "type": "car",
-                "quantity": 3,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Tchernigov",
-                        "weather": "Sol",
-                        "distance": 128.40804598639272,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.14
-                    },
-                    {
-                        "from": "Tchernigov",
-                        "to": "Sumi",
-                        "weather": "Nevoeiro",
-                        "distance": 253.85193896063973,
-                        "adjusted_speed": 42.0,
-                        "travel_time_hours": 6.04
-                    }
-                ],
-                "total_travel_time": 8.18,
-                "arrival_time": "2025-01-04 02:20:31"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 06:26:31"
-    },
-    {
-        "start_node": "Lviv",
-        "end_node": "Ternopil",
-        "population": 1142416,
-        "distance": 117.31,
-        "best_path": "Lviv -> Ternopil",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ternopil",
-                        "weather": "Chuva",
-                        "distance": 117.31417581085606,
-                        "adjusted_speed": 34.0,
-                        "travel_time_hours": 3.45
-                    }
-                ],
-                "total_travel_time": 3.45,
-                "arrival_time": "2025-01-03 21:36:43"
-            },
-            {
-                "type": "car",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Ternopil",
-                        "weather": "Chuva",
-                        "distance": 117.31417581085606,
-                        "adjusted_speed": 51.0,
-                        "travel_time_hours": 2.3
-                    }
-                ],
-                "total_travel_time": 2.3,
-                "arrival_time": "2025-01-03 20:27:43"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Lviv",
-                        "to": "Ternopil",
-                        "weather": "Chuva",
-                        "distance": 117.31417581085606,
-                        "adjusted_speed": 127.5,
-                        "travel_time_hours": 0.92
+                        "from": "Vila Nova de Famalicao",
+                        "to": "Guimaraes",
+                        "weather": "Sol",
+                        "distance": 19.134044001097102,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.13
+                    },
+                    {
+                        "from": "Guimaraes",
+                        "to": "Fafe",
+                        "weather": "Sol",
+                        "distance": 10.375901562606982,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.07
+                    },
+                    {
+                        "from": "Fafe",
+                        "to": "Cabeceiras de Basto",
+                        "weather": "Sol",
+                        "distance": 16.31025473957145,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
                     }
                 ],
-                "total_travel_time": 0.92,
-                "arrival_time": "2025-01-03 19:04:55"
+                "total_travel_time": 0.31,
+                "arrival_time": "2025-01-03 18:40:16"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:36:43"
+        "final_arrival_time": "2025-01-03 18:40:16"
     },
     {
-        "start_node": "Kiev",
-        "end_node": "Vinnitsa",
-        "population": 1772371,
-        "distance": 199.82,
-        "best_path": "Kiev -> Vinnitsa",
+        "start_node": "Vila Nova de Famalicao",
+        "end_node": "Celorico de Basto",
+        "population": 14000,
+        "distance": 45.75,
+        "best_path": "Vila Nova de Famalicao -> Guimaraes -> Fafe -> Celorico de Basto",
         "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 3,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Vinnitsa",
-                        "weather": "Sol",
-                        "distance": 199.82675366598372,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 5.0
-                    }
-                ],
-                "total_travel_time": 5.0,
-                "arrival_time": "2025-01-03 23:09:43"
-            },
-            {
-                "type": "car",
-                "quantity": 3,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Vinnitsa",
-                        "weather": "Sol",
-                        "distance": 199.82675366598372,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 3.33
-                    }
-                ],
-                "total_travel_time": 3.33,
-                "arrival_time": "2025-01-03 21:29:31"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 23:09:43"
-    },
-    {
-        "start_node": "Lviv",
-        "end_node": "Volinia",
-        "population": 1060694,
-        "distance": 136.79,
-        "best_path": "Lviv -> Volinia",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Volinia",
-                        "weather": "Sol",
-                        "distance": 136.79752851125303,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.42
-                    }
-                ],
-                "total_travel_time": 3.42,
-                "arrival_time": "2025-01-03 21:34:55"
-            },
-            {
-                "type": "car",
-                "quantity": 1,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Volinia",
-                        "weather": "Sol",
-                        "distance": 136.79752851125303,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.28
-                    }
-                ],
-                "total_travel_time": 2.28,
-                "arrival_time": "2025-01-03 20:26:31"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:34:55"
-    },
-    {
-        "start_node": "Lviv",
-        "end_node": "Transcarpatia",
-        "population": 1258264,
-        "distance": 185.65,
-        "best_path": "Lviv -> Transcarpatia",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Transcarpatia",
-                        "weather": "Nevoeiro",
-                        "distance": 185.65144221409673,
-                        "adjusted_speed": 28.0,
-                        "travel_time_hours": 6.63
-                    }
-                ],
-                "total_travel_time": 6.63,
-                "arrival_time": "2025-01-04 00:47:31"
-            },
-            {
-                "type": "car",
-                "quantity": 3,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Lviv",
-                        "to": "Transcarpatia",
-                        "weather": "Nevoeiro",
-                        "distance": 185.65144221409673,
-                        "adjusted_speed": 42.0,
-                        "travel_time_hours": 4.42
-                    }
-                ],
-                "total_travel_time": 4.42,
-                "arrival_time": "2025-01-03 22:34:55"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 00:47:31"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Zaporijia",
-        "population": 1929171,
-        "distance": 504.15,
-        "best_path": "Kiev -> Poltava -> Dnipro -> Zaporijia",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 3,
-                "refuels": [],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 7.6
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.25
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Zaporijia",
-                        "weather": "Sol",
-                        "distance": 69.94196796336082,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 1.75
-                    }
-                ],
-                "total_travel_time": 12.6,
-                "arrival_time": "2025-01-04 06:45:43"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [
-                    "Poltava"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 5.07
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.17
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Zaporijia",
-                        "weather": "Sol",
-                        "distance": 69.94196796336082,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 1.17
-                    }
-                ],
-                "total_travel_time": 8.41,
-                "arrival_time": "2025-01-04 02:34:19"
-            },
             {
                 "type": "helicopter",
                 "quantity": 1,
-                "refuels": [
-                    "Kiev",
-                    "Poltava"
-                ],
-                "travel_details": [
-                    {
-                        "from": "Kiev",
-                        "to": "Poltava",
-                        "weather": "Sol",
-                        "distance": 304.12784842500633,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 2.03
-                    },
-                    {
-                        "from": "Poltava",
-                        "to": "Dnipro",
-                        "weather": "Sol",
-                        "distance": 130.08914954737918,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.87
-                    },
-                    {
-                        "from": "Dnipro",
-                        "to": "Zaporijia",
-                        "weather": "Sol",
-                        "distance": 69.94196796336082,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.47
-                    }
-                ],
-                "total_travel_time": 3.37,
-                "arrival_time": "2025-01-03 21:31:55"
-            }
-        ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 06:45:43"
-    },
-    {
-        "start_node": "Kiev",
-        "end_node": "Jitomir",
-        "population": 1389466,
-        "distance": 134.47,
-        "best_path": "Kiev -> Jitomir",
-        "vehicles": [
-            {
-                "type": "truck",
-                "quantity": 2,
                 "refuels": [],
                 "travel_details": [
                     {
-                        "from": "Kiev",
-                        "to": "Jitomir",
+                        "from": "Vila Nova de Famalicao",
+                        "to": "Guimaraes",
                         "weather": "Sol",
-                        "distance": 134.4756757598501,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.36
-                    }
-                ],
-                "total_travel_time": 3.36,
-                "arrival_time": "2025-01-03 21:31:19"
-            },
-            {
-                "type": "car",
-                "quantity": 4,
-                "refuels": [],
-                "travel_details": [
+                        "distance": 19.134044001097102,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.13
+                    },
                     {
-                        "from": "Kiev",
-                        "to": "Jitomir",
+                        "from": "Guimaraes",
+                        "to": "Fafe",
                         "weather": "Sol",
-                        "distance": 134.4756757598501,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.24
+                        "distance": 10.375901562606982,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.07
+                    },
+                    {
+                        "from": "Fafe",
+                        "to": "Celorico de Basto",
+                        "weather": "Sol",
+                        "distance": 16.242530342511195,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
                     }
                 ],
-                "total_travel_time": 2.24,
-                "arrival_time": "2025-01-03 20:24:07"
+                "total_travel_time": 0.31,
+                "arrival_time": "2025-01-03 18:40:16"
             }
         ],
-        "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:31:19"
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 18:40:16"
     }
 ]
