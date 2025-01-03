@@ -1,12 +1,11 @@
-from utils import print_graph
 from map import MapGenerator
 from simulation import Simulation
+from simulation import SimulationWithLimits
 
 import sys
 import json
 import matplotlib.pyplot as plt
-
-from simulation.sim import SimulationWithLimits
+import time
 
 
 def main():
@@ -23,7 +22,7 @@ def main():
     try:
         map_generator.load_zones()
     except FileNotFoundError:
-        print(f"Erro: Ficheiro JSON não encontrado em {json_path}")
+        print(f"Erro: Ficheiro JSON não encontrado em {input_path}")
         sys.exit(1)
     except Exception as e:
         print(f"Erro ao carregar o ficheiro JSON: {e}")
@@ -35,6 +34,8 @@ def main():
     # Obter informações úteis para debug
     graph = map_generator.graph
 
+    # Inicializar a simulação padrão
+    current_simulation = "Simulation"  # Padrão: Simulation
     print("")
     option = -1
     while option != 0:
@@ -44,6 +45,8 @@ def main():
         print("2. Imprimir nós e arestas do Grafo")
         print("3. Executar Algoritmos de Procura")
         print("4. Visualizar Resultados")
+        print("5. Alterar Simulação (Atual: {})".format("Simulação Padrão" if current_simulation == "Simulation" else "Simulação com Limites"))
+        print("6. Testes de Performance")
         print("0. Sair")
         option = int(input("Selecione uma opção: "))
         
@@ -51,11 +54,11 @@ def main():
 
         if option == 0:
             print("Saindo...")
-        elif option == 1: # Mostrar grafo
+        elif option == 1:  # Mostrar grafo
             map_generator.display_graph()
 
-        elif option == 2: # Imprimir grafo
-            print_graph(graph)
+        elif option == 2:  # Imprimir grafo
+            map_generator.print_graph()
             input("Pressione Enter para continuar!")
             print("")
 
@@ -94,18 +97,20 @@ def main():
                     else: 
                         algorithm_type = algorithm_types[algorithm_choice]
 
-                        """ simulation = Simulation(graph, algorithm_type)
-                        simulation.start() """
-                        simulation = SimulationWithLimits(graph, algorithm_type)
-                        simulation.start_simulation()
-
+                        # Executar a simulação com base na escolha atual
+                        if current_simulation == "Simulation":
+                            simulation = Simulation(graph, algorithm_type)
+                            simulation.start()
+                        else:
+                            simulation = SimulationWithLimits(graph, algorithm_type)
+                            simulation.start_simulation()
 
                 print("")
 
         elif option == 4:
             # Menu de Algoritmos de procura
-            algorithm_choice = -1
-            while algorithm_choice != 0:
+            algorithm_choice = "-1"
+            while algorithm_choice != "0":
 
                 # Solicitar o algoritmo ao utilizador
                 print("Selecione o algoritmo para visualizar os resultados:")
@@ -135,7 +140,9 @@ def main():
 
                     else:
                         algorithm_name = algorithm_types[algorithm_choice]
-                        file_name = f"results_{algorithm_name}.json"
+                        
+                        results_folder = "results/normalSim" if current_simulation == "Simulation" else "results/limitSim"
+                        file_name = f"{results_folder}/results_{algorithm_name}.json"
 
                         try:
                             with open(file_name, 'r', encoding='utf-8') as file:
@@ -177,9 +184,51 @@ def main():
                                 print("Comando inválido.")
                     print("")
 
+        elif option == 5:
+            # Alternar entre as simulações
+            current_simulation = "SimulationWithLimits" if current_simulation == "Simulation" else "Simulation"
+            print("Simulação alterada para:", "Simulação com Limites" if current_simulation == "SimulationWithLimits" else "Simulação Padrão")
+            print("")
+            
+        elif option == 6:
+
+            algorithm_types = [
+                "BFS",
+                "DFS",
+                "UCS",
+                "Greedy",
+                "A*"
+            ]
+
+            # Lista para guardar os resultados de performance
+            performance_results = []
+
+            print("\nTestes de Performance:")
+
+            # Executar os testes e guardar os tempos
+            for algorithm_type in algorithm_types:
+                start_time = time.time()
+                if current_simulation == "Simulation":
+                    simulation = Simulation(graph, algorithm_type)
+                    simulation.start()
+                else:
+                    simulation = SimulationWithLimits(graph, algorithm_type)
+                    simulation.start_simulation()
+                end_time = time.time()
+
+                execution_time = end_time - start_time
+                performance_results.append((algorithm_type, execution_time))
+
+            # Exibir os resultados após o loop
+            print(f"\n{'Algoritmo':<20} {'Tempo de Execução (s)':<20}")
+            print("=" * 40)
+            for algorithm, exec_time in performance_results:
+                print(f"{algorithm:<20} {exec_time:<20.4f}")
+
+
         else:
-             print("Opção inválida.")
-             print("")
+            print("Opção inválida.")
+            print("")
 
 if __name__ == "__main__":
     main()

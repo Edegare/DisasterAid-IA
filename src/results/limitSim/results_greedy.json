@@ -1,0 +1,370 @@
+[
+    {
+        "start_node": "Braga",
+        "end_node": "Amares",
+        "population": 18000,
+        "distance": 11.33,
+        "best_path": "Braga -> Amares",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Amares",
+                        "weather": "Sol",
+                        "distance": 11.337848115108189,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.08
+                    }
+                ],
+                "total_travel_time": 0.08,
+                "arrival_time": "2025-01-03 18:26:29"
+            }
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 18:26:29"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Terras de Bouro",
+        "population": 7000,
+        "distance": 32.93,
+        "best_path": "Braga -> Amares -> Vila Verde -> Terras de Bouro",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Amares",
+                        "weather": "Sol",
+                        "distance": 11.337848115108189,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.08
+                    },
+                    {
+                        "from": "Amares",
+                        "to": "Vila Verde",
+                        "weather": "Sol",
+                        "distance": 7.516126484139281,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.05
+                    },
+                    {
+                        "from": "Vila Verde",
+                        "to": "Terras de Bouro",
+                        "weather": "Sol",
+                        "distance": 14.08194103425976,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.09
+                    }
+                ],
+                "total_travel_time": 0.22,
+                "arrival_time": "2025-01-03 18:34:53"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:34:53"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Povoa de Lanhoso",
+        "population": 15000,
+        "distance": 13.65,
+        "best_path": "Braga -> Povoa de Lanhoso",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Povoa de Lanhoso",
+                        "weather": "Nevoeiro",
+                        "distance": 13.656779233194044,
+                        "adjusted_speed": 105.0,
+                        "travel_time_hours": 0.13
+                    }
+                ],
+                "total_travel_time": 0.13,
+                "arrival_time": "2025-01-03 18:29:29"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:29:29"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Guimaraes",
+        "population": 80000,
+        "distance": 15.61,
+        "best_path": "Braga -> Guimaraes",
+        "vehicles": [
+            {
+                "type": "car",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Guimaraes",
+                        "weather": "Sol",
+                        "distance": 15.619364271359178,
+                        "adjusted_speed": 60.0,
+                        "travel_time_hours": 0.26
+                    }
+                ],
+                "total_travel_time": 0.26,
+                "arrival_time": "2025-01-03 18:37:17"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:37:17"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Vizela",
+        "population": 24000,
+        "distance": 22.2,
+        "best_path": "Braga -> Guimaraes -> Vizela",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Guimaraes",
+                        "weather": "Sol",
+                        "distance": 15.619364271359178,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.1
+                    },
+                    {
+                        "from": "Guimaraes",
+                        "to": "Vizela",
+                        "weather": "Sol",
+                        "distance": 6.58063607986476,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.04
+                    }
+                ],
+                "total_travel_time": 0.14,
+                "arrival_time": "2025-01-03 18:30:05"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:30:05"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Vila Verde",
+        "population": 21000,
+        "distance": 11.71,
+        "best_path": "Braga -> Vila Verde",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Vila Verde",
+                        "weather": "Chuva",
+                        "distance": 11.718730610691113,
+                        "adjusted_speed": 127.5,
+                        "travel_time_hours": 0.09
+                    }
+                ],
+                "total_travel_time": 0.09,
+                "arrival_time": "2025-01-03 18:27:05"
+            }
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 18:27:05"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Fafe",
+        "population": 30000,
+        "distance": 46.61,
+        "best_path": "Braga -> Guimaraes -> Povoa de Lanhoso -> Fafe",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Guimaraes",
+                        "weather": "Sol",
+                        "distance": 15.619364271359178,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.1
+                    },
+                    {
+                        "from": "Guimaraes",
+                        "to": "Povoa de Lanhoso",
+                        "weather": "Nevoeiro",
+                        "distance": 15.077996690948318,
+                        "adjusted_speed": 105.0,
+                        "travel_time_hours": 0.14
+                    },
+                    {
+                        "from": "Povoa de Lanhoso",
+                        "to": "Fafe",
+                        "weather": "Sol",
+                        "distance": 15.918721288987607,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    }
+                ],
+                "total_travel_time": 0.35,
+                "arrival_time": "2025-01-03 18:42:41"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:42:41"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Esposende",
+        "population": 25000,
+        "distance": 29.55,
+        "best_path": "Braga -> Barcelos -> Esposende",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Barcelos",
+                        "weather": "Sol",
+                        "distance": 15.753733320965438,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    },
+                    {
+                        "from": "Barcelos",
+                        "to": "Esposende",
+                        "weather": "Sol",
+                        "distance": 13.799521467978924,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.09
+                    }
+                ],
+                "total_travel_time": 0.2,
+                "arrival_time": "2025-01-03 18:33:41"
+            }
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 18:33:41"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Cabeceiras de Basto",
+        "population": 16000,
+        "distance": 45.88,
+        "best_path": "Braga -> Povoa de Lanhoso -> Fafe -> Cabeceiras de Basto",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Povoa de Lanhoso",
+                        "weather": "Nevoeiro",
+                        "distance": 13.656779233194044,
+                        "adjusted_speed": 105.0,
+                        "travel_time_hours": 0.13
+                    },
+                    {
+                        "from": "Povoa de Lanhoso",
+                        "to": "Fafe",
+                        "weather": "Sol",
+                        "distance": 15.918721288987607,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    },
+                    {
+                        "from": "Fafe",
+                        "to": "Cabeceiras de Basto",
+                        "weather": "Sol",
+                        "distance": 16.31025473957145,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    }
+                ],
+                "total_travel_time": 0.35,
+                "arrival_time": "2025-01-03 18:42:41"
+            }
+        ],
+        "critical_time": "2025-01-10 12:00:00",
+        "final_arrival_time": "2025-01-03 18:42:41"
+    },
+    {
+        "start_node": "Braga",
+        "end_node": "Celorico de Basto",
+        "population": 14000,
+        "distance": 62.85,
+        "best_path": "Braga -> Guimaraes -> Povoa de Lanhoso -> Fafe -> Celorico de Basto",
+        "vehicles": [
+            {
+                "type": "helicopter",
+                "quantity": 1,
+                "refuels": [],
+                "travel_details": [
+                    {
+                        "from": "Braga",
+                        "to": "Guimaraes",
+                        "weather": "Sol",
+                        "distance": 15.619364271359178,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.1
+                    },
+                    {
+                        "from": "Guimaraes",
+                        "to": "Povoa de Lanhoso",
+                        "weather": "Nevoeiro",
+                        "distance": 15.077996690948318,
+                        "adjusted_speed": 105.0,
+                        "travel_time_hours": 0.14
+                    },
+                    {
+                        "from": "Povoa de Lanhoso",
+                        "to": "Fafe",
+                        "weather": "Sol",
+                        "distance": 15.918721288987607,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    },
+                    {
+                        "from": "Fafe",
+                        "to": "Celorico de Basto",
+                        "weather": "Sol",
+                        "distance": 16.242530342511195,
+                        "adjusted_speed": 150.0,
+                        "travel_time_hours": 0.11
+                    }
+                ],
+                "total_travel_time": 0.46,
+                "arrival_time": "2025-01-03 18:49:17"
+            }
+        ],
+        "critical_time": "2025-01-10 18:00:00",
+        "final_arrival_time": "2025-01-03 18:49:17"
+    }
+]

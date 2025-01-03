@@ -8,9 +8,9 @@
         "population": 0,
         "critical_time": "0",
         "vehicles": [
-            {"id": "truck", "type": "truck"},
-            {"id": "car", "type": "car"},
-            {"id": "helicopter", "type": "helicopter"}
+            {"id": "truck", "type": "truck", "available": 25},
+            {"id": "car", "type": "car", "available": 20},
+            {"id": "helicopter", "type": "helicopter", "available": 20}
         ],
         "accessibility": ["car", "helicopter", "truck"],
         "accessible_zones": ["Barcelos", "Amares", "Vila Verde", "Povoa de Lanhoso", "Guimaraes", "Vila Nova de Famalicao"]
@@ -120,9 +120,9 @@
         "population": 0,
         "critical_time": 0,
         "vehicles": [
-            {"id": "1", "type": "truck"},
-            {"id": "2", "type": "car"},
-            {"id": "3", "type": "helicopter"}
+            {"id": "truck", "type": "truck", "available": 25},
+            {"id": "car", "type": "car", "available": 20},
+            {"id": "helicopter", "type": "helicopter", "available": 20}
         ],
         "accessibility": ["car", "helicopter", "truck"],
         "accessible_zones": ["Barcelos", "Braga", "Guimaraes"]

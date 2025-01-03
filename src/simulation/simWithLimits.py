@@ -1,10 +1,17 @@
-import json
+# simulation/simWithLimits.py
+
+from search import UCS
+from search import GreedyBestFirstSearch
+from search import AStar
+from search import DFS
+from search import BFS
+from models import Helicopter, Truck, Car, Vehicle
+from utils import writeToJson
+
 from datetime import datetime, timedelta
 from collections import defaultdict
-from search.ucs import UCS
-from search.greedy import GreedyBestFirstSearch
-from search.astar import AStar
-from models.vehicle import Helicopter, Truck, Car, Vehicle
+
+import json
 
 class SimulationWithLimits:
     def __init__(self, graph, algorithm_type):
@@ -78,13 +85,13 @@ class SimulationWithLimits:
                     vehicles.append(new_vehicle)
                     initial_counts[vehicle_type] += 1
 
-
-
     def calculate_best_paths(self):
         """
         Calcula os melhores caminhos de cada zona de suporte para as zonas normais.
         """
         algorithms = {
+            "DFS": DFS(self.graph),
+            "BFS": BFS(self.graph),
             "UCS": UCS(self.graph),
             "Greedy": GreedyBestFirstSearch(self.graph),
             "A*": AStar(self.graph)
@@ -92,10 +99,9 @@ class SimulationWithLimits:
         algorithm = algorithms[self.algorithm_type]
 
         completed_zones = []
-        results = []
+        best_paths = {}
 
         while len(completed_zones) < len(self.normal_zones):
-            print(completed_zones)
             max_delivery_time = timedelta(0)  # Armazena o maior tempo de entrega deste ciclo
 
             for normal_zone in self.normal_zones:
@@ -124,22 +130,19 @@ class SimulationWithLimits:
                     delivery_time = self.calculate_delivery_time(best_cost, best_vehicles)
                     max_delivery_time = max(max_delivery_time, delivery_time - self.current_time)
 
-                    results.append({
-                        "start_node": best_path[0],
-                        "end_node": best_path[-1],
-                        "population": self.graph.nodes[normal_zone]['population'],
-                        "distance": best_cost,
-                        "vehicles": best_vehicles,
-                        "estimated_delivery_time": delivery_time.strftime("%Y-%m-%d %H:%M:%S")
-                    })
+                    best_paths[normal_zone] = {
+                        "path": best_path,
+                        "cost": best_cost,
+                        "vehicles": best_vehicles
+                    }
                     completed_zones.append(normal_zone)
 
             # Incrementar o tempo atual com o maior tempo de entrega do ciclo
             self.current_time += max_delivery_time
             self.replenish_vehicles()
 
-        return results
-
+        return best_paths
+    
     def calculate_delivery_time(self, distance, vehicles):
         """
         Calcula o tempo estimado de entrega com base na velocidade do veículo mais lento.
@@ -175,8 +178,7 @@ class SimulationWithLimits:
 
         # Retornar o tempo estimado de entrega
         return self.current_time + travel_time
-
-
+    
     def check_vehicle_availability(self, available_vehicles, required_vehicles):
         """
         Verifica se os veículos necessários estão disponíveis na zona de suporte.
@@ -193,9 +195,9 @@ class SimulationWithLimits:
             required_quantity = vehicle.get('quantity', 1) if isinstance(vehicle, dict) else 1
             if available_counts[vehicle_id] < required_quantity:
                 return False
+            
         return True
-
-
+    
     def update_vehicle_availability(self, support_zone, used_vehicles):
         """
         Atualiza a disponibilidade dos veículos após um envio.
@@ -219,14 +221,10 @@ class SimulationWithLimits:
                 return False
         return True
 
-
-
     def start_simulation(self):
         """
         Inicia a simulação.
         """
         self.initialize_zones()
         results = self.calculate_best_paths()
-        with open("simulation_results.json", "w") as outfile:
-            json.dump(results, outfile, indent=4)
-        print("Simulation completed and saved to simulation_results.json.")
+        writeToJson(results, self.graph, self.algorithm_type, 1)
