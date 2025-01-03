@@ -6,6 +6,7 @@ from utils import heuristic
 
 from itertools import combinations_with_replacement
 from geopy.distance import geodesic
+from datetime import datetime, timedelta
 
 import heapq
 
@@ -94,7 +95,7 @@ class GreedyBestFirstSearch:
                         continue
 
                     # Calcula apenas a heurística para o vizinho
-                    heuristic_value = self.heuristic(neighbor, goal)
+                    heuristic_value = heuristic(self.graph, neighbor, goal)
 
                     # Adiciona o vizinho na fila de prioridade baseado apenas na heurística
                     heapq.heappush(priority_queue, (heuristic_value, neighbor))

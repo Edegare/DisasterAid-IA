@@ -15,7 +15,7 @@ def straight_line_distance(graph, node, goal):
     goal_coords = (graph.nodes[goal]['latitude'], graph.nodes[goal]['longitude'])
     return geodesic(node_coords, goal_coords).kilometers
     
-def heuristic(self, node, goal):
+def heuristic(graph, node, goal):
     """
     Calcula a distância em linha reta (heurística) entre dois nós.
 
@@ -23,6 +23,6 @@ def heuristic(self, node, goal):
     :param goal: Nó objetivo.
     :return: Distância em linha reta entre o nó atual e o objetivo.
     """
-    node_coords = (self.graph.nodes[node]['latitude'], self.graph.nodes[node]['longitude'])
-    goal_coords = (self.graph.nodes[goal]['latitude'], self.graph.nodes[goal]['longitude'])
+    node_coords = (graph.nodes[node]['latitude'], graph.nodes[node]['longitude'])
+    goal_coords = (graph.nodes[goal]['latitude'], graph.nodes[goal]['longitude'])
     return geodesic(node_coords, goal_coords).kilometers
