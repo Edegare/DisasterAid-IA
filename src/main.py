@@ -1,6 +1,6 @@
 from map import MapGenerator
 from simulation import Simulation
-from simulation.simWithLimits import SimulationWithLimits
+from simulation import SimulationWithLimits
 
 import sys
 import json
