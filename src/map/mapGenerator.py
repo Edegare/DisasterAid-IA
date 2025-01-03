@@ -1,6 +1,9 @@
+# map/mapGenerator.py
+
+from geopy.distance import geodesic
+
 import random
 import networkx as nx
-from geopy.distance import geodesic
 import json
 import matplotlib.pyplot as plt
 import sys
@@ -51,7 +54,14 @@ class MapGenerator:
                                 population=zone.get("population", 0),
                                 priority=zone.get("priority", 0))
 
-        # Adicionar arestas com as distâncias
+        # Adicionar arestas com as distâncias e condições meteorológicas
+        weather_conditions = {
+            "Sol": 0.7,
+            "Chuva": 0.15,
+            "Nevoeiro": 0.1,
+            "Neve/Gelo": 0.05
+        }
+
         for zone in zones_data:
             current_zone_id = zone["id"]
             current_coords = (zone["latitude"], zone["longitude"])
@@ -61,12 +71,19 @@ class MapGenerator:
                 destination_coords = (destination_zone["latitude"], destination_zone["longitude"])
                 # Calcular a distância
                 distance = self.calculate_distance(current_coords, destination_coords)
+                # Determinar o estado do tempo
+                weather = random.choices(
+                    population=list(weather_conditions.keys()),
+                    weights=list(weather_conditions.values()),
+                    k=1
+                )[0]
                 # Adicionar aresta ao grafo
                 self.graph.add_edge(
                     current_zone_id, 
                     accessible_zone_id, 
                     weight=distance, 
-                    closed= (random.random() < 0.1)  # chance da estrada estar fechada (Se o valor no intervalo [0, 1] for menor do que 0.1 então a estrada fica fechada; se for está aberta)
+                    closed=(random.random() < 0.1),  # chance da estrada estar fechada
+                    weather=weather
                 )
 
     def display_graph(self, path=None):
@@ -111,9 +128,14 @@ class MapGenerator:
         # Desenho de etiquetas dos nós
         nx.draw_networkx_labels(self.graph, pos, font_size=10, font_weight="bold")
 
-        # Etiquetas das distâncias nas arestas
+        # Etiquetas das distâncias nas arestas e do tempo
         labels = nx.get_edge_attributes(self.graph, 'weight')
-        nx.draw_networkx_edge_labels(self.graph, pos, edge_labels={k: f"{v:.2f} km" for k, v in labels.items()}, font_size=8)
+        weather_labels = nx.get_edge_attributes(self.graph, 'weather')
+        nx.draw_networkx_edge_labels(
+            self.graph, pos,
+            edge_labels={k: f"{weather_labels[k]} ({v:.2f} km)" for k, v in labels.items()},
+            font_size=8
+        )
 
         # Adicionar legenda
         plt.legend(scatterpoints=1)
@@ -131,4 +153,3 @@ class MapGenerator:
         :return: Lista de IDs das zonas que correspondem ao tipo especificado.
         """
         return [node for node, attrs in self.graph.nodes(data=True) if attrs.get('zone_type') == zone_type]
-

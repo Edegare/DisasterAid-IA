@@ -1,3 +1,5 @@
+# models/node.py
+
 class Node:
     def __init__(self, id, data=None):
         """

@@ -1,11 +1,15 @@
-from datetime import datetime
+# simulation/simulation.py
+
+from search import DFS
+from search import BFS
+from search import UCS
+from search import GreedyBestFirstSearch
+from search import AStar
+from models import Truck, Car, Helicopter
+
+from datetime import datetime, timedelta
+
 import json
-from search.dfs import DFS
-from search.bfs import BFS
-from search.ucs import UCS
-from search.greedy import GreedyBestFirstSearch
-from search.astar import AStar
-from models.vehicle import Truck, Car, Helicopter
 
 class Simulation:
     def __init__(self, graph, algorithm_type):
@@ -167,18 +171,14 @@ class Simulation:
 
     def write_results_to_json(self, best_paths, graph):
         """
-        Escreve os resultados dos melhores caminhos, incluindo dados adicionais, como:
-        - Melhor caminho.
-        - Tempo total de viagem por veículo.
-        - Hora de chegada com base no veículo que demora mais tempo.
-        - Critical time do nó final.
+        Escreve os resultados dos melhores caminhos num ficheiro JSON com base no algoritmo escolhido.
+
+        O ficheiro terá o nome formatado como `results_<algorithm>.json`, onde <algorithm> é o tipo do algoritmo utilizado.
 
         :param best_paths: Dicionário contendo os melhores caminhos calculados.
         :param graph: Grafo representando o mapa.
         """
-        import json
-        from datetime import datetime, timedelta
-
+        
         results = []
 
         for end_node, path_data in best_paths.items():
@@ -208,6 +208,7 @@ class Simulation:
 
                 refuels = []
                 current_range = vehicle.range
+                travel_details = []
 
                 for i in range(len(path) - 1):
                     current_node = path[i]
@@ -215,6 +216,25 @@ class Simulation:
 
                     edge_data = graph.get_edge_data(current_node, next_node, default={})
                     edge_distance = edge_data.get('weight', float('inf'))
+                    weather = edge_data.get('weather', "Sol")
+                    weather_impact = {
+                        "Sol": 1.0,
+                        "Chuva": 0.85,
+                        "Nevoeiro": 0.7,
+                        "Neve/Gelo": 0.5
+                    }
+
+                    adjusted_speed = vehicle.speed * weather_impact[weather]
+                    travel_time = edge_distance / adjusted_speed
+
+                    travel_details.append({
+                        'from': current_node,
+                        'to': next_node,
+                        'weather': weather,
+                        'distance': edge_distance,
+                        'adjusted_speed': round(adjusted_speed, 2),
+                        'travel_time_hours': round(travel_time, 2)
+                    })
 
                     if current_range < edge_distance:
                         refuels.append(current_node)
@@ -222,16 +242,16 @@ class Simulation:
 
                     current_range -= edge_distance
 
-                # Calcular tempo total de viagem para este veículo
-                travel_time_hours = distance / vehicle.speed
-                arrival_time = datetime.now() + timedelta(hours=travel_time_hours)
+                travel_time_total = sum(detail['travel_time_hours'] for detail in travel_details)
+                arrival_time = datetime.now() + timedelta(hours=travel_time_total)
                 arrival_times.append(arrival_time)
 
                 vehicle_details.append({
                     'type': vehicle_type,
                     'quantity': quantity,
                     'refuels': refuels,
-                    'travel_time_hours': round(travel_time_hours, 2),
+                    'travel_details': travel_details,
+                    'total_travel_time': round(travel_time_total, 2),
                     'arrival_time': arrival_time.strftime("%Y-%m-%d %H:%M:%S")
                 })
 
@@ -253,7 +273,6 @@ class Simulation:
                 'final_arrival_time': final_arrival_time.strftime("%Y-%m-%d %H:%M:%S") if final_arrival_time else "N/A"
             })
 
-        # Escrever no ficheiro JSON
         # Determinar o nome do ficheiro com base no algoritmo
         algorithm_name = self.algorithm_type.lower()
         file_name = f"results_{algorithm_name}.json"
