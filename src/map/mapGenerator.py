@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
-# Adicionar a raiz do projeto ao sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 class MapGenerator:
@@ -123,7 +122,6 @@ class MapGenerator:
         plt.ylabel("Latitude")
         plt.show()
 
-    # Supondo que o grafo já foi gerado e contém o atributo 'zone_type'
     def get_zones_by_type(self, zone_type):
         """
         Retorna uma lista de zonas de um determinado tipo.
@@ -134,28 +132,3 @@ class MapGenerator:
         """
         return [node for node, attrs in self.graph.nodes(data=True) if attrs.get('zone_type') == zone_type]
 
-    
-# Exemplo de utilização
-if __name__ == "__main__":
-    from search.bfs import BFS
-    from search.dfs import DFS
-    from search.greedy import GreedyBestFirstSearch
-    from search.astar import AStar
-
-    map_generator = MapGenerator(json_path="../input/braga_zones.json")
-    map_generator.load_zones()
-    map_generator.display_graph()
-    graph = map_generator.graph
-
-    bfs = BFS(graph)
-    dfs = DFS(graph)
-    greedy = GreedyBestFirstSearch(graph)
-    astar = AStar(graph)
-
-    start_node = "Esposende"
-    goal_node = "Celorico de Basto"
-
-    print("BFS Path:", bfs.search(start_node, goal_node))
-    print("DFS Path:", dfs.search(start_node, goal_node))
-    print("Greedy Path:", greedy.search(start_node, goal_node))
-    print("A* Path:", astar.search(start_node, goal_node))
