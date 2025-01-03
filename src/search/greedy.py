@@ -1,5 +1,6 @@
 from models.vehicle import Truck, Car, Helicopter
 import heapq
+from datetime import datetime, timedelta
 from itertools import combinations_with_replacement
 from geopy.distance import geodesic
 
@@ -18,7 +19,7 @@ class GreedyBestFirstSearch:
 
         :param population: População da zona de ajuda (mantimentos necessários).
         :param vehicles: Lista de veículos disponíveis na zona de suporte.
-        :return: Lista de veículos otimizados (tipo e quantidade).
+        :return: Lista de veículos otimizados com tipo, quantidade e tempos ajustados por condição climática.
         """
         best_combination = None
         min_excess_capacity = float('inf')
@@ -107,11 +108,23 @@ class GreedyBestFirstSearch:
                     current_node = parent[current_node]
                 path.reverse()
 
-                # Calcular o custo real do caminho percorrido
+                # Calcular o custo real do caminho percorrido e ajustar por condições climáticas
                 total_cost = 0
                 for i in range(len(path) - 1):
                     edge_data = self.graph.get_edge_data(path[i], path[i + 1])
-                    total_cost += edge_data.get('weight', 1)
+                    distance = edge_data.get('weight', 1)
+                    weather = edge_data.get('weather', "Sol")
+
+                    # Ajustar velocidade com base nas condições climáticas
+                    weather_impact = {
+                        "Sol": 1.0,
+                        "Chuva": 0.85,
+                        "Nevoeiro": 0.7,
+                        "Neve/Gelo": 0.5
+                    }
+
+                    adjusted_cost = distance / weather_impact[weather]
+                    total_cost += adjusted_cost
 
                 # Calcular a combinação ótima de veículos para atender à demanda
                 vehicle_combination = self.calculate_vehicle_combination(goal_population, vehicles)
