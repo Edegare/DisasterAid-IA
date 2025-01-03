@@ -105,18 +105,21 @@
         "start_node": "Kiev",
         "end_node": "Kherson",
         "population": 1175122,
-        "distance": 494.56,
+        "distance": 707.69,
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 2,
-                "refuels": []
+                "refuels": [
+                    "Dnipro"
+                ]
             },
             {
                 "type": "car",
                 "quantity": 2,
                 "refuels": [
-                    "Kirovogrado"
+                    "Poltava",
+                    "Dnipro"
                 ]
             }
         ]
@@ -302,7 +305,7 @@
         "start_node": "Kiev",
         "end_node": "Sumi",
         "population": 1299746,
-        "distance": 451.94,
+        "distance": 382.26,
         "vehicles": [
             {
                 "type": "truck",
@@ -312,9 +315,7 @@
             {
                 "type": "car",
                 "quantity": 3,
-                "refuels": [
-                    "Poltava"
-                ]
+                "refuels": []
             }
         ]
     },
@@ -445,7 +446,7 @@
         "start_node": "Kiev",
         "end_node": "Crimeia",
         "population": 2033736,
-        "distance": 997.31,
+        "distance": 927.55,
         "vehicles": [
             {
                 "type": "truck",
@@ -461,7 +462,7 @@
                     "Kiev",
                     "Poltava",
                     "Dnipro",
-                    "Mykolaiv"
+                    "Kherson"
                 ]
             }
         ]
