@@ -21,7 +21,7 @@
                     }
                 ],
                 "total_travel_time": 3.93,
-                "arrival_time": "2025-01-03 22:05:33"
+                "arrival_time": "2025-01-03 22:05:34"
             },
             {
                 "type": "car",
@@ -38,7 +38,7 @@
                     }
                 ],
                 "total_travel_time": 2.62,
-                "arrival_time": "2025-01-03 20:46:57"
+                "arrival_time": "2025-01-03 20:46:58"
             },
             {
                 "type": "helicopter",
@@ -55,11 +55,11 @@
                     }
                 ],
                 "total_travel_time": 1.05,
-                "arrival_time": "2025-01-03 19:12:45"
+                "arrival_time": "2025-01-03 19:12:46"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-03 22:05:33"
+        "final_arrival_time": "2025-01-03 22:05:34"
     },
     {
         "start_node": "Kiev",
@@ -83,7 +83,7 @@
                     }
                 ],
                 "total_travel_time": 3.21,
-                "arrival_time": "2025-01-03 21:22:21"
+                "arrival_time": "2025-01-03 21:22:22"
             },
             {
                 "type": "car",
@@ -100,7 +100,7 @@
                     }
                 ],
                 "total_travel_time": 2.14,
-                "arrival_time": "2025-01-03 20:18:09"
+                "arrival_time": "2025-01-03 20:18:10"
             },
             {
                 "type": "helicopter",
@@ -117,11 +117,11 @@
                     }
                 ],
                 "total_travel_time": 0.86,
-                "arrival_time": "2025-01-03 19:01:21"
+                "arrival_time": "2025-01-03 19:01:22"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:22:21"
+        "final_arrival_time": "2025-01-03 21:22:22"
     },
     {
         "start_node": "Lviv",
@@ -153,7 +153,7 @@
                     }
                 ],
                 "total_travel_time": 7.01,
-                "arrival_time": "2025-01-04 01:10:21"
+                "arrival_time": "2025-01-04 01:10:22"
             },
             {
                 "type": "car",
@@ -178,7 +178,7 @@
                     }
                 ],
                 "total_travel_time": 4.68,
-                "arrival_time": "2025-01-03 22:50:33"
+                "arrival_time": "2025-01-03 22:50:34"
             },
             {
                 "type": "helicopter",
@@ -203,11 +203,11 @@
                     }
                 ],
                 "total_travel_time": 1.87,
-                "arrival_time": "2025-01-03 20:01:57"
+                "arrival_time": "2025-01-03 20:01:58"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 01:10:21"
+        "final_arrival_time": "2025-01-04 01:10:22"
     },
     {
         "start_node": "Kiev",
@@ -265,7 +265,7 @@
                     }
                 ],
                 "total_travel_time": 22.86,
-                "arrival_time": "2025-01-04 17:01:21"
+                "arrival_time": "2025-01-04 17:01:22"
             },
             {
                 "type": "helicopter",
@@ -317,11 +317,11 @@
                     }
                 ],
                 "total_travel_time": 6.09,
-                "arrival_time": "2025-01-04 00:15:09"
+                "arrival_time": "2025-01-04 00:15:10"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 17:01:21"
+        "final_arrival_time": "2025-01-04 17:01:22"
     },
     {
         "start_node": "Kiev",
@@ -353,7 +353,7 @@
                     }
                 ],
                 "total_travel_time": 10.85,
-                "arrival_time": "2025-01-04 05:00:45"
+                "arrival_time": "2025-01-04 05:00:46"
             },
             {
                 "type": "car",
@@ -380,11 +380,11 @@
                     }
                 ],
                 "total_travel_time": 7.24,
-                "arrival_time": "2025-01-04 01:24:09"
+                "arrival_time": "2025-01-04 01:24:10"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 05:00:45"
+        "final_arrival_time": "2025-01-04 05:00:46"
     },
     {
         "start_node": "Kiev",
@@ -426,7 +426,7 @@
                     }
                 ],
                 "total_travel_time": 16.12,
-                "arrival_time": "2025-01-04 10:16:57"
+                "arrival_time": "2025-01-04 10:16:58"
             },
             {
                 "type": "car",
@@ -461,7 +461,7 @@
                     }
                 ],
                 "total_travel_time": 10.75,
-                "arrival_time": "2025-01-04 04:54:45"
+                "arrival_time": "2025-01-04 04:54:46"
             },
             {
                 "type": "helicopter",
@@ -498,11 +498,11 @@
                     }
                 ],
                 "total_travel_time": 4.3,
-                "arrival_time": "2025-01-03 22:27:45"
+                "arrival_time": "2025-01-03 22:27:46"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 10:16:57"
+        "final_arrival_time": "2025-01-04 10:16:58"
     },
     {
         "start_node": "Lviv",
@@ -526,7 +526,7 @@
                     }
                 ],
                 "total_travel_time": 2.83,
-                "arrival_time": "2025-01-03 20:59:33"
+                "arrival_time": "2025-01-03 20:59:34"
             },
             {
                 "type": "car",
@@ -543,7 +543,7 @@
                     }
                 ],
                 "total_travel_time": 1.89,
-                "arrival_time": "2025-01-03 20:03:09"
+                "arrival_time": "2025-01-03 20:03:10"
             },
             {
                 "type": "helicopter",
@@ -560,11 +560,11 @@
                     }
                 ],
                 "total_travel_time": 0.76,
-                "arrival_time": "2025-01-03 18:55:21"
+                "arrival_time": "2025-01-03 18:55:22"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 20:59:33"
+        "final_arrival_time": "2025-01-03 20:59:34"
     },
     {
         "start_node": "Kiev",
@@ -596,7 +596,7 @@
                     }
                 ],
                 "total_travel_time": 10.83,
-                "arrival_time": "2025-01-04 04:59:33"
+                "arrival_time": "2025-01-04 04:59:34"
             },
             {
                 "type": "car",
@@ -623,7 +623,7 @@
                     }
                 ],
                 "total_travel_time": 7.22,
-                "arrival_time": "2025-01-04 01:22:57"
+                "arrival_time": "2025-01-04 01:22:58"
             },
             {
                 "type": "helicopter",
@@ -651,11 +651,11 @@
                     }
                 ],
                 "total_travel_time": 2.89,
-                "arrival_time": "2025-01-03 21:03:09"
+                "arrival_time": "2025-01-03 21:03:10"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 04:59:33"
+        "final_arrival_time": "2025-01-04 04:59:34"
     },
     {
         "start_node": "Kiev",
@@ -703,7 +703,7 @@
                     }
                 ],
                 "total_travel_time": 15.01,
-                "arrival_time": "2025-01-04 09:10:21"
+                "arrival_time": "2025-01-04 09:10:22"
             },
             {
                 "type": "car",
@@ -746,11 +746,11 @@
                     }
                 ],
                 "total_travel_time": 10.0,
-                "arrival_time": "2025-01-04 04:09:45"
+                "arrival_time": "2025-01-04 04:09:46"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 09:10:21"
+        "final_arrival_time": "2025-01-04 09:10:22"
     },
     {
         "start_node": "Kiev",
@@ -782,7 +782,7 @@
                     }
                 ],
                 "total_travel_time": 7.15,
-                "arrival_time": "2025-01-04 01:18:45"
+                "arrival_time": "2025-01-04 01:18:46"
             },
             {
                 "type": "car",
@@ -807,7 +807,7 @@
                     }
                 ],
                 "total_travel_time": 4.77,
-                "arrival_time": "2025-01-03 22:55:57"
+                "arrival_time": "2025-01-03 22:55:58"
             },
             {
                 "type": "helicopter",
@@ -832,11 +832,11 @@
                     }
                 ],
                 "total_travel_time": 1.91,
-                "arrival_time": "2025-01-03 20:04:21"
+                "arrival_time": "2025-01-03 20:04:22"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 01:18:45"
+        "final_arrival_time": "2025-01-04 01:18:46"
     },
     {
         "start_node": "Kiev",
@@ -868,7 +868,7 @@
                     }
                 ],
                 "total_travel_time": 7.69,
-                "arrival_time": "2025-01-04 01:51:09"
+                "arrival_time": "2025-01-04 01:51:10"
             },
             {
                 "type": "car",
@@ -893,7 +893,7 @@
                     }
                 ],
                 "total_travel_time": 5.12,
-                "arrival_time": "2025-01-03 23:16:57"
+                "arrival_time": "2025-01-03 23:16:58"
             },
             {
                 "type": "helicopter",
@@ -918,11 +918,11 @@
                     }
                 ],
                 "total_travel_time": 2.05,
-                "arrival_time": "2025-01-03 20:12:45"
+                "arrival_time": "2025-01-03 20:12:46"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 01:51:09"
+        "final_arrival_time": "2025-01-04 01:51:10"
     },
     {
         "start_node": "Kiev",
@@ -964,7 +964,7 @@
                     }
                 ],
                 "total_travel_time": 18.89,
-                "arrival_time": "2025-01-04 13:03:09"
+                "arrival_time": "2025-01-04 13:03:10"
             },
             {
                 "type": "helicopter",
@@ -1001,11 +1001,11 @@
                     }
                 ],
                 "total_travel_time": 5.04,
-                "arrival_time": "2025-01-03 23:12:09"
+                "arrival_time": "2025-01-03 23:12:10"
             }
         ],
         "critical_time": "2025-01-10 18:00:00",
-        "final_arrival_time": "2025-01-04 13:03:09"
+        "final_arrival_time": "2025-01-04 13:03:10"
     },
     {
         "start_node": "Kiev",
@@ -1045,7 +1045,7 @@
                     }
                 ],
                 "total_travel_time": 11.98,
-                "arrival_time": "2025-01-04 06:08:33"
+                "arrival_time": "2025-01-04 06:08:34"
             },
             {
                 "type": "car",
@@ -1080,11 +1080,11 @@
                     }
                 ],
                 "total_travel_time": 7.98,
-                "arrival_time": "2025-01-04 02:08:33"
+                "arrival_time": "2025-01-04 02:08:34"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 06:08:33"
+        "final_arrival_time": "2025-01-04 06:08:34"
     },
     {
         "start_node": "Kiev",
@@ -1124,11 +1124,11 @@
                     }
                 ],
                 "total_travel_time": 14.02,
-                "arrival_time": "2025-01-04 08:10:57"
+                "arrival_time": "2025-01-04 08:10:58"
             }
         ],
         "critical_time": "0",
-        "final_arrival_time": "2025-01-04 08:10:57"
+        "final_arrival_time": "2025-01-04 08:10:58"
     },
     {
         "start_node": "Kiev",
@@ -1152,7 +1152,7 @@
                     }
                 ],
                 "total_travel_time": 7.6,
-                "arrival_time": "2025-01-04 01:45:45"
+                "arrival_time": "2025-01-04 01:45:46"
             },
             {
                 "type": "car",
@@ -1169,7 +1169,7 @@
                     }
                 ],
                 "total_travel_time": 5.07,
-                "arrival_time": "2025-01-03 23:13:57"
+                "arrival_time": "2025-01-03 23:13:58"
             },
             {
                 "type": "helicopter",
@@ -1188,11 +1188,11 @@
                     }
                 ],
                 "total_travel_time": 2.03,
-                "arrival_time": "2025-01-03 20:11:33"
+                "arrival_time": "2025-01-03 20:11:34"
             }
         ],
         "critical_time": "0",
-        "final_arrival_time": "2025-01-04 01:45:45"
+        "final_arrival_time": "2025-01-04 01:45:46"
     },
     {
         "start_node": "Lviv",
@@ -1216,7 +1216,7 @@
                     }
                 ],
                 "total_travel_time": 4.52,
-                "arrival_time": "2025-01-03 22:40:57"
+                "arrival_time": "2025-01-03 22:40:58"
             },
             {
                 "type": "car",
@@ -1233,11 +1233,11 @@
                     }
                 ],
                 "total_travel_time": 3.01,
-                "arrival_time": "2025-01-03 21:10:21"
+                "arrival_time": "2025-01-03 21:10:22"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 22:40:57"
+        "final_arrival_time": "2025-01-03 22:40:58"
     },
     {
         "start_node": "Kiev",
@@ -1269,7 +1269,7 @@
                     }
                 ],
                 "total_travel_time": 12.28,
-                "arrival_time": "2025-01-04 06:26:33"
+                "arrival_time": "2025-01-04 06:26:34"
             },
             {
                 "type": "car",
@@ -1294,11 +1294,11 @@
                     }
                 ],
                 "total_travel_time": 8.18,
-                "arrival_time": "2025-01-04 02:20:33"
+                "arrival_time": "2025-01-04 02:20:34"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 06:26:33"
+        "final_arrival_time": "2025-01-04 06:26:34"
     },
     {
         "start_node": "Lviv",
@@ -1322,7 +1322,7 @@
                     }
                 ],
                 "total_travel_time": 3.45,
-                "arrival_time": "2025-01-03 21:36:45"
+                "arrival_time": "2025-01-03 21:36:46"
             },
             {
                 "type": "car",
@@ -1339,7 +1339,7 @@
                     }
                 ],
                 "total_travel_time": 2.3,
-                "arrival_time": "2025-01-03 20:27:45"
+                "arrival_time": "2025-01-03 20:27:46"
             },
             {
                 "type": "helicopter",
@@ -1356,11 +1356,11 @@
                     }
                 ],
                 "total_travel_time": 0.92,
-                "arrival_time": "2025-01-03 19:04:57"
+                "arrival_time": "2025-01-03 19:04:58"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:36:45"
+        "final_arrival_time": "2025-01-03 21:36:46"
     },
     {
         "start_node": "Kiev",
@@ -1384,7 +1384,7 @@
                     }
                 ],
                 "total_travel_time": 5.0,
-                "arrival_time": "2025-01-03 23:09:45"
+                "arrival_time": "2025-01-03 23:09:46"
             },
             {
                 "type": "car",
@@ -1401,11 +1401,11 @@
                     }
                 ],
                 "total_travel_time": 3.33,
-                "arrival_time": "2025-01-03 21:29:33"
+                "arrival_time": "2025-01-03 21:29:34"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 23:09:45"
+        "final_arrival_time": "2025-01-03 23:09:46"
     },
     {
         "start_node": "Lviv",
@@ -1429,7 +1429,7 @@
                     }
                 ],
                 "total_travel_time": 3.42,
-                "arrival_time": "2025-01-03 21:34:57"
+                "arrival_time": "2025-01-03 21:34:58"
             },
             {
                 "type": "car",
@@ -1446,11 +1446,11 @@
                     }
                 ],
                 "total_travel_time": 2.28,
-                "arrival_time": "2025-01-03 20:26:33"
+                "arrival_time": "2025-01-03 20:26:34"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:34:57"
+        "final_arrival_time": "2025-01-03 21:34:58"
     },
     {
         "start_node": "Lviv",
@@ -1474,7 +1474,7 @@
                     }
                 ],
                 "total_travel_time": 6.63,
-                "arrival_time": "2025-01-04 00:47:33"
+                "arrival_time": "2025-01-04 00:47:34"
             },
             {
                 "type": "car",
@@ -1491,11 +1491,11 @@
                     }
                 ],
                 "total_travel_time": 4.42,
-                "arrival_time": "2025-01-03 22:34:57"
+                "arrival_time": "2025-01-03 22:34:58"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 00:47:33"
+        "final_arrival_time": "2025-01-04 00:47:34"
     },
     {
         "start_node": "Kiev",
@@ -1535,7 +1535,7 @@
                     }
                 ],
                 "total_travel_time": 12.6,
-                "arrival_time": "2025-01-04 06:45:45"
+                "arrival_time": "2025-01-04 06:45:46"
             },
             {
                 "type": "car",
@@ -1570,7 +1570,7 @@
                     }
                 ],
                 "total_travel_time": 8.41,
-                "arrival_time": "2025-01-04 02:34:21"
+                "arrival_time": "2025-01-04 02:34:22"
             },
             {
                 "type": "helicopter",
@@ -1606,11 +1606,11 @@
                     }
                 ],
                 "total_travel_time": 3.37,
-                "arrival_time": "2025-01-03 21:31:57"
+                "arrival_time": "2025-01-03 21:31:58"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 06:45:45"
+        "final_arrival_time": "2025-01-04 06:45:46"
     },
     {
         "start_node": "Kiev",
@@ -1634,7 +1634,7 @@
                     }
                 ],
                 "total_travel_time": 3.36,
-                "arrival_time": "2025-01-03 21:31:21"
+                "arrival_time": "2025-01-03 21:31:22"
             },
             {
                 "type": "car",
@@ -1651,10 +1651,10 @@
                     }
                 ],
                 "total_travel_time": 2.24,
-                "arrival_time": "2025-01-03 20:24:09"
+                "arrival_time": "2025-01-03 20:24:10"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-03 21:31:21"
+        "final_arrival_time": "2025-01-03 21:31:22"
     }
 ]

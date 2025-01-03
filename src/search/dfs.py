@@ -1,7 +1,7 @@
 # search/dfs.py
 
 from models import Truck, Car, Helicopter 
-
+from utils import calculate_vehicle_combination
 
 class DFS:
     def __init__(self, graph):
@@ -14,112 +14,55 @@ class DFS:
 
     def search(self, start, goal):
         """
-        Realiza uma busca em profundidade (DFS) no grafo, considerando veículos, acessibilidade,
-        e carga necessária.
+        Realiza uma busca em profundidade (DFS) no grafo.
 
         :param start: Nó inicial (zona de suporte).
         :param goal: Nó objetivo (zona que precisa de ajuda).
-        :return: Caminho do nó inicial ao objetivo, lista de veículos necessários e custo.
+        :return: Caminho, custo total e combinação de veículos utilizados.
         """
+        if start not in self.graph.nodes or goal not in self.graph.nodes:
+            raise ValueError(f"O nó {start} ou {goal} não está no grafo.")
+
+        # Obter a população do nó objetivo e os veículos disponíveis no nó inicial
+        goal_population = self.graph.nodes[goal].get("population", 0)
+        vehicles = self.graph.nodes[start].get("vehicles", [])
+
+        # Inicializar os veículos disponíveis
+        if isinstance(vehicles, list) and vehicles and isinstance(vehicles[0], dict):
+                    vehicles = [
+                        Truck(v['id']) if v['type'] == 'truck' else
+                        Car(v['id']) if v['type'] == 'car' else
+                        Helicopter(v['id']) if v['type'] == 'helicopter' else None
+                        for v in vehicles
+                    ]
+                    vehicles = [v for v in vehicles if v is not None]
+
+        # Inicializar estruturas para DFS
         visited = set()
         stack = [[start]]
-        population_needed = self.graph.nodes[goal]["population"]
-        vehicles = self.graph.nodes[start]["vehicles"]
-
-        # Veículos disponíveis organizados por tipo
-        vehicle_list = self._initialize_vehicles(vehicles)
 
         while stack:
             path = stack.pop()
-            node = path[-1]
+            current_node = path[-1]
 
-            if node == goal:
-                # Encontrar os veículos necessários
-                vehicle_plan, total_cost = self._allocate_vehicles(vehicle_list, population_needed, path)
-                if vehicle_plan:
-                    return path, vehicle_plan, total_cost
-                continue
+            # Verifica se atingiu o objetivo
+            if current_node == goal:
+                # Calcula o custo total do caminho
+                total_cost = sum(
+                    self.graph.get_edge_data(path[i], path[i + 1]).get("weight", 1)
+                    for i in range(len(path) - 1)
+                )
+                # Calcular a combinação ótima de veículos para atender à demanda
+                vehicle_combination = calculate_vehicle_combination(goal_population, vehicles)
+                return path, total_cost, vehicle_combination
 
-            if node not in visited:
-                visited.add(node)
-                for neighbor in self.graph.neighbors(node):
-                    if self._can_access_zone(vehicle_list, neighbor):
-                        new_path = list(path)
-                        new_path.append(neighbor)
-                        stack.append(new_path)
-        return None
+            if current_node not in visited:
+                visited.add(current_node)
+                for neighbor in self.graph.neighbors(current_node):
+                    edge_data = self.graph.get_edge_data(current_node, neighbor)
+                    if edge_data.get("closed", False):  # Ignorar estradas fechadas
+                        continue
+                    new_path = path + [neighbor]
+                    stack.append(new_path)
 
-    def _initialize_vehicles(self, vehicles):
-        """
-        Inicializa os veículos disponíveis na zona inicial.
-
-        :param vehicles: Lista de veículos na zona inicial.
-        :return: Dicionário de veículos organizados por tipo.
-        """
-        vehicle_classes = {"truck": Truck, "car": Car, "helicopter": Helicopter}
-        vehicle_list = []
-        for vehicle in vehicles:
-            vehicle_type = vehicle["type"]
-            vehicle_quantity = vehicle["quantity"]
-            vehicle_class = vehicle_classes[vehicle_type]
-            for _ in range(vehicle_quantity):
-                vehicle_list.append(vehicle_class(vehicle["id"]))
-        return vehicle_list
-
-    def _can_access_zone(self, vehicles, zone):
-        """
-        Verifica se há algum veículo capaz de acessar a zona.
-
-        :param vehicles: Lista de veículos disponíveis.
-        :param zone: ID da zona a verificar.
-        :return: True se algum veículo pode acessar a zona, False caso contrário.
-        """
-        zone_accessibility = self.graph.nodes[zone]["accessibility"]
-        return any(vehicle.id.lower() in zone_accessibility for vehicle in vehicles)
-
-    def _allocate_vehicles(self, vehicles, population_needed, path):
-        """
-        Aloca veículos para transportar os mantimentos necessários, considerando apenas a distância percorrida.
-
-        :param vehicles: Lista de veículos disponíveis.
-        :param population_needed: Mantimentos necessários.
-        :param path: Caminho a percorrer.
-        :return: Lista de veículos alocados e custo total (distância).
-        """
-        allocated_vehicles = []
-        total_distance = sum(self.graph.get_edge_data(path[i], path[i + 1]).get("weight", 0) for i in range(len(path) - 1))
-
-        for vehicle in vehicles:
-            if population_needed <= 0:
-                break
-
-            # Verificar se o veículo tem combustível suficiente para a rota
-            if total_distance > vehicle.range:
-                continue  # Ignorar veículos incapazes de completar a viagem
-
-            # Alocar veículo
-            if vehicle.capacity <= population_needed:
-                allocated_vehicles.append(vehicle)
-                population_needed -= vehicle.capacity
-
-        if population_needed > 0:
-            return None, None  # Não foi possível atender à demanda
-        return allocated_vehicles, total_distance
-
-
-
-    def _calculate_path_cost(self, path, vehicle):
-        """
-        Calcula o custo total do percurso para um veículo.
-
-        :param path: Caminho percorrido.
-        :param vehicle: Veículo utilizado.
-        :return: Custo total (baseado na distância).
-        """
-        total_distance = 0
-        for i in range(len(path) - 1):
-            edge_data = self.graph.get_edge_data(path[i], path[i + 1])
-            if edge_data:
-                total_distance += edge_data.get("weight", 0)
-        # Multiplicar pela eficiência do combustível
-        return total_distance * vehicle.fuel_efficiency
+        return None, float("inf"), []  # Falha em encontrar o caminho

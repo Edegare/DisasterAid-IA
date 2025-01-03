@@ -3,6 +3,8 @@
 from search import UCS
 from search import GreedyBestFirstSearch
 from search import AStar
+from search import DFS
+from search import BFS
 from models import Helicopter, Truck, Car, Vehicle
 from utils import writeToJson
 
@@ -88,6 +90,8 @@ class SimulationWithLimits:
         Calcula os melhores caminhos de cada zona de suporte para as zonas normais.
         """
         algorithms = {
+            "DFS": DFS(self.graph),
+            "BFS": BFS(self.graph),
             "UCS": UCS(self.graph),
             "Greedy": GreedyBestFirstSearch(self.graph),
             "A*": AStar(self.graph)

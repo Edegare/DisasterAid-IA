@@ -5,6 +5,7 @@ from simulation import SimulationWithLimits
 import sys
 import json
 import matplotlib.pyplot as plt
+import time
 
 
 def main():
@@ -45,6 +46,7 @@ def main():
         print("3. Executar Algoritmos de Procura")
         print("4. Visualizar Resultados")
         print("5. Alterar Simulação (Atual: {})".format("Simulação Padrão" if current_simulation == "Simulation" else "Simulação com Limites"))
+        print("6. Testes de Performance")
         print("0. Sair")
         option = int(input("Selecione uma opção: "))
         
@@ -187,6 +189,42 @@ def main():
             current_simulation = "SimulationWithLimits" if current_simulation == "Simulation" else "Simulation"
             print("Simulação alterada para:", "Simulação com Limites" if current_simulation == "SimulationWithLimits" else "Simulação Padrão")
             print("")
+            
+        elif option == 6:
+
+            algorithm_types = [
+                "BFS",
+                "DFS",
+                "UCS",
+                "Greedy",
+                "A*"
+            ]
+
+            # Lista para guardar os resultados de performance
+            performance_results = []
+
+            print("\nTestes de Performance:")
+
+            # Executar os testes e guardar os tempos
+            for algorithm_type in algorithm_types:
+                start_time = time.time()
+                if current_simulation == "Simulation":
+                    simulation = Simulation(graph, algorithm_type)
+                    simulation.start()
+                else:
+                    simulation = SimulationWithLimits(graph, algorithm_type)
+                    simulation.start_simulation()
+                end_time = time.time()
+
+                execution_time = end_time - start_time
+                performance_results.append((algorithm_type, execution_time))
+
+            # Exibir os resultados após o loop
+            print(f"\n{'Algoritmo':<20} {'Tempo de Execução (s)':<20}")
+            print("=" * 40)
+            for algorithm, exec_time in performance_results:
+                print(f"{algorithm:<20} {exec_time:<20.4f}")
+
 
         else:
             print("Opção inválida.")

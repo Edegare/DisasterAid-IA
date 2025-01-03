@@ -1021,8 +1021,8 @@
         "start_node": "Kiev",
         "end_node": "Sumi",
         "population": 1299746,
-        "distance": 382.26,
-        "best_path": "Kiev -> Tchernigov -> Sumi",
+        "distance": 451.94,
+        "best_path": "Kiev -> Poltava -> Sumi",
         "vehicles": [
             {
                 "type": "truck",
@@ -1031,52 +1031,54 @@
                 "travel_details": [
                     {
                         "from": "Kiev",
-                        "to": "Tchernigov",
-                        "weather": "Sol",
-                        "distance": 128.40804598639272,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.21
+                        "to": "Poltava",
+                        "weather": "Neve/Gelo",
+                        "distance": 304.12784842500633,
+                        "adjusted_speed": 20.0,
+                        "travel_time_hours": 15.21
                     },
                     {
-                        "from": "Tchernigov",
+                        "from": "Poltava",
                         "to": "Sumi",
-                        "weather": "Neve/Gelo",
-                        "distance": 253.85193896063973,
-                        "adjusted_speed": 20.0,
-                        "travel_time_hours": 12.69
+                        "weather": "Sol",
+                        "distance": 147.8127629939467,
+                        "adjusted_speed": 40.0,
+                        "travel_time_hours": 3.7
                     }
                 ],
-                "total_travel_time": 15.9,
-                "arrival_time": "2025-01-04 10:01:13"
+                "total_travel_time": 18.91,
+                "arrival_time": "2025-01-04 13:01:49"
             },
             {
                 "type": "car",
                 "quantity": 3,
-                "refuels": [],
+                "refuels": [
+                    "Poltava"
+                ],
                 "travel_details": [
                     {
                         "from": "Kiev",
-                        "to": "Tchernigov",
-                        "weather": "Sol",
-                        "distance": 128.40804598639272,
-                        "adjusted_speed": 60.0,
-                        "travel_time_hours": 2.14
+                        "to": "Poltava",
+                        "weather": "Neve/Gelo",
+                        "distance": 304.12784842500633,
+                        "adjusted_speed": 30.0,
+                        "travel_time_hours": 10.14
                     },
                     {
-                        "from": "Tchernigov",
+                        "from": "Poltava",
                         "to": "Sumi",
-                        "weather": "Neve/Gelo",
-                        "distance": 253.85193896063973,
-                        "adjusted_speed": 30.0,
-                        "travel_time_hours": 8.46
+                        "weather": "Sol",
+                        "distance": 147.8127629939467,
+                        "adjusted_speed": 60.0,
+                        "travel_time_hours": 2.46
                     }
                 ],
-                "total_travel_time": 10.6,
-                "arrival_time": "2025-01-04 04:43:13"
+                "total_travel_time": 12.6,
+                "arrival_time": "2025-01-04 06:43:13"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 10:01:13"
+        "final_arrival_time": "2025-01-04 13:01:49"
     },
     {
         "start_node": "Lviv",
@@ -1394,47 +1396,39 @@
         "start_node": "Kiev",
         "end_node": "Crimeia",
         "population": 2033736,
-        "distance": 714.42,
-        "best_path": "Kiev -> Tcherkassi -> Kirovogrado -> Mykolaiv -> Kherson -> Crimeia",
+        "distance": 927.55,
+        "best_path": "Kiev -> Poltava -> Dnipro -> Kherson -> Crimeia",
         "vehicles": [
             {
                 "type": "truck",
                 "quantity": 4,
                 "refuels": [
-                    "Kherson"
+                    "Dnipro"
                 ],
                 "travel_details": [
                     {
                         "from": "Kiev",
-                        "to": "Tcherkassi",
+                        "to": "Poltava",
+                        "weather": "Neve/Gelo",
+                        "distance": 304.12784842500633,
+                        "adjusted_speed": 20.0,
+                        "travel_time_hours": 15.21
+                    },
+                    {
+                        "from": "Poltava",
+                        "to": "Dnipro",
                         "weather": "Sol",
-                        "distance": 157.0712181119307,
+                        "distance": 130.08914954737918,
                         "adjusted_speed": 40.0,
-                        "travel_time_hours": 3.93
+                        "travel_time_hours": 3.25
                     },
                     {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Chuva",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 34.0,
-                        "travel_time_hours": 3.09
-                    },
-                    {
-                        "from": "Kirovogrado",
-                        "to": "Mykolaiv",
-                        "weather": "Sol",
-                        "distance": 171.614016961715,
-                        "adjusted_speed": 40.0,
-                        "travel_time_hours": 4.29
-                    },
-                    {
-                        "from": "Mykolaiv",
+                        "from": "Dnipro",
                         "to": "Kherson",
                         "weather": "Sol",
-                        "distance": 60.676022465186136,
+                        "distance": 273.4712708650674,
                         "adjusted_speed": 40.0,
-                        "travel_time_hours": 1.52
+                        "travel_time_hours": 6.84
                     },
                     {
                         "from": "Kherson",
@@ -1445,48 +1439,42 @@
                         "travel_time_hours": 5.5
                     }
                 ],
-                "total_travel_time": 18.33,
-                "arrival_time": "2025-01-04 12:27:01"
+                "total_travel_time": 30.8,
+                "arrival_time": "2025-01-05 00:55:13"
             },
             {
                 "type": "helicopter",
                 "quantity": 1,
                 "refuels": [
-                    "Kirovogrado",
+                    "Kiev",
+                    "Poltava",
+                    "Dnipro",
                     "Kherson"
                 ],
                 "travel_details": [
                     {
                         "from": "Kiev",
-                        "to": "Tcherkassi",
+                        "to": "Poltava",
+                        "weather": "Neve/Gelo",
+                        "distance": 304.12784842500633,
+                        "adjusted_speed": 75.0,
+                        "travel_time_hours": 4.06
+                    },
+                    {
+                        "from": "Poltava",
+                        "to": "Dnipro",
                         "weather": "Sol",
-                        "distance": 157.0712181119307,
+                        "distance": 130.08914954737918,
                         "adjusted_speed": 150.0,
-                        "travel_time_hours": 1.05
+                        "travel_time_hours": 0.87
                     },
                     {
-                        "from": "Tcherkassi",
-                        "to": "Kirovogrado",
-                        "weather": "Chuva",
-                        "distance": 105.19712748046032,
-                        "adjusted_speed": 127.5,
-                        "travel_time_hours": 0.83
-                    },
-                    {
-                        "from": "Kirovogrado",
-                        "to": "Mykolaiv",
-                        "weather": "Sol",
-                        "distance": 171.614016961715,
-                        "adjusted_speed": 150.0,
-                        "travel_time_hours": 1.14
-                    },
-                    {
-                        "from": "Mykolaiv",
+                        "from": "Dnipro",
                         "to": "Kherson",
                         "weather": "Sol",
-                        "distance": 60.676022465186136,
+                        "distance": 273.4712708650674,
                         "adjusted_speed": 150.0,
-                        "travel_time_hours": 0.4
+                        "travel_time_hours": 1.82
                     },
                     {
                         "from": "Kherson",
@@ -1497,12 +1485,12 @@
                         "travel_time_hours": 1.47
                     }
                 ],
-                "total_travel_time": 4.89,
-                "arrival_time": "2025-01-03 23:00:37"
+                "total_travel_time": 8.22,
+                "arrival_time": "2025-01-04 02:20:25"
             }
         ],
         "critical_time": "2025-01-10 12:00:00",
-        "final_arrival_time": "2025-01-04 12:27:01"
+        "final_arrival_time": "2025-01-05 00:55:13"
     },
     {
         "start_node": "Kiev",
