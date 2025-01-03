@@ -52,7 +52,7 @@ class AStar:
         g_score[start] = 0
 
         f_score = {node: float('inf') for node in self.graph.nodes}
-        f_score[start] = self.heuristic(start, goal)
+        f_score[start] = heuristic(self.graph ,start, goal)
 
         while open_set:
             _, current_node = heapq.heappop(open_set)
@@ -84,7 +84,7 @@ class AStar:
                 if tentative_g_score < g_score[neighbor]:
                     came_from[neighbor] = current_node
                     g_score[neighbor] = tentative_g_score
-                    f_score[neighbor] = g_score[neighbor] + self.heuristic(neighbor, goal)
+                    f_score[neighbor] = g_score[neighbor] + heuristic(self.graph ,neighbor, goal)
 
                     if neighbor not in [item[1] for item in open_set]:
                         heapq.heappush(open_set, (f_score[neighbor], neighbor))

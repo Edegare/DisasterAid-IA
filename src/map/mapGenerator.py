@@ -31,6 +31,18 @@ class MapGenerator:
         :return: Distância em quilómetros.
         """
         return geodesic(coord1, coord2).kilometers
+    
+    def print_graph(self):
+        """
+        Imprime os nós e arestas do grafo com seus atributos.
+        """
+        print("Nós:")
+        for node, data in self.graph.nodes(data=True):  # Usa self.graph.nodes
+            print(f"  {node}: {data}")
+
+        print("\nArestas:")
+        for u, v, data in self.graph.edges(data=True):  # Usa self.graph.edges
+            print(f"  ({u} -> {v}): {data}")
 
     def load_zones(self):
         """
