@@ -70,9 +70,12 @@ class MapGenerator:
                     closed= (random.random() < 0.1)  # chance da estrada estar fechada (Se o valor no intervalo [0, 1] for menor do que 0.1 então a estrada fica fechada; se for está aberta)
                 )
 
-    def display_graph(self):
+    def display_graph(self, path=None):
         """
-        Mostra o grafo criado em formato gráfico com as coordenadas reais.
+        Mostra o grafo criado em formato gráfico com as coordenadas reais e,
+        opcionalmente, destaca um caminho específico.
+
+        :param path: Lista de nós representando o caminho a destacar.
         """
         # Usar as coordenadas reais para posicionar os nós
         pos = {
@@ -90,26 +93,31 @@ class MapGenerator:
         # distinguir estradas fechadas das abertas
         closed_edges = [(u, v) for u, v, d in self.graph.edges(data=True) if d.get('closed', False)]
         open_edges = [(u, v) for u, v, d in self.graph.edges(data=True) if not d.get('closed', False)]
-        
+
         # Desenho dos nós
         nx.draw_networkx_nodes(self.graph, pos, nodelist=normal_nodes, node_color="skyblue", label="Normal", node_size=500)
         nx.draw_networkx_nodes(self.graph, pos, nodelist=supply_nodes, node_color="green", label="Supply", node_size=500)
         nx.draw_networkx_nodes(self.graph, pos, nodelist=support_nodes, node_color="orange", label="Support", node_size=500)
 
-        # nomes dos nós
-        nx.draw_networkx_labels(self.graph, pos, font_size=10, font_weight="bold")
-        
-        # desenho arestas (vermelhas-fechadas;pretas-abertas)
+        # Desenho de arestas (estradas abertas e fechadas)
         nx.draw_networkx_edges(self.graph, pos, edgelist=open_edges, edge_color="black", width=1.5)
         nx.draw_networkx_edges(self.graph, pos, edgelist=closed_edges, edge_color="red", width=2.5, style="dashed")
-        
-        # distância das arestas
+
+        # Destacar o caminho, se fornecido
+        if path:
+            path_edges = [(path[i], path[i + 1]) for i in range(len(path) - 1)]
+            nx.draw_networkx_edges(self.graph, pos, edgelist=path_edges, edge_color="blue", width=3.5)
+            nx.draw_networkx_nodes(self.graph, pos, nodelist=path, node_color="yellow", label="Path Nodes", node_size=700)
+
+        # Desenho de etiquetas dos nós
+        nx.draw_networkx_labels(self.graph, pos, font_size=10, font_weight="bold")
+
+        # Etiquetas das distâncias nas arestas
         labels = nx.get_edge_attributes(self.graph, 'weight')
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels={k: f"{v:.2f} km" for k, v in labels.items()}, font_size=8)
 
         # Adicionar legenda
         plt.legend(scatterpoints=1)
-        
         plt.title("Mapa de Zonas e Distâncias")
         plt.xlabel("Longitude")
         plt.ylabel("Latitude")

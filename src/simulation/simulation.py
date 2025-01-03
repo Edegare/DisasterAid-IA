@@ -254,7 +254,12 @@ class Simulation:
             })
 
         # Escrever no ficheiro JSON
-        with open('results.json', 'w', encoding='utf-8') as f:
+        # Determinar o nome do ficheiro com base no algoritmo
+        algorithm_name = self.algorithm_type.lower()
+        file_name = f"results_{algorithm_name}.json"
+
+        # Escrever no ficheiro JSON
+        with open(file_name, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=4)
 
-        print("Resultados escritos no ficheiro 'results.json'.")
+        print(f"Resultados escritos no ficheiro '{file_name}'.")

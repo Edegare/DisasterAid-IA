@@ -1,4 +1,6 @@
 import sys
+import json
+import matplotlib.pyplot as plt
 from utils.graph import print_graph
 from map.mapGenerator import MapGenerator
 from simulation.simulation import Simulation
@@ -48,6 +50,7 @@ def main():
         print("1. Desenhar Grafo")
         print("2. Imprimir nós e arestas do Grafo")
         print("3. Executar Algoritmos de Procura")
+        print("4. Visualizar Resultados")
         print("0. Sair")
         option = int(input("Selecione uma opção: "))
         
@@ -101,6 +104,81 @@ def main():
                         simulation = Simulation(graph, algorithm_type)
                         simulation.start()
                 print("")
+
+        elif option == 4:
+            # Menu de Algoritmos de procura
+            algorithm_choice = -1
+            while algorithm_choice != 0:
+
+                # Solicitar o algoritmo ao utilizador
+                print("Selecione o algoritmo para visualizar os resultados:")
+                print("1. BFS (Breadth-First Search)")
+                print("2. DFS (Depth-First Search)")
+                print("3. UCS (Uniform Cost Search)")
+                print("4. Greedy Best-First Search")
+                print("5. A* (A-Star)")
+                print("0. Sair")
+
+                algorithm_choice = input("Digite o número correspondente ao algoritmo: ")
+
+                if algorithm_choice == "0":
+                    print("Saindo da visualização de resultados...")
+
+                else:
+                    algorithm_types = {
+                        "1": "bfs",
+                        "2": "dfs",
+                        "3": "ucs",
+                        "4": "greedy",
+                        "5": "astar"
+                    }
+
+                    if algorithm_choice not in algorithm_types:
+                        print("Opção inválida.")
+
+                    else:
+                        algorithm_name = algorithm_types[algorithm_choice]
+                        file_name = f"results_{algorithm_name}.json"
+
+                        try:
+                            with open(file_name, 'r', encoding='utf-8') as file:
+                                results = json.load(file)
+                        except FileNotFoundError:
+                            print(f"Erro: O ficheiro '{file_name}' não foi encontrado.")
+                            continue
+
+                        index = 0
+                        while True:
+                            result = results[index]
+                            print(f"\nVisualizando Resultado {index + 1}/{len(results)}")
+                            print(f"Start Node: {result['start_node']}")
+                            print(f"End Node: {result['end_node']}")
+                            print(f"Population: {result['population']}")
+                            print(f"Distance: {result['distance']} km")
+                            print(f"Best Path: {result['best_path']}")
+                            print(f"Vehicles: {result['vehicles']}")
+                            print(f"Critical Time: {result['critical_time']}")
+                            print(f"Final Arrival Time: {result['final_arrival_time']}")
+
+                            # Converter caminho do formato "A -> B -> C" para lista
+                            path = result['best_path'].split(" -> ")
+
+                            # Mostrar grafo com destaque no caminho
+                            map_generator.display_graph(path=path)
+
+                            # Navegação entre resultados
+                            print("\nControles: 'a' para Anterior, 'd' para Próximo, '0' para Sair.")
+                            control = input("Digite sua escolha: ").strip().lower()
+                            if control == "0":
+                                print("Saindo da visualização de resultados...")
+                                break
+                            elif control == "d":
+                                index = (index + 1) % len(results)
+                            elif control == "a":
+                                index = (index - 1 + len(results)) % len(results)
+                            else:
+                                print("Comando inválido.")
+                    print("")
 
         else:
              print("Opção inválida.")
