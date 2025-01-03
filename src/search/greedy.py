@@ -1,7 +1,14 @@
-from models.vehicle import Truck, Car, Helicopter
-import heapq
+# search/astar.py
+
+from models import Truck, Car, Helicopter
+from utils import calculate_vehicle_combination
+from utils import heuristic
+
 from itertools import combinations_with_replacement
 from geopy.distance import geodesic
+from datetime import datetime, timedelta
+
+import heapq
 
 class GreedyBestFirstSearch:
     def __init__(self, graph):
@@ -11,59 +18,6 @@ class GreedyBestFirstSearch:
         :param graph: Grafo representando o mapa.
         """
         self.graph = graph
-
-    def calculate_vehicle_combination(self, population, vehicles):
-        """
-        Calcula a combinação mais eficiente de veículos para transportar a quantidade necessária de mantimentos.
-
-        :param population: População da zona de ajuda (mantimentos necessários).
-        :param vehicles: Lista de veículos disponíveis na zona de suporte.
-        :return: Lista de veículos otimizados (tipo e quantidade).
-        """
-        best_combination = None
-        min_excess_capacity = float('inf')
-        min_vehicle_count = float('inf')
-
-        # Gerar todas as combinações possíveis de veículos (com repetição)
-        for r in range(1, len(vehicles) * 10):  # Multiplicador para permitir mais combinações
-            for combo in combinations_with_replacement(vehicles, r):
-                total_capacity = sum(vehicle.capacity for vehicle in combo)
-
-                # Verificar se a capacidade atende à necessidade
-                if total_capacity >= population:
-                    excess_capacity = total_capacity - population
-                    vehicle_count = len(combo)
-
-                    # Priorizar combinações com menor excesso e menor número de veículos
-                    if excess_capacity < min_excess_capacity or (
-                        excess_capacity == min_excess_capacity and vehicle_count < min_vehicle_count
-                    ):
-                        min_excess_capacity = excess_capacity
-                        min_vehicle_count = vehicle_count
-                        best_combination = combo
-
-        # Contar os veículos usados na melhor combinação
-        vehicle_count = {}
-        if best_combination:
-            for vehicle in best_combination:
-                if vehicle.id in vehicle_count:
-                    vehicle_count[vehicle.id]['quantity'] += 1
-                else:
-                    vehicle_count[vehicle.id] = {'id': vehicle.id, 'quantity': 1}
-
-        return list(vehicle_count.values())
-
-    def heuristic(self, node, goal):
-        """
-        Calcula a distância em linha reta (heurística) entre dois nós.
-
-        :param node: Nó atual.
-        :param goal: Nó objetivo.
-        :return: Distância em linha reta entre o nó atual e o objetivo.
-        """
-        node_coords = (self.graph.nodes[node]['latitude'], self.graph.nodes[node]['longitude'])
-        goal_coords = (self.graph.nodes[goal]['latitude'], self.graph.nodes[goal]['longitude'])
-        return geodesic(node_coords, goal_coords).kilometers
 
     def search(self, start, goal):
         """
@@ -114,7 +68,7 @@ class GreedyBestFirstSearch:
                     total_cost += edge_data.get('weight', 1)
 
                 # Calcular a combinação ótima de veículos para atender à demanda
-                vehicle_combination = self.calculate_vehicle_combination(goal_population, vehicles)
+                vehicle_combination = calculate_vehicle_combination(goal_population, vehicles)
                 return path, total_cost, vehicle_combination
 
             if current_node not in visited:
@@ -129,7 +83,7 @@ class GreedyBestFirstSearch:
                         continue
 
                     # Calcula apenas a heurística para o vizinho
-                    heuristic_value = self.heuristic(neighbor, goal)
+                    heuristic_value = heuristic(self.graph, neighbor, goal)
 
                     # Adiciona o vizinho na fila de prioridade baseado apenas na heurística
                     heapq.heappush(priority_queue, (heuristic_value, neighbor))

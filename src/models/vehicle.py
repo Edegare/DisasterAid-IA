@@ -1,3 +1,5 @@
+# models/vehicle.py
+
 class Vehicle:
     def __init__(self, id, capacity, range, fuel_efficiency, speed, fuel_capacity):
         """

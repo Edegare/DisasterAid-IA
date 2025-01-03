@@ -1,4 +1,6 @@
-from models.vehicle import Truck, Car, Helicopter  # Ajusta o caminho conforme a estrutura do teu projeto
+# search/dfs.py
+
+from models import Truck, Car, Helicopter 
 
 
 class DFS:

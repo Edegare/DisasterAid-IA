@@ -1,6 +1,9 @@
+# map/mapGenerator.py
+
+from geopy.distance import geodesic
+
 import random
 import networkx as nx
-from geopy.distance import geodesic
 import json
 import matplotlib.pyplot as plt
 import sys
