@@ -38,41 +38,17 @@ class Simulation:
             if attrs.get('zone_type') == "support"
         ]
 
-        print("Nós no grafo:", list(self.graph.nodes))
-
-        print("Zonas support:", self.support_zones)
-
-        # Obter supply zones - ainda não serve para nada
-        self.supply_zones = [
-            node for node, attrs in self.graph.nodes(data=True)
-            if attrs.get('zone_type') == "supply"
-        ]
-
         # Obter normal zones
         self.normal_zones = [
             node for node, attrs in self.graph.nodes(data=True)
             if attrs.get('zone_type') == "normal"
         ]
 
-        print("Zonas normais antes de organizar por urgência:", self.normal_zones)
         self.organize_zones_by_urgency()
-        print("Zonas normais organizadas por urgência:", self.normal_zones)
-        print("Nós no grafo:", list(self.graph.nodes))
-        print("Zonas support:", self.support_zones)
 
 
         # Calcular o melhor caminho para cada zona normal
         best_paths = self.calculate_best_paths()
-        """ 
-        for normal_zone, path_data in best_paths.items():
-            vehicles = path_data.get("vehicles", [])
-            print(f"Melhor caminho para {normal_zone}: {path_data['path']} com custo {path_data['cost']}")
-            if vehicles:
-                vehicle_str = ", ".join([f"{v['quantity']}x {v['id']}" for v in vehicles])
-                print(f"Veículos utilizados: {vehicle_str}")
-            else:
-                print(f"Nenhum veículo necessário para {normal_zone}.")
-        """
 
         writeToJson(best_paths, self.graph, self.algorithm_type, 0)
 
@@ -89,7 +65,7 @@ class Simulation:
             "DFS": DFS(self.graph),
             "UCS": UCS(self.graph),
             "Greedy": GreedyBestFirstSearch(self.graph),
-            "A*": AStar(self.graph)
+            "AStar": AStar(self.graph)
         }
 
         if self.algorithm_type not in algorithms or algorithms[self.algorithm_type] is None:
@@ -118,7 +94,6 @@ class Simulation:
                     continue
 
                 try:
-                    print(f"Tentando caminho de {support_zone} para {normal_zone}")
                     path, cost, vehicles = algorithm.search(support_zone, normal_zone)
                     cost = round(cost, 2)
                     if cost < best_cost:

@@ -88,7 +88,7 @@ def main():
                         "2": "DFS",
                         "3": "UCS",
                         "4": "Greedy",
-                        "5": "A*"
+                        "5": "AStar"
                     }
 
                     if algorithm_choice not in algorithm_types:
@@ -197,7 +197,7 @@ def main():
                 "DFS",
                 "UCS",
                 "Greedy",
-                "A*"
+                "AStar"
             ]
 
             # Lista para guardar os resultados de performance

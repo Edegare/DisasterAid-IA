@@ -10,6 +10,7 @@ from utils import writeToJson
 
 from datetime import datetime, timedelta
 from collections import defaultdict
+from simulation import Simulation
 
 import json
 
@@ -36,6 +37,8 @@ class SimulationWithLimits:
             node for node, attrs in self.graph.nodes(data=True)
             if attrs.get('zone_type') == "normal"
         ]
+        self.organize_zones_by_urgency()
+        
         for zone in self.support_zones:
             vehicles_data = self.graph.nodes[zone].get('vehicles', [])
             for vehicle_data in vehicles_data:
@@ -52,6 +55,37 @@ class SimulationWithLimits:
                     vehicle.initial_available = vehicle_data['available']
                     self.vehicle_availability[zone].append(vehicle)
 
+    def organize_zones_by_urgency(self):
+        """
+        Organiza as zonas normais por ordem de urgência, considerando prioridade e tempo crítico.
+        """
+
+        def calculate_urgency(zone_id):
+            """
+            Calcula o valor de urgência de uma zona com base na prioridade e tempo crítico.
+            """
+            zone = self.graph.nodes[zone_id]
+            priority = zone.get('priority', 0)
+
+            # Calcular o tempo restante em horas
+            critical_time_str = zone.get('critical_time')
+            if critical_time_str and critical_time_str != "0":
+                critical_time = datetime.strptime(critical_time_str, "%Y-%m-%d %H:%M:%S")
+                time_remaining = max(0, (critical_time - self.start_time).total_seconds() / 3600)  # Em horas
+            else:
+                time_remaining = float('inf')  # Sem tempo crítico, menos urgente
+
+            # Fórmula de urgência
+            urgency = (priority * 100) + max(0, 1000 / (time_remaining + 1))
+            
+            # Garantir valores positivos e arredondar
+            return max(0, int(urgency))
+
+        # Ordenar as zonas normais pela urgência (decrescente)
+        self.normal_zones.sort(key=calculate_urgency, reverse=True)
+
+    
+    
     def replenish_vehicles(self):
         """
         Reabastece os veículos e restaura a disponibilidade inicial em todas as zonas de suporte.
@@ -94,7 +128,7 @@ class SimulationWithLimits:
             "BFS": BFS(self.graph),
             "UCS": UCS(self.graph),
             "Greedy": GreedyBestFirstSearch(self.graph),
-            "A*": AStar(self.graph)
+            "AStar": AStar(self.graph)
         }
         algorithm = algorithms[self.algorithm_type]
 
