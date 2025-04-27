@@ -1,5 +1,9 @@
 # Artificial Intelligence
 
+---
+## Grade: 18/20 ⭐
+---
+
 This project aims to develop search algorithms that optimise food distribution in areas affected by a
 natural disaster. The aim is to ensure that available resources are used efficiently, prioritising the area’s
 most in need and maximising the number of people served within a limited time.
