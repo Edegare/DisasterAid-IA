@@ -16,22 +16,20 @@ most in need and maximising the number of people served within a limited time.
    ```bash
    git clone https://github.com/your-username/IA.git
 
-
-# Meu Projeto
-
-## Configuração do Ambiente Virtual
-1. Windows Users:
+## Virtual Environment Configuration
+- Windows Users:
    ```bash
    python -m venv venv
    venv\Scripts\activate
    pip install -r requirements.txt
+   ```
 
-2. Linux/Mac Users:
+- Linux/Mac Users:
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    pip install -r requirements.txt
-
+   ```
 
 ## Group Members
 
